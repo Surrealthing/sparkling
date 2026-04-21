@@ -1,0 +1,1475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sparkling Mindz Global School | Where Curious Minds Come Alive</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600;700;800&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* ─── RESET ─── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;color:#2c2c2c;background:#fff;overflow-x:hidden;padding-top:68px}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+
+/* ─── TOKENS ─── */
+:root{
+  --blue:#00aeef; --pink:#ff2d78; --purple:#9b3dff;
+  --amber:#f5a623; --green:#a5d91a; --teal:#00c9b1;
+  --dark:#1a1a1a; --char:#2c2c2c; --d60:#444444; --d40:#888888;
+}
+
+/* ─── TYPE ─── */
+h1,h2,h3{font-family:'Bricolage Grotesque',sans-serif;letter-spacing:-0.5px;line-height:1.1;color:var(--dark)}
+h1{font-size:clamp(2.4rem,4.5vw,3.8rem);font-weight:800}
+h2{font-size:40px;font-weight:700;line-height:44px}
+p{line-height:1.7;color:#555}
+.eyebrow{font-family:'Inter',sans-serif;font-size:14px;font-weight:600;letter-spacing:1.38px;text-transform:uppercase;color:var(--d60)}
+
+/* ─── BUTTONS ─── */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:16px 40px;border-radius:100px;border:none;cursor:pointer;font-family:'Inter',sans-serif;font-size:16px;font-weight:600;line-height:24px;letter-spacing:.2px;transition:background .2s;white-space:nowrap}
+.btn-blue{background:var(--blue);color:#fff}
+.btn-blue:hover{background:#0090ca}
+.btn-sm{padding:10px 20px;font-size:14px;line-height:20px;letter-spacing:.2px}
+.btn-pink{background:var(--pink);color:#fff}
+.btn-pink:hover{opacity:1}
+.btn-purple{background:var(--purple);color:#fff}
+.btn-purple:hover{opacity:1}
+.btn-teal{background:var(--teal);color:#fff}
+.btn-teal:hover{opacity:1}
+.btn-outline{background:transparent;border:1.5px solid var(--dark);color:var(--dark)}
+.btn-outline:hover{background:rgba(0,0,0,.04)}
+/* Text link */
+.text-link{display:inline-flex;align-items:center;gap:6px;font-family:'Inter',sans-serif;font-weight:500;font-size:16px;line-height:24px;color:var(--d60);letter-spacing:.2px;transition:color .15s}
+.text-link:hover{color:var(--blue)}
+.link-arrow{display:inline-flex;align-items:center;flex-shrink:0;transition:transform .2s ease}
+.text-link:hover .link-arrow{transform:translateX(4px)}
+
+/* ━━━━━━━━━━━━━━━━━
+   FIRST FOLD (nav + hero share grid bg)
+━━━━━━━━━━━━━━━━━ */
+.hero-section{
+  background-color:#fcfcfc;
+  background-image:
+    linear-gradient(rgba(0,0,0,.022) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(0,0,0,.022) 1px,transparent 1px);
+  background-size:80px 80px;
+  overflow:hidden;
+}
+
+/* ━━━━━━━━━━━━━━━━━
+   NAV
+━━━━━━━━━━━━━━━━━ */
+.header-wrap{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:flex-start;
+  padding:0 max(24px, calc((100% - 1200px) / 2));
+  background:transparent;
+  border-bottom:1px solid transparent;
+}
+/* Sticky bar slides in from above */
+@keyframes stickySlideIn{
+  from{transform:translateY(-100%);opacity:0}
+  to{transform:translateY(0);opacity:1}
+}
+@keyframes navLogoIn{
+  from{opacity:0;transform:translateX(-8px)}
+  to{opacity:1;transform:translateX(0)}
+}
+.header-wrap.scrolled{
+  background:rgba(255,255,255,0.92);
+  border-bottom:1px solid rgba(0,0,0,0.06);
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+  animation:stickySlideIn .35s cubic-bezier(0.16,1,0.3,1) forwards;
+}
+/* Logo panel — big white box default */
+.logo-panel{flex-shrink:0;overflow:hidden;width:fit-content}
+.logo-box{
+  display:block;background:transparent;padding:14px 0;line-height:0;
+  max-height:200px;opacity:1;
+  transition:max-height .2s ease,opacity .2s ease,padding .2s ease;
+}
+.logo-full{height:120px;width:auto;display:block}
+/* Compact logo — hidden until scrolled */
+.logo-compact-wrap{display:none;align-items:center;gap:10px;flex-shrink:0}
+.logo-compact{width:40px;height:40px;border-radius:8px;background:transparent;display:block;object-fit:contain;flex-shrink:0}
+.nav-brand .brand-name{font-family:'Inter',sans-serif;font-weight:700;font-size:14px;color:#1a1a1a;line-height:1.3}
+.nav-brand .brand-tag{font-family:'Inter',sans-serif;font-size:10px;font-weight:600;color:var(--blue);line-height:1.4}
+/* Scrolled */
+.header-wrap.scrolled .logo-panel{max-width:0;overflow:hidden}
+.header-wrap.scrolled .logo-box{max-height:0;opacity:0;padding-top:0;padding-bottom:0}
+.header-wrap.scrolled .nav{padding-left:0}
+.header-wrap.scrolled .logo-compact-wrap{display:flex;animation:navLogoIn .3s .15s ease both}
+/* Nav row */
+.nav{flex:1;display:flex;align-items:center;padding:14px 0 14px 24px}
+/* Links */
+.nav-links{display:flex;align-items:center;margin-left:auto}
+.nav-links a{display:flex;align-items:center;gap:6px;padding:8px 14px;border-radius:8px;font-family:'Inter',sans-serif;font-weight:400;font-size:14px;color:var(--dark);white-space:nowrap;transition:background .15s}
+.nav-links a:hover{background:rgba(0,0,0,.04)}
+.nav-chevron{width:14px;height:14px;display:block;flex-shrink:0;opacity:.7}
+.nav-cta{background:var(--blue);color:#fff;padding:0 20px;height:40px;border-radius:100px;font-family:'Inter',sans-serif;font-weight:600;font-size:14.4px;display:inline-flex;align-items:center;flex-shrink:0;margin-left:24px;transition:background .2s}
+.nav-cta:hover{background:#0090ca}
+/* Dropdown */
+.nav-dropdown{position:relative}
+.nav-dropdown .dropdown-menu{
+  display:none;position:absolute;top:100%;left:0;
+  padding-top:8px;min-width:200px;z-index:200;
+}
+.nav-dropdown .dropdown-menu-inner{
+  background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:10px;
+  box-shadow:0 8px 24px rgba(0,0,0,.1);padding:6px;
+}
+.nav-dropdown:hover .dropdown-menu{display:block}
+.dropdown-menu-inner a{
+  display:block;padding:9px 14px;border-radius:7px;
+  font-family:'Inter',sans-serif;font-size:14px;font-weight:500;color:var(--dark);
+  white-space:nowrap;transition:background .12s;
+}
+.dropdown-menu-inner a:hover{background:rgba(0,0,0,.04)}
+
+/* ━━━━━━━━━━━━━━━━━
+   HERO
+━━━━━━━━━━━━━━━━━ */
+.hero-wrap{background:transparent;padding:0 max(24px, calc((100% - 1200px) / 2))}
+.hero-top{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:48px;padding:56px 0 0}
+.hero-left{display:flex;flex-direction:column}
+.admissions-tag{display:inline-flex;align-items:center;gap:7px;background:#f8f8f8;border-radius:16px;padding:6px 14px 6px 10px;font-family:'Inter',sans-serif;font-size:16px;font-weight:400;margin-bottom:24px;width:fit-content}
+.admissions-tag span{background:linear-gradient(to right,#2c2c2c,#9b3dff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-left h1{margin-bottom:20px}
+.hero-left h1 em{font-style:normal;color:var(--blue)}
+.hero-sub{font-size:16px;font-weight:400;line-height:1.6;color:#555;max-width:500px;margin-bottom:36px}
+.hero-actions{display:flex;align-items:center;gap:32px}
+.hero-right{position:relative;height:550px}
+.hero-main-img{position:absolute;top:37px;left:124px;width:440px;height:330px;border-radius:12px;overflow:hidden}
+.hero-main-img img{width:100%;height:100%;object-fit:cover}
+.hero-small-img{position:absolute;top:314px;left:0;width:237px;height:178px;border-radius:12px;overflow:hidden;background:#ff3d33}
+.hero-small-img img{width:100%;height:100%;object-fit:cover}
+.hero-award{position:absolute;top:334px;left:305px;width:auto;background:#fff;border:0.948px solid #ebebeb;border-radius:8px;box-shadow:0 8px 24px rgba(0,0,0,.07);display:flex;align-items:center;gap:11px;padding:14px}
+.hero-award-icon{width:36px;height:36px;border-radius:9.5px;background:#00c9b1;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.hero-award-icon img{width:22px;height:22px}
+.hero-award-text .award-title{font-family:'Lato',sans-serif;font-weight:700;font-size:15.2px;color:#1d1d1d;white-space:nowrap;line-height:normal}
+.hero-award-text .award-sub{font-family:'Lato',sans-serif;font-weight:400;font-size:12.9px;color:#9b9b9b;line-height:normal;margin-top:2px}
+/* hero sparkles */
+.hero-sparkle{position:absolute;pointer-events:none;z-index:2}
+.sp-blue{left:18px;top:128px;width:81px;height:77px}
+.sp-green{left:532px;top:8px;width:50px;height:49px}
+.sp-amber{left:272px;top:456px;width:49px;height:47px}
+/* events strip — flat, no outer box */
+.events-strip{margin-top:48px;padding:28px 0 40px;max-width:960px}
+.events-label{display:flex;align-items:center;gap:10px;margin-bottom:16px}
+.events-label-icon{width:28px;height:28px;background:#eeffc0;border-radius:6px;overflow:hidden;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.events-label-icon img{width:17px;height:17px}
+.events-label span{font-family:'Inter',sans-serif;font-size:12px;font-weight:600;color:#888;letter-spacing:.12em;text-transform:uppercase}
+.events-cards{display:flex;align-items:stretch;gap:12px}
+.event-card{flex:1;background:#fff;border:1px solid #e0e0e0;border-radius:8px;padding:8px;display:flex;align-items:flex-start;gap:13px;box-shadow:none}
+.event-thumb{width:87px;height:65px;border-radius:6px;overflow:hidden;flex-shrink:0;background:#eee}
+.event-thumb img{width:100%;height:100%;object-fit:cover}
+.event-title{font-family:'Inter',sans-serif;font-size:14px;font-weight:600;color:#1a1a1a;line-height:1.4;margin-bottom:4px}
+.event-date{font-family:'Inter',sans-serif;font-size:12px;font-weight:500;color:#444444}
+
+/* ━━━━━━━━━━━━━━━━━
+   ABOUT — School built on joyful learning
+━━━━━━━━━━━━━━━━━ */
+.about{background:linear-gradient(to top,#f4eaff 0%,#fff 95%);padding:96px max(24px, calc((100% - 1200px) / 2))}
+.about-top{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;margin-bottom:56px}
+.about-left h2{margin-bottom:28px}
+.about-left h2 em{font-style:normal;color:var(--purple)}
+.about-body{font-family:'Inter',sans-serif;font-size:16px;font-weight:400;line-height:26px;color:#383838;margin-bottom:32px}
+.about-right{position:relative}
+.about-right-img{width:100%;height:376px;object-fit:cover;border-radius:8px;display:block}
+.cambridge-badge{position:absolute;bottom:-20px;left:-40px;background:#fff;border-radius:8px;padding:12px 16px;box-shadow:0 4px 16px rgba(0,0,0,.08);display:inline-flex;flex-direction:column}
+.cambridge-badge .affil{font-family:'Inter',sans-serif;font-size:7px;font-weight:600;color:#6e6e6e;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px}
+.cambridge-badge img{height:40px;width:auto}
+.about-sparkle{position:absolute;pointer-events:none}
+.about-sp-pink{top:-24px;left:-32px;width:49px;height:43px}
+.about-sp-purple{bottom:32px;right:-24px;width:52px;height:52px}
+/* 5 value cards */
+.value-cards{display:flex;gap:16px}
+.value-card{flex:1;background:rgba(255,255,255,.92);border-radius:14px;padding:28px 16px 20px;text-align:center;box-shadow:0 2px 16px rgba(0,0,0,.04)}
+.value-card img{width:96px;height:96px;margin:0 auto 16px}
+.value-label{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:18px;line-height:1.25}
+
+/* ━━━━━━━━━━━━━━━━━
+   STEPS — Simple steps to join
+━━━━━━━━━━━━━━━━━ */
+.steps{background:linear-gradient(to top,#f7ffe2 0%,#fff 80%);padding:96px max(24px, calc((100% - 1200px) / 2));text-align:center}
+.steps h2{margin-bottom:80px}
+.steps h2 em{font-style:normal;color:#a5d91a}
+.steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;justify-content:center;margin-bottom:56px}
+.step{display:flex;flex-direction:column;align-items:center;text-align:center}
+.step-num{width:64px;height:64px;border-radius:32px;display:flex;align-items:center;justify-content:center;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:24px;color:#fff;margin-bottom:20px;background:#a5d91a;box-shadow:0 4px 16px rgba(165,217,26,0.3)}
+.step-title{font-family:'Bricolage Grotesque',sans-serif;font-size:19px;font-weight:700;color:#2c2c2c;margin-bottom:12px}
+.step-desc{font-family:'Inter',sans-serif;font-size:14px;line-height:22px;color:#444;max-width:260px}
+.btn-green{background:#92c212;color:#fff}
+.btn-green:hover{background:#92c212}
+
+/* ━━━━━━━━━━━━━━━━━
+   SPACES — Spaces designed for curious minds
+━━━━━━━━━━━━━━━━━ */
+.spaces{background:linear-gradient(to top,#ddf6ff 0%,#fff 80%);padding:96px max(24px, calc((100% - 1200px) / 2));text-align:center}
+.spaces h2{margin-bottom:16px}
+.spaces h2 em{font-style:normal;color:var(--blue)}
+.spaces-sub{font-family:'Inter',sans-serif;font-size:16px;font-weight:400;line-height:26px;color:var(--d60);max-width:523px;margin:0 auto 56px}
+.spaces-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;justify-content:center;margin-bottom:48px}
+.space-card{position:relative;width:100%;aspect-ratio:484/272;border-radius:12px;overflow:hidden}
+.space-card img{width:100%;height:100%;object-fit:cover}
+.space-pill{position:absolute;bottom:16px;left:16px;background:rgba(38,38,38,.7);border-radius:32px;padding:8px 12px}
+.space-pill span{font-family:'Inter',sans-serif;font-weight:500;font-size:13px;color:#fff;white-space:nowrap}
+
+/* ━━━━━━━━━━━━━━━━━
+   PRESCHOOL — Learning that grows
+━━━━━━━━━━━━━━━━━ */
+.preschool{background:linear-gradient(to top,#ffe8f0 0%,#fff 80%);padding:96px max(24px, calc((100% - 1200px) / 2))}
+.preschool-header{text-align:center;margin-bottom:56px}
+.preschool-header .eyebrow{color:var(--dark);margin-bottom:16px}
+.preschool-header h2 em{font-style:normal;color:var(--pink)}
+.preschool-inner{display:grid;grid-template-columns:503px 1fr;gap:80px;align-items:center}
+.preschool-body{font-family:'Inter',sans-serif;font-size:16px;font-weight:400;line-height:26px;color:var(--dark);margin-bottom:36px}
+.preschool-feats{display:grid;grid-template-columns:1fr 1fr;gap:20px 20px;margin-bottom:40px}
+.preschool-feat{display:flex;align-items:flex-start;gap:9px}
+.preschool-feat img{width:48px;height:48px;flex-shrink:0}
+.preschool-feat p{font-family:'Inter',sans-serif;font-size:14px;font-weight:500;line-height:22px;color:var(--dark);margin:0}
+.preschool-actions{display:flex;align-items:center;gap:32px}
+/* orbit right side — Figma 641:259 Image is 521×452 */
+.preschool-right{position:relative;width:521px;height:452px;margin:0 auto}
+.orbit-img{position:absolute;left:69px;top:0;width:452px;height:452px;z-index:1}
+.orbit-img img{width:100%;height:100%}
+.orbit-photo{position:absolute;left:165px;top:100px;width:264px;height:264px;z-index:3;border-radius:50%;overflow:hidden}
+.orbit-photo img{width:100%;height:100%;object-fit:cover}
+.preschool-sp{position:absolute;pointer-events:none;z-index:4}
+.ps-blue{left:197px;top:70px;width:53px;height:51px}
+.ps-green{left:364px;top:311px;width:49px;height:47px}
+.p-pill{position:absolute;background:#fff;border-radius:14px;box-shadow:0 8px 28px rgba(0,0,0,.08);height:48px;width:158px;padding:0 14px;display:flex;align-items:center;gap:10px;white-space:nowrap;z-index:2}
+.p-pill .p-ico{width:28px;height:28px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.p-pill .p-ico img{width:14px;height:14px}
+.p-pill span{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:16px}
+.pill-explore{left:0;top:94px}.pill-explore .p-ico{background:#cceffc}.pill-explore span{color:var(--blue)}
+.pill-move{left:363px;top:40px}.pill-move .p-ico{background:#edf7d1}.pill-move span{color:#96c714}
+.pill-imagine{left:37px;top:377px}.pill-imagine .p-ico{background:#ffd5e4}.pill-imagine span{color:var(--pink)}
+.pill-interact{left:332px;top:391px}.pill-interact .p-ico{background:#ebd8ff}.pill-interact span{color:var(--purple)}
+
+/* ━━━━━━━━━━━━━━━━━
+   SCHOOL — The journey continues
+━━━━━━━━━━━━━━━━━ */
+.school{background:linear-gradient(to top,#e3fffb 0%,#fff 80%);padding:96px max(24px, calc((100% - 1200px) / 2))}
+.school-header{text-align:center;margin-bottom:56px}
+.school-header .eyebrow{color:var(--dark);margin-bottom:16px}
+.school-header h2 em{font-style:normal;color:var(--teal)}
+.school-inner{display:grid;grid-template-columns:512px 1fr;gap:80px;align-items:start}
+.school-body{font-family:'Inter',sans-serif;font-size:16px;font-weight:400;line-height:26px;color:var(--dark);margin-bottom:16px}
+.school-actions{display:flex;align-items:center;gap:32px;margin-top:36px}
+.school-right{display:block}
+.s-timeline{position:relative;display:flex;flex-direction:column;gap:16px}
+.s-timeline-line{position:absolute;left:31px;width:0;border-left:2px dashed rgba(0,0,0,.18);z-index:0}
+.s-row{display:flex;gap:20px;align-items:center}
+.s-node{flex-shrink:0;width:64px;position:relative;z-index:1}
+.s-dot{width:64px;height:64px;display:block}
+.s-card-wrap{flex:1}
+.s-card{background:#fff;border-radius:16px;box-shadow:0 8px 24px rgba(0,0,0,.07);padding:24px 28px}
+.s-card-sub{font-family:'Bricolage Grotesque',sans-serif;font-size:20px;font-weight:600;line-height:22px;color:var(--dark);margin-bottom:8px}
+.s-card-label{font-family:'Inter',sans-serif;font-size:16px;line-height:26px;color:var(--dark);margin-bottom:16px}
+.tags{display:flex;flex-wrap:wrap;gap:8px}
+.tag{font-family:'Inter',sans-serif;font-size:12px;font-weight:500;letter-spacing:.2px;border-radius:100px;padding:5px 12px;white-space:nowrap}
+.tag-purple{background:rgba(155,61,255,.1);color:var(--purple)}
+.tag-teal{background:rgba(0,201,177,.1);color:var(--teal)}
+.tag-pink{background:rgba(255,45,120,.1);color:var(--pink)}
+
+/* ━━━━━━━━━━━━━━━━━
+   DISCOVERY — Year of discovery
+━━━━━━━━━━━━━━━━━ */
+.discovery{background:linear-gradient(to top,#f4eaff 0%,#fff 95%);padding:96px max(24px, calc((100% - 1200px) / 2))}
+.discovery-header{text-align:center;margin-bottom:56px}
+.discovery-header .eyebrow{color:var(--d60);margin-bottom:16px}
+.discovery-header h2 em{font-style:normal;color:var(--purple)}
+.discovery-inner{display:grid;grid-template-columns:497px 1fr;gap:165px;align-items:center}
+.discovery-left{}
+.discovery-quote{font-family:'Bricolage Grotesque',sans-serif;font-size:20px;font-weight:500;line-height:22px;color:var(--dark);margin-bottom:28px;max-width:416px}
+.discovery-body{font-family:'Inter',sans-serif;font-size:16px;font-weight:400;line-height:26px;color:var(--dark);margin-bottom:32px}
+.discovery-stats{display:flex;flex-direction:column;gap:12px;margin-bottom:40px}
+.d-stat{display:inline-flex;align-items:center;gap:16px;background:rgba(255,255,255,.9);border-radius:12px;padding:14px 20px}
+.d-stat .sv{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:16px;white-space:nowrap;line-height:1}
+.d-stat .sd{width:1px;height:16px;flex-shrink:0}
+.d-stat .sl{font-family:'Inter',sans-serif;font-size:12px;line-height:18px;white-space:nowrap}
+.stat-teal .sv{color:#00c9b1} .stat-teal .sl{color:#00b29d} .stat-teal .sd{background:rgba(0,201,177,.3)}
+.stat-blue .sv,.stat-blue .sl{color:var(--blue)} .stat-blue .sd{background:rgba(0,174,239,.3)}
+.stat-purple .sv,.stat-purple .sl{color:var(--purple)} .stat-purple .sd{background:rgba(155,61,255,.3)}
+.discovery-actions{display:flex;align-items:center;gap:32px}
+.discovery-right{position:relative}
+.disc-photo{width:100%;height:376px;border-radius:8px;object-fit:cover;display:block}
+.disc-badge{position:absolute;left:-76px;top:230px;background:#fff;border:1px solid #ebebeb;border-radius:8px;box-shadow:0 8px 24px rgba(0,0,0,.07);display:flex;align-items:center;gap:11px;padding:0 18px;height:65px;width:199px;white-space:nowrap}
+.disc-badge-icon{background:var(--purple);border-radius:9px;width:36px;height:36px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.disc-badge-icon img{width:22px;height:22px}
+.disc-badge-label{font-family:'Lato',sans-serif;font-weight:700;font-size:15px;color:#1d1d1d}
+.disc-sp-gold{position:absolute;top:-50px;left:401px;width:49px;height:47px;pointer-events:none}
+.disc-sp-gold img{width:100%;height:100%}
+.disc-sp-teal{position:absolute;top:366px;left:56px;width:31px;height:31px;pointer-events:none}
+.disc-sp-teal img{width:100%;height:100%}
+
+/* ━━━━━━━━━━━━━━━━━
+   TESTIMONIALS
+━━━━━━━━━━━━━━━━━ */
+.testimonials{background:linear-gradient(to top,#e3fffb 0%,#fff 80%);padding:96px max(24px, calc((100% - 1200px) / 2));text-align:center}
+.testimonials .eyebrow{margin-bottom:12px}
+.testimonials h2{margin-bottom:8px;font-size:40px;line-height:44px}
+.testimonials h2 .line2{color:var(--teal);display:block}
+.testi-cards{display:flex;gap:32px;justify-content:center;padding:0;margin:60px 0 48px}
+.testi-card{flex:1;max-width:373px;display:flex;flex-direction:column;gap:30px;align-items:flex-start;text-align:left}
+.stars{display:flex;gap:3px;margin-bottom:0}
+.stars img{width:18px;height:17px}
+.testi-quote{font-family:'Inter',sans-serif;font-size:16px;line-height:26px;color:var(--dark);margin-bottom:0}
+.testi-read{font-family:'Inter',sans-serif;font-size:14px;font-weight:600;color:var(--d60);letter-spacing:.2px;cursor:pointer;display:block}
+.testi-author{display:flex;align-items:center;gap:13px}
+.testi-avatar{width:36px;height:36px;border-radius:50%;overflow:hidden;flex-shrink:0}
+.testi-avatar img{width:100%;height:100%;object-fit:cover}
+.testi-name{font-family:'Inter',sans-serif;font-size:14px;font-weight:700;color:#2c2c2c;line-height:1.3}
+.testi-loc{font-family:'Inter',sans-serif;font-size:10px;font-weight:500;color:var(--d60);letter-spacing:.3px}
+.testi-cta .text-link{justify-content:center}
+
+/* ━━━━━━━━━━━━━━━━━
+   INSTAGRAM / LIFE
+━━━━━━━━━━━━━━━━━ */
+.instagram{background:linear-gradient(to top,#fff3df 0%,#fff 80%);padding:96px max(24px, calc((100% - 1200px) / 2))}
+.instagram-head{text-align:center;margin-bottom:8px}
+.instagram-head h2 em{font-style:normal;color:var(--amber)}
+.instagram-handle{text-align:center;font-family:'Inter',sans-serif;font-size:14px;font-weight:600;color:var(--d60);letter-spacing:1.38px;text-transform:uppercase;margin-bottom:52px}
+.insta-grid{display:flex;gap:16px;justify-content:center;margin-bottom:48px}
+.insta-photo{flex:1;max-width:290px;aspect-ratio:1/1;border-radius:12px;overflow:hidden;flex-shrink:0}
+.insta-photo img{width:100%;height:100%;object-fit:cover}
+.instagram-cta{text-align:center}
+.instagram-cta .text-link{justify-content:center}
+
+/* ━━━━━━━━━━━━━━━━━
+   BLOG / INSIGHTS
+━━━━━━━━━━━━━━━━━ */
+.blog{background:linear-gradient(to top,#f7ffe2 0%,#fff 80%);padding:96px max(24px, calc((100% - 1200px) / 2))}
+.blog-head{text-align:center;margin-bottom:56px}
+.blog-head h2 em{font-style:normal;color:var(--green)}
+.blog-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-bottom:48px}
+.blog-card{background:#fff;border-radius:16px;overflow:hidden;transition:box-shadow .2s,transform .2s}
+.blog-card:hover{box-shadow:0 8px 32px rgba(0,0,0,.08);transform:translateY(-4px)}
+.blog-thumb{height:160px;width:100%;position:relative;overflow:hidden}
+.blog-thumb .bt-grad{position:absolute;inset:0}
+.blog-thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.blog-body{padding:20px}
+.blog-cat{display:inline-block;font-family:'Inter',sans-serif;font-size:11px;font-weight:500;background:rgba(0,174,239,.12);color:var(--blue);border-radius:100px;padding:3px 10px;margin-bottom:12px}
+.blog-title{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:15px;line-height:1.4;color:#2c2c2c;margin-bottom:10px}
+.blog-excerpt{font-family:'Inter',sans-serif;font-size:13px;line-height:1.55;color:#424242;margin-bottom:20px}
+.blog-read{display:inline-flex;align-items:center;gap:5px;font-family:'Inter',sans-serif;font-size:13px;font-weight:500;color:var(--d60);letter-spacing:.2px;transition:color .15s}
+.blog-read:hover{color:var(--blue)}
+.blog-read:hover .link-arrow{transform:translateX(4px)}
+.blog-cta{text-align:center}
+.blog-cta .text-link{justify-content:center}
+
+/* ━━━━━━━━━━━━━━━━━
+   CTA BANNER
+━━━━━━━━━━━━━━━━━ */
+.cta-banner{background:linear-gradient(to top,#bfeeff 0%,#fff 80%);padding:120px 0;position:relative;overflow:hidden;text-align:center}
+.cta-banner h2{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:44.8px;line-height:56px;max-width:658px;margin:0 auto 48px;color:var(--char)}
+.cta-banner h2 .line1{color:var(--purple);display:block}
+.cta-banner h2 .amber{color:var(--amber)}
+.cta-actions{display:flex;align-items:center;justify-content:center;gap:32px;position:relative;z-index:1}
+.cta-deco{position:absolute;border-radius:10px;overflow:hidden}
+.cta-deco img{width:100%;height:100%;object-fit:cover}
+.cta-d1{left:256px;top:100px;width:151px;height:114px}
+.cta-d2{right:232px;top:340px;width:131px;height:98px}
+.cta-d3{right:120px;top:80px;width:197px;height:148px}
+.cta-d4{left:120px;top:300px;width:197px;height:148px}
+.cta-sparkle{position:absolute;pointer-events:none}
+.cta-sparkle img{width:100%;height:100%}
+.sp1{left:487px;top:115px;width:49px;height:47px}
+.sp2{right:356px;top:295px;width:45px;height:43px}
+.sp3{right:452px;top:94px;width:27px;height:26px}
+.sp4{left:475px;top:313px;width:25px;height:24px}
+
+/* ━━━━━━━━━━━━━━━━━
+   FOOTER
+━━━━━━━━━━━━━━━━━ */
+footer{background:#1a1a1a;position:relative;overflow:hidden}
+.footer-main{display:flex;justify-content:space-between;padding:60px max(24px, calc((100% - 1200px) / 2));gap:40px}
+.footer-brand{width:320px;display:flex;flex-direction:column;gap:24px}
+.footer-logo{display:flex;align-items:center;gap:12px}
+.footer-logo img{width:44px;height:44px;border-radius:10px}
+.footer-brand-name{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:18px;color:#fff}
+.footer-brand-tag{font-family:'Inter',sans-serif;font-size:11px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;color:var(--blue)}
+.footer-desc{font-family:'Inter',sans-serif;font-size:14px;line-height:24px;color:#888;width:280px}
+.footer-social-lbl{font-family:'Inter',sans-serif;font-size:11px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;color:#555;margin-bottom:12px}
+.social-icons{display:flex;gap:7px}
+.s-icon{width:36px;height:36px;background:#2c2c2c;border:1px solid #333;border-radius:8px;display:flex;align-items:center;justify-content:center;transition:background .2s;color:#fff}
+.s-icon:hover{background:#3a3a3a}
+.s-icon img{width:20px;height:20px;opacity:.9}
+.s-icon svg{width:18px;height:18px;display:block;opacity:.85;flex-shrink:0}
+.footer-col{display:flex;flex-direction:column;gap:20px}
+.footer-col-title{font-family:'Inter',sans-serif;font-size:11px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;color:#fff}
+.footer-links-list{display:flex;flex-direction:column;gap:14px}
+.footer-links-list a{font-family:'Inter',sans-serif;font-size:14px;color:#888;transition:color .2s}
+.footer-links-list a:hover{color:#ccc}
+.contact-item{display:flex;align-items:flex-start;gap:12px;margin-bottom:20px}
+.contact-item:last-child{margin-bottom:0}
+.c-icon{width:32px;height:32px;background:#2c2c2c;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.c-icon img{width:15px;height:15px}
+.c-name{font-family:'Inter',sans-serif;font-size:13px;font-weight:600;color:#ccc;line-height:1.4;white-space:nowrap}
+.c-addr{font-family:'Inter',sans-serif;font-size:13px;color:#888;line-height:20px;margin-top:2px;width:220px}
+.c-link{font-family:'Inter',sans-serif;font-size:13px;color:#888;display:block;line-height:1.55}
+.c-link:hover{color:#ccc}
+.footer-bottom{border-top:1px solid #2c2c2c;display:flex;justify-content:space-between;align-items:center;padding:20px max(24px, calc((100% - 1200px) / 2));font-family:'Inter',sans-serif;font-size:13px;color:#555}
+.footer-bottom-links{display:flex;gap:24px}
+.footer-bottom-links a{color:#555}
+.footer-bottom-links a:hover{color:#888}
+.f-deco{position:absolute;pointer-events:none;opacity:.4}
+.f-deco img{width:100%;height:100%}
+.fd1{left:58px;top:42px;width:50px;height:51px}
+.fd2{right:87px;bottom:60px;width:86px;height:87px}
+
+/* ━━━━━━━━━━━━━━━━━
+   HAMBURGER + MOBILE MENU (base — hidden on desktop)
+━━━━━━━━━━━━━━━━━ */
+.hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;cursor:pointer;padding:8px;background:none;border:none;margin-left:auto;flex-shrink:0}
+.hamburger span{display:block;width:22px;height:2px;background:var(--dark);border-radius:2px;transition:transform .25s,opacity .25s}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-menu{display:none;position:fixed;top:64px;left:0;right:0;background:#fff;border-top:1px solid rgba(0,0,0,.06);box-shadow:0 8px 24px rgba(0,0,0,.1);z-index:99;padding:8px 20px 28px;max-height:calc(100vh - 64px);overflow-y:auto}
+.mobile-menu.open{display:block}
+.mob-link{display:block;padding:13px 0;font-family:'Inter',sans-serif;font-size:16px;font-weight:500;color:var(--dark);border-bottom:1px solid rgba(0,0,0,.05)}
+.mob-link:last-of-type{border-bottom:none}
+.mob-cta{margin-top:20px}
+.mob-cta .btn{width:100%;justify-content:center}
+
+/* ━━━━━━━━━━━━━━━━━
+   TABLET — 769px to 1100px
+   Fixed-pixel columns all switch to fluid 1fr grids here.
+━━━━━━━━━━━━━━━━━ */
+@media(min-width:769px) and (max-width:1100px){
+  /* section horizontal padding — hero-wrap uses a different rule */
+  .hero-wrap{padding:0 24px}
+
+  /* HERO: scaled collage — both images, proportional to 576px desktop column */
+  .hero-top{gap:32px}
+  .hero-right{height:410px}
+  .hero-main-img{position:absolute;left:20%;top:24px;width:76%;height:254px}
+  .hero-small-img{display:block;position:absolute;left:0;top:240px;width:41%;height:150px}
+  .hero-award{display:flex;position:absolute;left:calc(41% + 10px);top:248px;padding:10px;gap:9px;width:auto}
+  .hero-award-icon{width:28px;height:28px;border-radius:7px}
+  .hero-award-icon img{width:16px;height:16px}
+  .hero-award-text .award-title{font-size:12.5px}
+  .hero-award-text .award-sub{font-size:11px}
+  .sp-blue,.sp-green,.sp-amber{display:none}
+  .events-strip{max-width:100%}
+  .events-cards{gap:8px}
+
+  /* ABOUT */
+  .about-top{gap:40px}
+  .about-sp-pink,.about-sp-purple{display:none}
+  .cambridge-badge{left:8px}
+
+  /* VALUE CARDS */
+  .value-cards{flex-wrap:wrap;gap:12px}
+  .value-card{min-width:calc(33.33% - 10px)}
+
+  /* PRESCHOOL: fluid columns */
+  .preschool-inner{grid-template-columns:1fr 1fr;gap:40px}
+  .preschool-feats{grid-template-columns:1fr}
+  .preschool-right{width:auto;height:340px}
+  .orbit-img{left:calc(50% - 120px);width:240px;height:240px;top:20px}
+  .orbit-photo{left:calc(50% - 70px);top:70px;width:140px;height:140px}
+  .p-pill,.preschool-sp{display:none}
+
+  /* SCHOOL: fluid columns */
+  .school-inner{grid-template-columns:1fr 1fr;gap:40px}
+
+  /* DISCOVERY: fluid columns, remove negative badge offset */
+  .discovery-inner{grid-template-columns:1fr 1fr;gap:48px}
+  .disc-badge{left:0}
+  .disc-sp-gold,.disc-sp-teal{display:none}
+
+  /* BLOG: 2 columns */
+  .blog-grid{grid-template-columns:repeat(2,1fr)}
+
+  /* FOOTER: wrap at tight tablet widths */
+  .footer-main{flex-wrap:wrap;gap:40px}
+  .footer-brand{width:100%}
+}
+
+/* ━━━━━━━━━━━━━━━━━
+   MOBILE — 768px and below
+━━━━━━━━━━━━━━━━━ */
+@media(max-width:768px){
+  /* NAV — non-scrolled: big logo centred; scrolled: compact logo left + hamburger right */
+  .header-wrap{display:flex;align-items:center;justify-content:center;padding:0;min-height:96px;background:transparent!important;border-color:transparent!important}
+  .header-wrap.scrolled{background:rgba(255,255,255,0.92)!important;border-color:rgba(0,0,0,0.06)!important;min-height:52px}
+  .logo-panel{overflow:visible;flex-shrink:0}
+  .logo-box{padding:0}
+  .logo-full{height:80px}
+  body{padding-top:0}
+  /* Nav absolutely right so it never displaces the centred logo */
+  .nav{position:absolute;right:0;top:0;bottom:0;display:flex;align-items:center;padding:0 20px;width:auto;flex:0}
+  .nav-links,.nav-cta{display:none!important}
+  .hamburger{display:flex}
+  /* Scrolled: compact logo left, nav fills row, hamburger right */
+  .header-wrap.scrolled{justify-content:flex-start;padding:0 16px}
+  .header-wrap.scrolled .nav{position:static;flex:1;padding:8px 0;width:auto}
+  .header-wrap.scrolled .logo-compact-wrap{display:flex!important}
+
+  /* TYPOGRAPHY */
+  h1{font-size:clamp(1.9rem,8vw,2.6rem)!important}
+  h2{font-size:26px!important;line-height:32px!important}
+  .eyebrow{font-size:12px}
+
+  /* SECTION VERTICAL PADDING: trim tall sections */
+  .about,.steps,.spaces,.preschool,.school,.discovery,
+  .testimonials,.instagram,.blog{padding-top:56px!important;padding-bottom:56px!important}
+  .cta-banner{padding:64px 24px!important}
+
+  /* HERO */
+  .hero-wrap{padding:0 20px}
+  .hero-top{grid-template-columns:1fr;gap:24px;padding:112px 0 0}
+  .admissions-tag{font-size:13px}
+  /* HERO: both images, scaled to mobile column width (~335px → 335/576 ≈ 0.58) */
+  .hero-right{height:290px}
+  .hero-main-img{position:absolute;left:20%;top:16px;width:76%;height:182px}
+  .hero-small-img{display:block;position:absolute;left:0;top:168px;width:41%;height:107px}
+  .hero-award{display:flex;position:absolute;left:calc(41% + 8px);top:172px;padding:9px;gap:8px;width:auto}
+  .hero-award-icon{width:26px;height:26px;border-radius:6px}
+  .hero-award-icon img{width:15px;height:15px}
+  .hero-award-text .award-title{font-size:12px}
+  .hero-award-text .award-sub{font-size:10px}
+  /* hero sparkles stay visible on mobile — smaller, closer to images */
+  .sp-blue{left:30%;top:150px;width:32px;height:32px}
+  .sp-green{left:auto;right:4%;top:4px;width:22px;height:22px}
+  .sp-amber{left:auto;right:8%;top:260px;width:22px;height:22px}
+  .hero-left{text-align:center!important;align-items:center!important}
+  .admissions-tag{align-self:center!important}
+  .hero-sub{text-align:center!important}
+  .hero-actions{flex-wrap:wrap!important;justify-content:center!important;gap:40px!important;column-gap:32px!important}
+  .events-strip{max-width:100%;padding-bottom:28px;margin-top:28px}
+  .events-cards{flex-direction:column;gap:8px}
+  .events-all{display:inline-flex;margin-top:16px}
+
+  /* ABOUT */
+  .about-top{grid-template-columns:1fr;gap:32px}
+  .about-left{text-align:center}
+  .about-left .text-link{justify-content:center}
+  /* about sparkles stay visible on mobile — smaller, closer */
+  .about-sp-pink{top:-14px;left:8px;width:22px;height:20px}
+  .about-sp-purple{bottom:16px;right:8px;width:24px;height:24px}
+  .about-right{padding-bottom:28px}
+  .cambridge-badge{left:12px;bottom:-12px}
+  .value-cards{flex-wrap:wrap;gap:10px}
+  .value-card{min-width:calc(50% - 5px)}
+
+  /* STEPS */
+  .steps-grid{grid-template-columns:1fr;max-width:100%;margin-bottom:40px}
+  .step{flex-direction:column;align-items:center;text-align:center}
+  .step-num{margin-bottom:16px}
+
+  /* SPACES CAROUSEL — zero section padding, direct grid padding */
+  .spaces{padding-left:0!important;padding-right:0!important}
+  .spaces h2,.spaces-sub,.spaces-cta{padding:0 20px}
+  .spaces-grid{
+    display:flex;overflow-x:auto;gap:14px;justify-content:flex-start;
+    scroll-snap-type:x mandatory;scroll-padding-left:20px;scrollbar-width:none;margin-bottom:28px;
+    padding-left:20px!important;padding-right:20px;padding-bottom:8px;
+  }
+  .spaces-grid::-webkit-scrollbar{display:none}
+  /* 20px pad + card + 14px gap + 30vw peek = 100vw */
+  .space-card{flex:0 0 calc(70vw - 34px);width:calc(70vw - 34px);scroll-snap-align:start;flex-shrink:0;aspect-ratio:4/3}
+
+  /* PRESCHOOL — keep Figma exact layout, scale to fit viewport */
+  .preschool-inner{grid-template-columns:1fr;gap:32px}
+  .preschool-feats{grid-template-columns:1fr 1fr;gap:28px 16px}
+  .preschool-right{
+    width:521px;height:452px;
+    padding-top:0;display:block;gap:0;flex-wrap:initial;align-content:initial;
+    overflow:visible;margin:0 auto;
+    zoom:0.68;
+  }
+  /* Restore Figma desktop positions on mobile too */
+  .orbit-img{left:69px;top:0;width:452px;height:452px}
+  .orbit-photo{left:165px;top:100px;width:264px;height:264px}
+  .p-pill{position:absolute;flex:initial;width:158px;padding:0 14px;justify-content:flex-start}
+  .preschool-sp{display:block}
+  .preschool-left{text-align:center}
+  .preschool-feat{flex-direction:column;align-items:center;text-align:center}
+  .preschool-actions{flex-wrap:wrap;gap:40px;justify-content:center}
+
+  /* SCHOOL */
+  .school-inner{grid-template-columns:1fr;gap:32px}
+  .school-left{text-align:center}
+  .school-actions{flex-wrap:wrap;gap:40px;justify-content:center}
+
+  /* DISCOVERY */
+  .discovery-inner{grid-template-columns:1fr;gap:32px}
+  .disc-photo{height:240px}
+  .disc-badge{position:relative;left:auto;top:auto;width:auto;margin-top:12px}
+  /* discovery sparkles stay visible on mobile — reposition so they don't overflow */
+  .disc-sp-gold{top:-30px;left:auto;right:20px}
+  .disc-sp-teal{top:auto;bottom:-20px;left:20px}
+  .discovery-left{text-align:center}
+  .discovery-quote{max-width:100%;text-align:center}
+  .discovery-stats{flex-direction:column;align-items:center}
+  .d-stat{text-align:center}
+  .discovery-actions{flex-wrap:wrap;gap:40px;justify-content:center}
+
+  /* TESTIMONIALS */
+  .testi-cards{flex-direction:column;gap:48px;margin:36px 0 28px}
+  .testi-card{max-width:100%;align-items:center;text-align:center}
+  .testi-author{justify-content:center}
+  .testi-name,.testi-loc{text-align:left}
+  .stars{justify-content:center}
+  .testi-cta{margin-top:48px}
+
+  /* INSTAGRAM CAROUSEL — zero section padding, direct grid padding */
+  .instagram{padding-left:0!important;padding-right:0!important}
+  .instagram-head,.instagram-handle,.insta-cta{padding:0 20px}
+  .insta-grid{
+    flex-wrap:nowrap;overflow-x:auto;gap:12px;
+    scroll-snap-type:x mandatory;scroll-padding-left:20px;justify-content:flex-start;
+    margin-bottom:28px;scrollbar-width:none;
+    padding-left:20px!important;padding-right:20px;padding-bottom:8px;
+  }
+  .insta-grid::-webkit-scrollbar{display:none}
+  /* 20px pad + card + 12px gap + 30vw peek = 100vw */
+  .insta-photo{flex:0 0 calc(70vw - 32px);width:calc(70vw - 32px);scroll-snap-align:start;flex-shrink:0}
+
+  /* BLOG CAROUSEL — zero out section side padding, apply it inside grid */
+  .blog{padding-left:0!important;padding-right:0!important}
+  .blog-head{padding:0 20px}
+  .blog-grid{
+    display:flex;overflow-x:auto;gap:14px;justify-content:flex-start;
+    scroll-snap-type:x mandatory;scroll-padding-left:20px;margin-bottom:28px;scrollbar-width:none;
+    padding-left:20px!important;padding-right:20px;padding-bottom:8px;
+  }
+  .blog-grid::-webkit-scrollbar{display:none}
+  /* 20px pad + card + 14px gap + 30vw peek = 100vw */
+  .blog-card{flex:0 0 calc(70vw - 34px);width:calc(70vw - 34px);scroll-snap-align:start;overflow:hidden}
+
+  /* CTA BANNER */
+  .cta-banner h2{font-size:24px!important;line-height:32px!important;max-width:100%}
+  .cta-deco{display:none}
+  /* cta sparkles stay visible on mobile — reposition to viewport-relative */
+  .sp1{left:auto;right:20px;top:40px;width:28px;height:27px}
+  .sp2{left:20px;right:auto;top:auto;bottom:40px;width:24px;height:23px}
+  .sp3{left:20px;right:auto;top:30px;width:20px;height:19px}
+  .sp4{left:auto;right:40px;top:auto;bottom:30px;width:18px;height:17px}
+  .cta-actions{flex-direction:column;align-items:stretch;gap:12px}
+  .cta-actions .btn{justify-content:center}
+
+  /* FOOTER */
+  .footer-main{flex-direction:column;padding:44px 20px!important;gap:36px}
+  .footer-brand{width:100%!important}
+  .footer-col{width:100%!important}
+  .footer-bottom{flex-direction:column;gap:10px;text-align:center;padding:16px 20px!important}
+  .footer-bottom-links{justify-content:center}
+  .c-addr{width:100%}
+  .social-icons{flex-wrap:wrap}
+}
+
+/* ── micro-animations ── */
+@media (prefers-reduced-motion: no-preference){
+  .reveal{opacity:0;transform:scale(.86) translateY(16px);transition:opacity .8s ease-out, transform .8s cubic-bezier(.22,.75,.2,1)}
+  .reveal.in-view{opacity:1;transform:none}
+  @keyframes twinkle{0%,100%{opacity:.85;transform:scale(1) rotate(0)}50%{opacity:1;transform:scale(1.18) rotate(6deg)}}
+  .hero-sparkle img,.about-sparkle img,.preschool-sp img,.disc-sparkle img,.cta-sparkle img,.sp-deco img{
+    animation:twinkle 3.2s ease-in-out infinite;transform-origin:center;will-change:transform,opacity
+  }
+  .hero-sparkle:nth-of-type(2) img{animation-duration:3.8s;animation-delay:.4s}
+  .hero-sparkle:nth-of-type(3) img{animation-duration:3.4s;animation-delay:.8s}
+  .about-sp-purple img{animation-duration:3.6s;animation-delay:.5s}
+  .ps-green img{animation-duration:3.6s;animation-delay:.6s}
+  .disc-sp-teal img{animation-duration:3.6s;animation-delay:.7s}
+  .sp2 img{animation-delay:.3s}
+  .sp3 img{animation-delay:.6s}
+  .sp4 img{animation-delay:.9s}
+  [data-parallax]{transform:translate3d(0,var(--py,0),0);transition:transform .08s linear;will-change:transform}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════ HEADER ═══════════ -->
+<div class="header-wrap">
+  <div class="logo-panel">
+    <div class="logo-box">
+      <img class="logo-full" src="Logo.svg" alt="Sparkling Mindz">
+    </div>
+  </div>
+  <nav class="nav">
+    <div class="logo-compact-wrap">
+      <img class="logo-compact" src="Logo.svg" alt="Sparkling Mindz">
+      <div class="nav-brand">
+        <div class="brand-name">Sparkling Mindz</div>
+        <div class="brand-tag">Global School</div>
+      </div>
+    </div>
+    <div class="nav-links">
+    <div class="nav-dropdown">
+      <a href="#">About Us <svg class="nav-chevron" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 5L7 9L11 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <div class="dropdown-menu">
+        <div class="dropdown-menu-inner">
+          <a href="#">Philosophy &amp; mission</a>
+          <a href="#">Team &amp; awards</a>
+        </div>
+      </div>
+    </div>
+    <div class="nav-dropdown">
+      <a href="#">Academics <svg class="nav-chevron" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 5L7 9L11 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <div class="dropdown-menu">
+        <div class="dropdown-menu-inner">
+          <a href="#">Preschool</a>
+          <a href="#">School</a>
+          <a href="#">Year of Discovery (YODA)</a>
+        </div>
+      </div>
+    </div>
+    <div class="nav-dropdown">
+      <a href="#">Programs <svg class="nav-chevron" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 5L7 9L11 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <div class="dropdown-menu">
+        <div class="dropdown-menu-inner">
+          <a href="#">After School Activities</a>
+          <a href="#">Summer Camp</a>
+          <a href="#">Parent Workshops</a>
+        </div>
+      </div>
+    </div>
+    <a href="#">Events</a>
+    <a href="#">Resources</a>
+    <a href="#">Blog</a>
+    <a href="#">Contact</a>
+    </div>
+    <a href="#" class="nav-cta">Enquire now</a>
+    <button class="hamburger" id="hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+</div><!-- /header-wrap -->
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#" class="mob-link">About Us</a>
+  <a href="#" class="mob-link">Academics</a>
+  <a href="#" class="mob-link">Programs</a>
+  <a href="#" class="mob-link">Events</a>
+  <a href="#" class="mob-link">Resources</a>
+  <a href="#" class="mob-link">Blog</a>
+  <a href="#" class="mob-link">Contact</a>
+  <div class="mob-cta">
+    <a href="#" class="btn btn-blue">Enquire now</a>
+  </div>
+</div>
+
+<div class="hero-section">
+<!-- ═══════════ HERO ═══════════ -->
+<div class="hero-wrap">
+  <div class="hero-top">
+    <div class="hero-left">
+      <div class="admissions-tag">
+        <img src="https://www.figma.com/api/mcp/asset/ba2a945d-5a38-4aa1-b975-48af96c323a3" alt="" style="width:17px;height:17px;flex-shrink:0">
+        <span>Admissions open for 2026–27</span>
+      </div>
+      <h1>Where curious minds <em>come alive</em></h1>
+      <p class="hero-sub">Reggio-Emilia inspired. Play-based. A safe, nurturing space where every child discovers the joy of learning.</p>
+      <div class="hero-actions">
+        <a href="#" class="btn btn-blue">Enquire now</a>
+        <a href="#" class="text-link">Learn more<span class="link-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="12" viewBox="0 0 18 12" fill="none"><path d="M0.75 5.75671H15.75" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M12.3125 0.75L17.0938 5.75672L12.3125 10.7634" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <!-- Sparkles -->
+      <div class="hero-sparkle sp-blue"><img src="https://www.figma.com/api/mcp/asset/0fff392d-43f5-4c06-9d3c-6de3d9bca123" alt="" style="width:100%;height:100%"></div>
+      <div class="hero-sparkle sp-green"><img src="https://www.figma.com/api/mcp/asset/86510d70-5642-4e60-b19c-b2420b1d6407" alt="" style="width:100%;height:100%"></div>
+      <div class="hero-sparkle sp-amber"><img src="https://www.figma.com/api/mcp/asset/4d8671ea-cbc5-4e92-bd66-e82dce4c4bb5" alt="" style="width:100%;height:100%"></div>
+      <div class="hero-main-img">
+        <img src="https://www.figma.com/api/mcp/asset/e9c3d456-d651-4567-9954-1742f932077f" alt="Students learning">
+      </div>
+      <div class="hero-small-img">
+        <img src="https://www.figma.com/api/mcp/asset/140a82c5-d14b-4076-8ce9-0a8511a1c2b0" alt="Students activity">
+      </div>
+      <div class="hero-award">
+        <div class="hero-award-icon">
+          <img src="https://www.figma.com/api/mcp/asset/d92c24f9-81f7-47d4-a6d8-ac05dbfd2625" alt="Trophy">
+        </div>
+        <div class="hero-award-text">
+          <div class="award-title">Award-winning school</div>
+          <div class="award-sub">Edu India 2024</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Events strip (bottom of hero) -->
+  <div class="events-strip">
+    <div class="events-label">
+      <div class="events-label-icon">
+        <img src="https://www.figma.com/api/mcp/asset/0da136d8-dafe-4916-a677-aeed52cb98a1" alt="Notice Board" width="17" height="17">
+      </div>
+      <span>Upcoming Events</span>
+    </div>
+    <div class="events-cards">
+      <div class="event-card">
+        <div class="event-thumb"><img src="https://www.figma.com/api/mcp/asset/1a59eb64-d703-4647-88ba-0566d37b4c94" alt=""></div>
+        <div>
+          <div class="event-title">Sparkling voices open mic</div>
+          <div class="event-date">May 24, 2025 4:30 PM</div>
+        </div>
+      </div>
+      <div class="event-card">
+        <div class="event-thumb"><img src="https://www.figma.com/api/mcp/asset/4423ca34-2ce9-4e8d-afc6-7b64db69ac16" alt=""></div>
+        <div>
+          <div class="event-title">Poetic Fete 2025</div>
+          <div class="event-date">May 24, 2025</div>
+        </div>
+      </div>
+      <div class="event-card">
+        <div class="event-thumb"><img src="https://www.figma.com/api/mcp/asset/df7bb08d-e405-49a9-be03-2d395ce3697e" alt=""></div>
+        <div>
+          <div class="event-title">Child in the City Heritage Walk</div>
+          <div class="event-date">June 21, 2025</div>
+        </div>
+      </div>
+      <a href="#" class="text-link events-all" style="flex-shrink:0;white-space:nowrap;align-self:center;margin-left:8px">View all events<span class="link-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="12" viewBox="0 0 18 12" fill="none"><path d="M0.75 5.75671H15.75" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M12.3125 0.75L17.0938 5.75672L12.3125 10.7634" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+    </div>
+  </div>
+</div><!-- /hero-wrap -->
+</div><!-- /hero-section -->
+
+<!-- ═══════════ ABOUT ═══════════ -->
+<section class="about">
+  <div class="about-top">
+    <div class="about-left">
+      <h2>School built on<br><em>joyful learning</em></h2>
+      <p class="about-body">Sparkling Mindz Global School started with a simple conviction: children learn best when they are curious, safe, and given real ownership of their journey. Today, in Bangalore, we bring that conviction to life every single day, for preschoolers discovering the world and school students shaping it.<br><br>We are a Cambridge-affiliated school offering an integrated curriculum from early years through <strong>IGCSE and A-Levels, built around our own IBCL (Innovation Beyond Connected Learning)</strong> framework where children become changemakers, not just grade-chasers.</p>
+      <a href="#" class="text-link">Read more<span class="link-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="12" viewBox="0 0 18 12" fill="none"><path d="M0.75 5.75671H15.75" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M12.3125 0.75L17.0938 5.75672L12.3125 10.7634" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+    </div>
+    <div class="about-right">
+      <div class="about-sparkle about-sp-pink"><img src="https://www.figma.com/api/mcp/asset/5aa255d0-c0c6-4162-81e5-080bd8c6ccff" alt="" style="width:100%;height:100%"></div>
+      <img class="about-right-img" src="https://www.figma.com/api/mcp/asset/44118a22-f4c0-44b5-a36e-184c2ab37fe0" alt="Sparkling Mindz school building">
+      <div class="cambridge-badge">
+        <div class="affil">Affiliated by</div>
+        <img src="https://www.figma.com/api/mcp/asset/c0a49c92-8537-4d28-953d-81144a58a66b" alt="Cambridge International">
+      </div>
+      <div class="about-sparkle about-sp-purple"><img src="https://www.figma.com/api/mcp/asset/e9bfd7b9-07f0-4d28-82e8-02fd724b9567" alt="" style="width:100%;height:100%"></div>
+    </div>
+  </div>
+  <div class="value-cards">
+    <div class="value-card">
+      <img src="assets/images/values/joyful-learning.svg" alt="">
+      <div class="value-label" style="color:#aa5bff">Joyful<br>Learning</div>
+    </div>
+    <div class="value-card">
+      <img src="assets/images/values/child-ownership.svg" alt="">
+      <div class="value-label" style="color:#95c80d">Child<br>Ownership</div>
+    </div>
+    <div class="value-card">
+      <img src="assets/images/values/real-world-thinking.svg" alt="">
+      <div class="value-label" style="color:#f5a623">Real-world<br>Thinking</div>
+    </div>
+    <div class="value-card">
+      <img src="assets/images/values/active-changemaking.svg" alt="">
+      <div class="value-label" style="color:#00aeef">Active<br>Changemaking</div>
+    </div>
+    <div class="value-card">
+      <img src="assets/images/values/proven-quality.svg" alt="">
+      <div class="value-label" style="color:#00c9b1">Proven<br>Quality</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ STEPS ═══════════ -->
+<section class="steps">
+  <h2>Simple steps to<br><em>join our family</em></h2>
+  <div class="steps-grid">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-title">Enquire</div>
+      <p class="step-desc">Fill out our quick form or give us a call. We'll get back within 24 hours.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-title">Visit Campus</div>
+      <p class="step-desc">Schedule a tour at the campus. Meet our team and see the spaces.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-title">Enrol</div>
+      <p class="step-desc">Complete the admission process and welcome your child to the Sparkling Mindz family.</p>
+    </div>
+  </div>
+  <a href="#" class="btn btn-green">Enquire now</a>
+</section>
+
+<!-- ═══════════ SPACES ═══════════ -->
+<section class="spaces">
+  <h2>Spaces designed for<br><em>curious minds</em></h2>
+  <p class="spaces-sub">Reggio-Emilia inspired. Play-based. A safe, nurturing space where every child discovers the joy of learning.</p>
+  <div class="spaces-grid">
+    <div class="space-card">
+      <img src="https://www.figma.com/api/mcp/asset/ce5820f1-de5b-425d-82b6-3a69e206f56a" alt="Classroom Learning Space">
+      <div class="space-pill"><span>Classroom Learning Space</span></div>
+    </div>
+    <div class="space-card">
+      <img src="https://www.figma.com/api/mcp/asset/12f71bd1-7bec-469f-abc1-3d61af73cd07" alt="Outdoor Play Area">
+      <div class="space-pill"><span>Outdoor Play Area</span></div>
+    </div>
+    <div class="space-card">
+      <img src="https://www.figma.com/api/mcp/asset/4a4986c5-430d-4020-9247-bb7aa1f35375" alt="Art & Creativity Corner">
+      <div class="space-pill"><span>Art &amp; Creativity Corner</span></div>
+    </div>
+    <div class="space-card">
+      <img src="https://www.figma.com/api/mcp/asset/db80f567-d298-4caa-8a56-2a8de071babd" alt="Nature Corner">
+      <div class="space-pill"><span>Nature Corner</span></div>
+    </div>
+  </div>
+  <a href="#" class="text-link">View more photos<span class="link-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="12" viewBox="0 0 18 12" fill="none"><path d="M0.75 5.75671H15.75" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M12.3125 0.75L17.0938 5.75672L12.3125 10.7634" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+</section>
+
+<!-- ═══════════ PRESCHOOL ═══════════ -->
+<section class="preschool">
+  <div class="preschool-header">
+    <p class="eyebrow">Our Preschool Programme</p>
+    <h2>Learning that grows<br><em>with your child</em></h2>
+  </div>
+  <div class="preschool-inner">
+    <div class="preschool-left">
+      <p class="preschool-body">When you bring your child to Sparkling Mindz International Preschool you get access to holistic and balanced development of your child from a team that is well-experienced preschool staff who are dedicated to the field of child development for the past several years.</p>
+      <div class="preschool-feats">
+        <div class="preschool-feat">
+          <img src="https://www.figma.com/api/mcp/asset/3a50fa03-bb09-4349-8d59-681222165625" alt="">
+          <p>Secure facilities with background-checked staff</p>
+        </div>
+        <div class="preschool-feat">
+          <img src="https://www.figma.com/api/mcp/asset/6aef64ad-396b-4d14-96f9-fd2217f19b79" alt="">
+          <p>Montessori-inspired, nature-based materials</p>
+        </div>
+        <div class="preschool-feat">
+          <img src="https://www.figma.com/api/mcp/asset/399c6215-de96-4017-addb-13d296797b08" alt="">
+          <p>Low ratios (1:6–8) for individual attention</p>
+        </div>
+        <div class="preschool-feat">
+          <img src="https://www.figma.com/api/mcp/asset/19bc857b-6083-422b-b1a4-074694c2bf20" alt="">
+          <p>Daily updates &amp; parent-teacher partnership</p>
+        </div>
+      </div>
+      <div class="preschool-actions">
+        <a href="#" class="btn btn-pink">Enquire now</a>
+        <a href="#" class="text-link">View preschool details<span class="link-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="12" viewBox="0 0 18 12" fill="none"><path d="M0.75 5.75671H15.75" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M12.3125 0.75L17.0938 5.75672L12.3125 10.7634" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+      </div>
+    </div>
+    <div class="preschool-right">
+      <!-- z:1 — rings background -->
+      <div class="orbit-img">
+        <img src="assets/images/preschool/orbit-rings.svg" alt="">
+      </div>
+      <!-- z:2 — pills sit on top of rings -->
+      <div class="p-pill pill-explore">
+        <div class="p-ico"><img src="assets/images/preschool/icon-exploration.svg" alt=""></div>
+        <span>Exploration</span>
+      </div>
+      <div class="p-pill pill-move">
+        <div class="p-ico"><img src="assets/images/preschool/icon-movement.svg" alt=""></div>
+        <span>Movement</span>
+      </div>
+      <div class="p-pill pill-imagine">
+        <div class="p-ico"><img src="assets/images/preschool/icon-imagination.svg" alt=""></div>
+        <span>Imagination</span>
+      </div>
+      <div class="p-pill pill-interact">
+        <div class="p-ico"><img src="assets/images/preschool/icon-interaction.svg" alt=""></div>
+        <span>Interaction</span>
+      </div>
+      <!-- z:3 — photo on top of pills -->
+      <div class="orbit-photo">
+        <img src="assets/images/preschool/orbit-photo.png" alt="Children learning">
+      </div>
+      <!-- z:4 — sparkles topmost -->
+      <div class="preschool-sp ps-blue"><img src="assets/images/preschool/sparkle-blue.svg" alt="" style="width:100%;height:100%"></div>
+      <div class="preschool-sp ps-green"><img src="assets/images/preschool/sparkle-green.svg" alt="" style="width:100%;height:100%"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ SCHOOL ═══════════ -->
+<section class="school">
+  <div class="school-header">
+    <p class="eyebrow">School</p>
+    <h2>The journey <em>continues</em></h2>
+  </div>
+  <div class="school-inner">
+    <div class="school-left">
+      <p class="school-body">The same game-based, Reggio-Emilia foundation that makes our preschool exceptional carries through every grade — no jarring transitions, just continuous, joyful growth.</p>
+      <p class="school-body">Children who begin their educational journey with us in preschool grow into confident, curious, and capable young individuals by the time they reach secondary school, equipped with the skills and mindset to thrive in their academic and personal lives.</p>
+      <div class="school-actions">
+        <a href="#" class="btn btn-teal">Enquire now</a>
+        <a href="#" class="text-link">View school details<span class="link-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="12" viewBox="0 0 18 12" fill="none"><path d="M0.75 5.75671H15.75" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M12.3125 0.75L17.0938 5.75672L12.3125 10.7634" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+      </div>
+    </div>
+    <div class="school-right">
+      <div class="s-timeline">
+        <div class="s-timeline-line"></div>
+        <div class="s-row">
+          <div class="s-node">
+            <img class="s-dot" src="https://www.figma.com/api/mcp/asset/e3a2ac36-2a41-4270-9f16-c0dbac3efb4f" alt="">
+          </div>
+          <div class="s-card-wrap">
+            <div class="s-card">
+              <div class="s-card-sub">Smooth Transition</div>
+              <div class="s-card-label">Primary School</div>
+              <div class="tags">
+                <span class="tag tag-purple">Game-based learning</span>
+                <span class="tag tag-purple">Foundational literacy</span>
+                <span class="tag tag-purple">Small classrooms</span>
+                <span class="tag tag-purple">Play-to-structure</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="s-row">
+          <div class="s-node">
+            <img class="s-dot" src="https://www.figma.com/api/mcp/asset/6c597ace-f5cd-41a9-a436-fa4e8b01517f" alt="">
+          </div>
+          <div class="s-card-wrap">
+            <div class="s-card">
+              <div class="s-card-sub">Thinking Deeper</div>
+              <div class="s-card-label">Upper Primary</div>
+              <div class="tags">
+                <span class="tag tag-teal">Critical thinking</span>
+                <span class="tag tag-teal">Real-world projects</span>
+                <span class="tag tag-teal">STEM + creativity</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="s-row">
+          <div class="s-node">
+            <img class="s-dot" src="https://www.figma.com/api/mcp/asset/435991b9-d351-441b-b160-91897a77d280" alt="">
+          </div>
+          <div class="s-card-wrap">
+            <div class="s-card">
+              <div class="s-card-sub">Young Changemakers</div>
+              <div class="s-card-label">Secondary School</div>
+              <div class="tags">
+                <span class="tag tag-pink">Leadership</span>
+                <span class="tag tag-pink">Community impact</span>
+                <span class="tag tag-pink">Life skills</span>
+                <span class="tag tag-pink">YTAP programme</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ DISCOVERY ═══════════ -->
+<section class="discovery">
+  <div class="discovery-header">
+    <p class="eyebrow">Program</p>
+    <h2>The year of <em>discovery</em></h2>
+  </div>
+  <div class="discovery-inner">
+    <div class="discovery-left">
+      <p class="discovery-quote">"We believe the goal of learning for a child is to lead a purpose-based life."</p>
+      <p class="discovery-body">After 10th grade, children are forced to select a stream they may have neither consciously chosen nor been prepared for. The system focuses on exams, not on life.</p>
+      <p class="discovery-body">Year of Discovery is Sparkling Mindz's answer — a full year for students to explore who they are and what they love before making that choice.</p>
+      <div class="discovery-stats">
+        <div class="d-stat stat-teal">
+          <span class="sv">1 Year</span><span class="sd"></span><span class="sl">Dedicated discovery programme</span>
+        </div>
+        <div class="d-stat stat-blue">
+          <span class="sv">3 Tracks</span><span class="sd"></span><span class="sl">Arts · Science · Commerce</span>
+        </div>
+        <div class="d-stat stat-purple">
+          <span class="sv">Purpose</span><span class="sd"></span><span class="sl">Not just a stream, a calling</span>
+        </div>
+      </div>
+      <div class="discovery-actions">
+        <a href="#" class="btn btn-purple">Explore the program</a>
+        <a href="#" class="text-link">View all programs<span class="link-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="12" viewBox="0 0 18 12" fill="none"><path d="M0.75 5.75671H15.75" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M12.3125 0.75L17.0938 5.75672L12.3125 10.7634" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+      </div>
+    </div>
+    <div class="discovery-right">
+      <img class="disc-photo" src="https://www.figma.com/api/mcp/asset/c9e148fe-91dd-403a-b506-73f0c2084096" alt="Year of Discovery">
+      <div class="disc-badge">
+        <div class="disc-badge-icon">
+          <img src="https://www.figma.com/api/mcp/asset/3cf54083-3409-4180-b489-f54a720a4d74" alt="" style="width:22px;height:22px">
+        </div>
+        <span class="disc-badge-label">After 10th Grade</span>
+      </div>
+      <div class="disc-sp-gold"><img src="https://www.figma.com/api/mcp/asset/5fe7bd8a-1851-451f-a5fe-50eafa3e562d" alt=""></div>
+      <div class="disc-sp-teal"><img src="https://www.figma.com/api/mcp/asset/75a885a1-8f24-477b-85a7-68d76f232a98" alt=""></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ TESTIMONIALS ═══════════ -->
+<section class="testimonials">
+  <p class="eyebrow">Parent Stories</p>
+  <h2>Families who love<br><span class="line2">Sparkling Mindz</span></h2>
+  <div class="testi-cards">
+    <!-- Card 1 -->
+    <div class="testi-card">
+      <div>
+        <div class="stars">
+          <img src="https://www.figma.com/api/mcp/asset/4a5ca0db-89dd-44fb-833e-c513b30986ec" alt="★">
+          <img src="https://www.figma.com/api/mcp/asset/4a5ca0db-89dd-44fb-833e-c513b30986ec" alt="★">
+          <img src="https://www.figma.com/api/mcp/asset/4a5ca0db-89dd-44fb-833e-c513b30986ec" alt="★">
+          <img src="https://www.figma.com/api/mcp/asset/4a5ca0db-89dd-44fb-833e-c513b30986ec" alt="★">
+          <img src="https://www.figma.com/api/mcp/asset/4a5ca0db-89dd-44fb-833e-c513b30986ec" alt="★">
+        </div>
+        <p class="testi-quote" style="margin-top:10px">"The daily updates with photos made all the difference. We feel part of our son's learning every single day. The game-based approach is visible in how he plays at home."</p>
+        <a class="testi-read" style="margin-top:10px">Read more</a>
+      </div>
+      <div class="testi-author">
+        <div class="testi-avatar"><img src="https://www.figma.com/api/mcp/asset/aaac4ec6-54e6-4359-ae82-d9f1741f163c" alt="Priya Menon"></div>
+        <div>
+          <div class="testi-name">Priya Menon</div>
+          <div class="testi-loc">Kalyan Nagar</div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 2 -->
+    <div class="testi-card">
+      <div>
+        <div class="stars">
+          <img src="https://www.figma.com/api/mcp/asset/4a5ca0db-89dd-44fb-833e-c513b30986ec" alt="★">
+          <img src="https://www.figma.com/api/mcp/asset/4a5ca0db-89dd-44fb-833e-c513b30986ec" alt="★">
+          <img src="https://www.figma.com/api/mcp/asset/4a5ca0db-89dd-44fb-833e-c513b30986ec" alt="★">
+          <img src="https://www.figma.com/api/mcp/asset/4a5ca0db-89dd-44fb-833e-c513b30986ec" alt="★">
+          <img src="https://www.figma.com/api/mcp/asset/4a5ca0db-89dd-44fb-833e-c513b30986ec" alt="★">
+        </div>
+        <p class="testi-quote" style="margin-top:10px">"The daily updates with photos made all the difference. We feel part of our son's learning every single day. The game-based approach is visible in how he plays at home."</p>
+        <a class="testi-read" style="margin-top:10px">Read more</a>
+      </div>
+      <div class="testi-author">
+        <div class="testi-avatar"><img src="https://www.figma.com/api/mcp/asset/415878c3-8907-4317-9671-aeca1e97a5eb" alt="Rajesh Kumar"></div>
+        <div>
+          <div class="testi-name">Rajesh Kumar</div>
+          <div class="testi-loc">Kalyan Nagar</div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 3 -->
+    <div class="testi-card">
+      <div>
+        <div class="stars">
+          <img src="https://www.figma.com/api/mcp/asset/4a5ca0db-89dd-44fb-833e-c513b30986ec" alt="★">
+          <img src="https://www.figma.com/api/mcp/asset/4a5ca0db-89dd-44fb-833e-c513b30986ec" alt="★">
+          <img src="https://www.figma.com/api/mcp/asset/4a5ca0db-89dd-44fb-833e-c513b30986ec" alt="★">
+          <img src="https://www.figma.com/api/mcp/asset/4a5ca0db-89dd-44fb-833e-c513b30986ec" alt="★">
+          <img src="https://www.figma.com/api/mcp/asset/4a5ca0db-89dd-44fb-833e-c513b30986ec" alt="★">
+        </div>
+        <p class="testi-quote" style="margin-top:10px">"The daily updates with photos made all the difference. We feel part of our son's learning every single day. The game-based approach is visible in how he plays at home."</p>
+        <a class="testi-read" style="margin-top:10px">Read more</a>
+      </div>
+      <div class="testi-author">
+        <div class="testi-avatar"><img src="https://www.figma.com/api/mcp/asset/e4582059-5af7-4ece-94ff-0d83ac529de3" alt="Anitha Sharma"></div>
+        <div>
+          <div class="testi-name">Anitha Sharma</div>
+          <div class="testi-loc">Kalyan Nagar</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="testi-cta">
+    <a href="#" class="text-link">View all testimonials<span class="link-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="12" viewBox="0 0 18 12" fill="none"><path d="M0.75 5.75671H15.75" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M12.3125 0.75L17.0938 5.75672L12.3125 10.7634" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+  </div>
+</section>
+
+<!-- ═══════════ INSTAGRAM ═══════════ -->
+<section class="instagram">
+  <div class="instagram-head">
+    <h2>Life at <em>Sparkling mindz</em></h2>
+  </div>
+  <p class="instagram-handle">@globalsparklingmindz</p>
+  <div class="insta-grid">
+    <div class="insta-photo"><img src="https://www.figma.com/api/mcp/asset/a797d2ff-f59b-4f6f-a12b-847f14d29314" alt="Life at Sparkling Mindz 1"></div>
+    <div class="insta-photo"><img src="https://www.figma.com/api/mcp/asset/933f5da8-b69b-47b9-8857-119cb52f7182" alt="Life at Sparkling Mindz 2"></div>
+    <div class="insta-photo"><img src="https://www.figma.com/api/mcp/asset/107777bc-bffa-447b-bc97-2ce63fb48914" alt="Life at Sparkling Mindz 3"></div>
+    <div class="insta-photo"><img src="https://www.figma.com/api/mcp/asset/95aded71-f6de-4593-b896-e17066ff3b8d" alt="Life at Sparkling Mindz 4"></div>
+  </div>
+  <div class="instagram-cta">
+    <a href="#" class="text-link">See our instagram<span class="link-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="12" viewBox="0 0 18 12" fill="none"><path d="M0.75 5.75671H15.75" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M12.3125 0.75L17.0938 5.75672L12.3125 10.7634" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+  </div>
+</section>
+
+<!-- ═══════════ BLOG ═══════════ -->
+<section class="blog">
+  <div class="blog-head">
+    <h2>Insights for<br><em>growing families</em></h2>
+  </div>
+  <div class="blog-grid">
+    <div class="blog-card">
+      <div class="blog-thumb">
+        <div class="bt-grad" style="background:linear-gradient(150.69deg,rgb(184,228,249) 0%,rgb(108,200,240) 100%)"></div>
+        <img src="https://www.figma.com/api/mcp/asset/0973294b-01c4-4f83-b675-a3502243a043" alt="">
+      </div>
+      <div class="blog-body">
+        <span class="blog-cat">Preschool Stories</span>
+        <h4 class="blog-title">Why Play Is the Most Serious Work a Child Can Do</h4>
+        <p class="blog-excerpt">Exploring the science behind game-based learning and what it means for your child's development.</p>
+        <a href="#" class="blog-read">Read More<span class="link-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="10" viewBox="0 0 18 12" fill="none"><path d="M0.75 5.75671H15.75" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M12.3125 0.75L17.0938 5.75672L12.3125 10.7634" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+      </div>
+    </div>
+    <div class="blog-card">
+      <div class="blog-thumb">
+        <div class="bt-grad" style="background:linear-gradient(150.69deg,rgb(212,240,160) 0%,rgb(122,186,26) 100%)"></div>
+        <img src="https://www.figma.com/api/mcp/asset/417eb152-e6cf-4958-a876-64c364cad2b7" alt="">
+      </div>
+      <div class="blog-body">
+        <span class="blog-cat">Parenting</span>
+        <h4 class="blog-title">How to Extend Learning at Home: A Parent's Guide</h4>
+        <p class="blog-excerpt">Simple, joyful ways to continue the Sparkling Mindz experience beyond school hours.</p>
+        <a href="#" class="blog-read">Read More<span class="link-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="10" viewBox="0 0 18 12" fill="none"><path d="M0.75 5.75671H15.75" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M12.3125 0.75L17.0938 5.75672L12.3125 10.7634" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+      </div>
+    </div>
+    <div class="blog-card">
+      <div class="blog-thumb">
+        <div class="bt-grad" style="background:linear-gradient(150.69deg,rgb(253,232,184) 0%,rgb(245,166,35) 100%)"></div>
+        <img src="https://www.figma.com/api/mcp/asset/6ba11488-cd05-4477-bbc5-ea010ca637d9" alt="">
+      </div>
+      <div class="blog-body">
+        <span class="blog-cat">Child Development</span>
+        <h4 class="blog-title">The Reggio-Emilia Approach: What Parents Need to Know</h4>
+        <p class="blog-excerpt">A plain-language guide to the philosophy that shapes everything we do at Sparkling Mindz.</p>
+        <a href="#" class="blog-read">Read More<span class="link-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="10" viewBox="0 0 18 12" fill="none"><path d="M0.75 5.75671H15.75" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M12.3125 0.75L17.0938 5.75672L12.3125 10.7634" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+      </div>
+    </div>
+    <div class="blog-card">
+      <div class="blog-thumb">
+        <div class="bt-grad" style="background:linear-gradient(150.69deg,rgb(224,200,245) 0%,rgb(155,109,204) 100%)"></div>
+        <img src="https://www.figma.com/api/mcp/asset/40f52fec-2a59-4fa8-bf58-dcd82d467472" alt="">
+      </div>
+      <div class="blog-body">
+        <span class="blog-cat">School Readiness</span>
+        <h4 class="blog-title">Is My Child Ready for Grade 1? Signs to Look For</h4>
+        <p class="blog-excerpt">Beyond academics — the emotional, social, and physical readiness markers that truly matter.</p>
+        <a href="#" class="blog-read">Read More<span class="link-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="10" viewBox="0 0 18 12" fill="none"><path d="M0.75 5.75671H15.75" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M12.3125 0.75L17.0938 5.75672L12.3125 10.7634" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+      </div>
+    </div>
+  </div>
+  <div class="blog-cta">
+    <a href="#" class="text-link">View all articles<span class="link-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="12" viewBox="0 0 18 12" fill="none"><path d="M0.75 5.75671H15.75" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M12.3125 0.75L17.0938 5.75672L12.3125 10.7634" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+  </div>
+</section>
+
+<!-- ═══════════ CTA BANNER ═══════════ -->
+<section class="cta-banner">
+  <!-- Decorative kid photos -->
+  <div class="cta-deco cta-d1"><img src="https://www.figma.com/api/mcp/asset/8ffcb755-36ca-44e9-92ac-998e9a55cc6e" alt=""></div>
+  <div class="cta-deco cta-d2"><img src="https://www.figma.com/api/mcp/asset/d2f2c72d-cd8f-4aa9-9a64-e42e6ba1c251" alt=""></div>
+  <div class="cta-deco cta-d3"><img src="https://www.figma.com/api/mcp/asset/fe99ffdd-802b-4e74-bc38-cd9df60bd5fa" alt=""></div>
+  <div class="cta-deco cta-d4"><img src="https://www.figma.com/api/mcp/asset/c65b7410-ee67-4dc5-92cc-c30ea42115af" alt=""></div>
+  <!-- Sparkle decorations -->
+  <div class="cta-sparkle sp1"><img src="https://www.figma.com/api/mcp/asset/1571a0b8-7b58-4422-b84c-c7528ed41b8c" alt=""></div>
+  <div class="cta-sparkle sp2"><img src="https://www.figma.com/api/mcp/asset/ed74e608-6e85-44ea-a61c-c6aec9f1dffd" alt=""></div>
+  <div class="cta-sparkle sp3"><img src="https://www.figma.com/api/mcp/asset/1cd33a6e-f27d-442d-b184-71d557faf351" alt=""></div>
+  <div class="cta-sparkle sp4"><img src="https://www.figma.com/api/mcp/asset/3c2270e1-3c9d-421d-bc27-e1df5b488a89" alt=""></div>
+  <h2>
+    <span class="line1">Learning</span>
+    should kindle <span class="amber">curiosity,</span><br>not just fill notebooks.
+  </h2>
+  <div class="cta-actions">
+    <a href="#" class="btn btn-blue">Enquire now</a>
+    <a href="#" class="btn btn-outline">Download Brochure</a>
+  </div>
+</section>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer>
+  <div class="f-deco fd1"><img src="https://www.figma.com/api/mcp/asset/7d3ddde4-0954-46d9-951f-9b4ec8ac3540" alt=""></div>
+  <div class="f-deco fd2"><img src="https://www.figma.com/api/mcp/asset/4ff16cc2-5ad8-4754-a0d8-b8ed22225a19" alt=""></div>
+
+  <div class="footer-main">
+    <div class="footer-brand">
+      <div class="footer-logo">
+        <img src="https://www.figma.com/api/mcp/asset/8f1d5e4e-da29-4071-943e-b1e135b44307" alt="Sparkling Mindz">
+        <div>
+          <div class="footer-brand-name">Sparkling Mindz</div>
+          <div class="footer-brand-tag">Global School</div>
+        </div>
+      </div>
+      <p class="footer-desc">Inspiring Confident Learners and Changemakers since 2011. Nurturing young minds for a brighter tomorrow.</p>
+      <div>
+        <div class="footer-social-lbl">Follow Us</div>
+        <div class="social-icons">
+          <!-- Instagram -->
+          <a href="#" class="s-icon"><img src="assets/icons/instagram.svg" alt="Instagram" style="width:20px;height:20px"></a>
+          <!-- Facebook -->
+          <a href="#" class="s-icon"><img src="assets/icons/facebook.svg" alt="Facebook" style="width:20px;height:20px"></a>
+          <!-- LinkedIn -->
+          <a href="#" class="s-icon"><img src="assets/icons/linkedin.svg" alt="LinkedIn" style="width:20px;height:20px"></a>
+          <!-- X / Twitter -->
+          <a href="#" class="s-icon">
+            <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:18px;height:18px;opacity:.7">
+              <path d="M15.27 2.5H17.93L12.26 8.98L18.93 17.5H13.74L9.62 12.09L4.91 17.5H2.24L8.29 10.56L1.89 2.5H7.22L10.95 7.45L15.27 2.5ZM14.35 15.94H15.82L6.53 4.01H4.95L14.35 15.94Z" fill="white" opacity="0.7"/>
+            </svg>
+          </a>
+          <!-- YouTube -->
+          <a href="#" class="s-icon">
+            <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:18px;height:18px;opacity:.7">
+              <path d="M17.8 5.6C17.6 4.8 17 4.2 16.2 4C14.8 3.6 10 3.6 10 3.6C10 3.6 5.2 3.6 3.8 4C3 4.2 2.4 4.8 2.2 5.6C1.8 7 1.8 10 1.8 10C1.8 10 1.8 13 2.2 14.4C2.4 15.2 3 15.8 3.8 16C5.2 16.4 10 16.4 10 16.4C10 16.4 14.8 16.4 16.2 16C17 15.8 17.6 15.2 17.8 14.4C18.2 13 18.2 10 18.2 10C18.2 10 18.2 7 17.8 5.6Z" stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M8.2 12.6L12.8 10L8.2 7.4V12.6Z" stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-col" style="width:180px">
+      <div class="footer-col-title">Quick Links</div>
+      <div class="footer-links-list">
+        <a href="#">About Us</a><a href="#">Preschool</a><a href="#">School</a>
+        <a href="#">Programs</a><a href="#">Events</a><a href="#">Testimonials</a>
+        <a href="#">Blog</a><a href="#">Careers</a><a href="#">FAQ</a>
+      </div>
+    </div>
+
+    <div class="footer-col" style="width:280px">
+      <div class="footer-col-title">Contact Us</div>
+      <div>
+        <div class="contact-item">
+          <div class="c-icon"><img src="https://www.figma.com/api/mcp/asset/d582857b-bd12-4fbb-8053-bdf1abcc0745" alt=""></div>
+          <div>
+            <div class="c-name">Sparkling Mindz - Hennur</div>
+            <div class="c-addr">8/4, Kannuru, Bidarahalli Hobli, Hennur-Bagalur Road, Bangalore 562149</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="c-icon"><img src="https://www.figma.com/api/mcp/asset/a6cce582-2570-4c53-8a39-488b3f19b250" alt=""></div>
+          <div>
+            <a href="tel:+918041115607" class="c-link">+91 80 4111 5607</a>
+            <a href="tel:+919900080331" class="c-link">+91 9900080331</a>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="c-icon"><img src="https://www.figma.com/api/mcp/asset/fe7d1a6a-58cb-4310-ba57-b60382866426" alt=""></div>
+          <div>
+            <a href="mailto:info@sparklingmindz.com" class="c-link">info@sparklingmindz.com</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <span>© 2011-2026 Sparkling Mindz. All rights reserved.</span>
+    <div class="footer-bottom-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Use</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var header = document.querySelector('.header-wrap');
+  window.addEventListener('scroll', function(){
+    header.classList.toggle('scrolled', window.scrollY > 40);
+  }, {passive:true});
+})();
+
+(function(){
+  var btn = document.getElementById('hamburger');
+  var menu = document.getElementById('mobileMenu');
+  if(!btn || !menu) return;
+  btn.addEventListener('click', function(){
+    btn.classList.toggle('open');
+    menu.classList.toggle('open');
+  });
+  menu.addEventListener('click', function(e){
+    if(e.target.tagName === 'A'){
+      btn.classList.remove('open');
+      menu.classList.remove('open');
+    }
+  });
+})();
+
+(function(){
+  function positionTimelineLine(){
+    var dots = document.querySelectorAll('.s-dot');
+    var line = document.querySelector('.s-timeline-line');
+    if(!dots.length || !line) return;
+    var timeline = line.parentElement;
+    var tlRect = timeline.getBoundingClientRect();
+    var firstRect = dots[0].getBoundingClientRect();
+    var lastRect = dots[dots.length - 1].getBoundingClientRect();
+    var top = firstRect.top - tlRect.top + firstRect.height / 2;
+    var bottom = tlRect.bottom - lastRect.bottom + lastRect.height / 2;
+    line.style.top = top + 'px';
+    line.style.bottom = bottom + 'px';
+  }
+  document.addEventListener('DOMContentLoaded', positionTimelineLine);
+  window.addEventListener('resize', positionTimelineLine);
+})();
+
+(function(){
+  if(!('IntersectionObserver' in window)) return;
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var selector = [
+    '.hero-main-img','.hero-small-img','.hero-award',
+    '.space-card','.blog-card','.insta-photo',
+    '.value-card','.s-card','.feat-card','.step','.d-stat',
+    '.preschool-right','.orbit-photo','.p-pill',
+    '.about-right','.disc-photo','.disc-badge',
+    '.testi-card','.events-card'
+  ].join(',');
+  var els = document.querySelectorAll(selector);
+  els.forEach(function(el,i){
+    el.classList.add('reveal');
+    el.style.transitionDelay = ((i%6)*60) + 'ms';
+  });
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        e.target.classList.add('in-view');
+        io.unobserve(e.target);
+      }
+    });
+  },{threshold:.12, rootMargin:'0px 0px -40px 0px'});
+  els.forEach(function(el){ io.observe(el); });
+})();
+
+(function(){
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var groups = [
+    {sel:'.hero-sparkle', speed:40},
+    {sel:'.about-sparkle', speed:30},
+    {sel:'.preschool-sp', speed:35},
+    {sel:'.disc-sparkle', speed:30},
+    {sel:'.cta-sparkle', speed:45},
+    {sel:'.sp-deco', speed:25},
+    {sel:'.orbit-img', speed:15},
+    {sel:'.cambridge-badge', speed:-20},
+    {sel:'.hero-award', speed:-18}
+  ];
+  var items = [];
+  groups.forEach(function(g){
+    document.querySelectorAll(g.sel).forEach(function(el){
+      el.setAttribute('data-parallax','');
+      items.push({el:el, speed:g.speed});
+    });
+  });
+  if(!items.length) return;
+  var vh = window.innerHeight, ticking = false;
+  function onResize(){ vh = window.innerHeight; }
+  function update(){
+    ticking = false;
+    for(var i=0;i<items.length;i++){
+      var it = items[i];
+      var r = it.el.getBoundingClientRect();
+      var progress = ((r.top + r.height/2) - vh/2) / vh;
+      var clamped = Math.max(-1.2, Math.min(1.2, progress));
+      it.el.style.setProperty('--py', (-clamped * it.speed).toFixed(1) + 'px');
+    }
+  }
+  function onScroll(){ if(!ticking){ requestAnimationFrame(update); ticking = true; } }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  window.addEventListener('resize', onResize);
+  update();
+})();
+</script>
+</body>
+</html>
