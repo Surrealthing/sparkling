@@ -297,3 +297,158 @@ All images come from Figma MCP: `https://www.figma.com/api/mcp/asset/{uuid}`
 - [ ] Blog category tags use light blue pill (`.blog-cat`)
 - [ ] No `filter:brightness()` on hover states for colored buttons
 - [ ] Copy footer HTML + sparkle decorations from index.html
+
+---
+
+## Mobile Responsive Rules (added after preschool pass)
+
+### Breakpoints
+- **Tablet**: `@media (max-width: 1024px)` — 2-col layouts collapse to `1fr 1fr` or adjusted grids
+- **Mobile**: `@media (max-width: 768px)` — single column, carousels, pill/sparkle repositioning
+- On mobile, `body { min-width: 1200px }` is lifted via a parent override allowing fluid width
+
+### Horizontal Card Carousels (Spaces, Instagram, Blog)
+Uniform 70/30 formula — first card shows full, next 30% peeks:
+```css
+.grid {
+  display:flex; overflow-x:auto;
+  justify-content:flex-start;                 /* MUST override desktop justify-content:center */
+  scroll-snap-type:x mandatory;
+  scroll-padding-left:20px;                   /* makes snap respect the 20px gutter */
+  padding-left:20px!important; padding-right:20px;
+  gap:14px;                                   /* insta uses 12px */
+  scrollbar-width:none;
+}
+.grid::-webkit-scrollbar{display:none}
+.card {
+  flex:0 0 calc(70vw - 34px);                 /* 20px + card + 14px gap + 30vw peek = 100vw */
+  width:calc(70vw - 34px);
+  scroll-snap-align:start; flex-shrink:0;
+}
+```
+**Gotchas we hit and fixed:**
+- Desktop `justify-content:center` must be explicitly reset to `flex-start` on mobile, otherwise overflow centers and cuts off card 1.
+- `scroll-snap-align:start` without `scroll-padding-left` snaps cards flush to container edge and eats the 20px gutter. Always set `scroll-padding-left:20px` on the scroll container.
+- Use `padding-left:20px!important` because sections often carry their own padding via the `max(24px, calc(...))` formula; for mobile carousels, zero the section padding and put it back on the grid.
+
+### Preschool Orbit (Rings + Photo) Mobile Pattern
+The Figma layout is a 521×452 container with absolutely positioned rings, photo, pills, and sparkles. On mobile, keep the Figma layout intact and scale the whole thing with CSS `zoom`:
+```css
+.preschool-right{
+  width:521px; height:452px; margin:0 auto; overflow:visible;
+  zoom:0.68;                                  /* scales size AND layout box */
+}
+.orbit-img  { left:calc(50% - 226px); top:0;   width:452px; height:452px }   /* rings SVG */
+.orbit-photo{ left:calc(50% - 132px); top:94px;width:264px; height:264px }   /* concentric photo */
+```
+- `zoom` is preferred over `transform:scale()` because it shrinks the box dimensions (page flows correctly). Supported in all modern browsers incl. Firefox 126+.
+- Center both the 452 SVG and the 264 photo via `calc(50% - halfwidth)` to keep all three circles (two outlines + filled photo) concentric on the container's horizontal center.
+- For vertical concentricity: ring center Y = `top + 226`, photo center Y = `top + 132`. Setting ring `top:0` and photo `top:94` puts both centers at Y=226 → concentric.
+- Pills and sparkles stay at their Figma absolute positions; they scale along via `zoom`.
+
+### Sparkle Positioning on Mobile
+On mobile, desktop sparkles are typically too large and positioned using desktop-relative coords that overflow the viewport. Rules:
+- **Shrink** to ~20–32px (from 49–81px desktop).
+- **Reposition** with viewport-relative units (`right:20px`, `left:8px`) or `calc(50% - …)` to hug the nearest image edge instead of floating far from it.
+- **Never `display:none`** sparkles on mobile — the brand relies on them. Shrink and nudge instead.
+
+---
+
+## Asset Strategy
+
+### Local assets (MANDATORY)
+All images must be served from the repo. Figma MCP CDN URLs (`https://www.figma.com/api/mcp/asset/{uuid}`) **expire in ~7 days**. Pipeline:
+1. Grep `index.html` for any `figma.com/api/mcp/asset/` references.
+2. `curl` each UUID into `assets/images/figma/{uuid}.<ext>`.
+3. Detect the real extension via `file --mime-type` (many Figma assets are SVG served without a `.svg` extension — always check the first bytes for `<svg`).
+4. Rewrite the `src=` in HTML to `assets/images/figma/<uuid>.<ext>`.
+
+### Asset folder layout
+```
+assets/
+  icons/               # stable icons that won't change (social, generic)
+  images/
+    figma/             # raw Figma exports keyed by UUID (no human naming needed)
+    preschool/         # hand-named section assets (rings, sparkles, icons)
+    values/            # value-card icons (joyful-learning.svg, etc.)
+```
+
+### Filename tip
+When the user drops an asset via `/Users/.../Desktop/Name.svg`, watch for **non-breaking space** (`c2 a0`) in the filename (shows up in hex as `Name\xc2\xa0.svg`). Use a glob (`Name*.svg`) to cp — quoted filenames with regular spaces will fail.
+
+---
+
+## Micro-animation System
+
+Two layers added globally via the last `<style>` block + last `<script>` block:
+
+### 1. Scroll-reveal (scale + fade + lift)
+```css
+@media (prefers-reduced-motion: no-preference){
+  .reveal{opacity:0; transform:scale(.86) translateY(16px);
+          transition:opacity .8s ease-out, transform .8s cubic-bezier(.22,.75,.2,1)}
+  .reveal.in-view{opacity:1; transform:none}
+}
+```
+JS auto-tags a curated list of selectors (hero imgs, cards, preschool photo, testimonials, events, steps, d-stats, etc.) with `.reveal` + a staggered `transition-delay` of `(i%6)*60ms`, then an `IntersectionObserver` (threshold 0.12) flips `.in-view` on entry.
+
+### 2. Sparkle twinkle (continuous, staggered)
+```css
+@keyframes twinkle{0%,100%{opacity:.85;transform:scale(1) rotate(0)}
+                   50%  {opacity:1;  transform:scale(1.18) rotate(6deg)}}
+.hero-sparkle img, .about-sparkle img, .preschool-sp img,
+.disc-sparkle img, .cta-sparkle img, .sp-deco img{
+  animation: twinkle 3.2s ease-in-out infinite;
+  transform-origin:center; will-change:transform,opacity;
+}
+/* stagger delays per-element so they don't pulse in unison */
+```
+Apply twinkle on the inner `<img>`, not the container — the container may carry parallax `transform`.
+
+### 3. Parallax (subtle, scroll-driven)
+Non-reveal elements get `data-parallax` set by JS and receive:
+```css
+[data-parallax]{transform:translate3d(0,var(--py,0),0); transition:transform .08s linear; will-change:transform}
+```
+JS loops through groups with speed values (15–45px range), computes `(elemCenter − viewportCenter)/vh` progress on scroll (rAF-throttled, passive listener), and writes `--py` per element. Targets: all sparkle containers, `.orbit-img`, `.cambridge-badge`, `.hero-award`. **Never parallax a `.reveal` element** — transforms will fight.
+
+All motion respects `prefers-reduced-motion: reduce`.
+
+---
+
+## Working Method & Feedback Style (Ajith)
+
+When building or extending pages for this project, match this collaboration rhythm:
+
+### How feedback arrives
+- **Screenshots with tiny directives** — "a bit up", "smaller, closer to images", "add left margin", "central align". Crops are narrow; the fix is almost always a single CSS property tweak, not a redesign. Resist the urge to refactor.
+- **One thing at a time.** Ajith iterates: ship small, look, nudge again. Don't batch speculative fixes into one edit.
+- **Pixel-level fidelity to Figma is the baseline.** If something looks off, check the Figma node first (`get_design_context` / `get_metadata`), don't guess.
+
+### What to do
+- Make the smallest edit that resolves the observation. A padding change is not an excuse to restructure a section.
+- When matching Figma, **keep the Figma absolute positions intact** and scale on mobile with `zoom` — don't reinvent the layout per breakpoint.
+- When the user says "centered", verify with math: for concentric circles, `top + radius == containerCenterY` for every layer.
+- After edits that touch many files (asset downloads, URL rewrites), commit + push so the live Vercel URL reflects the change.
+
+### What to avoid
+- **No warm / golden tints.** Amber, copper, muted gold are out. When color is needed, lean on the cool brand tokens (`--blue`, `--purple`, `--teal`, `--pink`).
+- **No pastel dilution.** Use the saturated brand colors at full strength; tint backgrounds are already soft (see gradient table).
+- **No generic marketing copy.** Don't invent taglines or stats. Pull from the content doc, or leave copy unchanged.
+- **No template layouts.** If a section doesn't exist in Figma, don't improvise one — ask.
+- **No `display:none` as a mobile shortcut.** Shrink and reposition instead; the brand's charm is in the sparkles and decorations.
+- **Don't narrate.** Keep responses short; state the fix, stop.
+
+### Iteration contract
+When Ajith sends a screenshot + one-line directive:
+1. Identify the single property (or two) that moves the rendered state toward the directive.
+2. Edit it.
+3. One-sentence confirmation of what changed and where.
+4. Wait for the next screenshot.
+
+---
+
+## Deployment
+
+- **GitHub**: https://github.com/Surrealthing/sparkling (branch `main`)
+- **Vercel**: project `sparkling` under `surrealthings-projects`. Deploy via `vercel --prod --yes`. New projects have **Deployment Protection** enabled by default — disable in Settings → Deployment Protection to make the URL public.
