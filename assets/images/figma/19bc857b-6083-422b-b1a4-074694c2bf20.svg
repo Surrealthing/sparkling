@@ -1,0 +1,18 @@
+<svg preserveAspectRatio="none" width="100%" height="100%" overflow="visible" style="display: block;" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Group 8">
+<circle id="Ellipse 8" cx="24" cy="24" r="24" fill="var(--fill-0, white)" fill-opacity="0.62"/>
+<g id="Student" clip-path="url(#clip0_0_23)">
+<g id="Vector">
+</g>
+<path id="Vector_2" d="M13.5 17V25.75" stroke="var(--stroke-0, #00C9B1)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_3" d="M16.125 33.625C17.8422 30.9913 20.6214 29.25 24 29.25C27.3786 29.25 30.1578 30.9913 31.875 33.625" stroke="var(--stroke-0, #00C9B1)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_4" d="M34.5 17L24 20.5L13.5 17L24 13.5L34.5 17Z" stroke="var(--stroke-0, #00C9B1)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_5" d="M28.5216 18.9928C29.3229 19.8698 29.8519 20.9608 30.0442 22.1331C30.2365 23.3054 30.0838 24.5082 29.6046 25.5952C29.1254 26.6822 28.3404 27.6064 27.3453 28.2553C26.3502 28.9041 25.1879 29.2495 24 29.2495C22.8121 29.2495 21.6498 28.9041 20.6547 28.2553C19.6596 27.6064 18.8746 26.6822 18.3954 25.5952C17.9162 24.5082 17.7635 23.3054 17.9558 22.1331C18.1481 20.9608 18.6771 19.8698 19.4784 18.9928" stroke="var(--stroke-0, #00C9B1)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</g>
+<defs>
+<clipPath id="clip0_0_23">
+<rect width="28" height="28" fill="white" transform="translate(10 10)"/>
+</clipPath>
+</defs>
+</svg>
