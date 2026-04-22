@@ -107,6 +107,15 @@ p{line-height:1.7;color:#555}
 .bl-chip{display:inline-flex;align-items:center;padding:6px 14px;border-radius:100px;border:1px solid rgba(0,0,0,.1);background:#fff;font-family:'Inter',sans-serif;font-size:13.5px;font-weight:500;color:var(--d60);cursor:pointer;transition:background .15s,color .15s,border-color .15s}
 .bl-chip:hover{border-color:rgba(0,0,0,.25);color:var(--dark)}
 .bl-chip.active{background:var(--dark);border-color:var(--dark);color:#fff}
+.bl-chip-more-wrap{position:relative;display:inline-flex}
+.bl-chip-more{gap:6px}
+.bl-chip-more svg{transition:transform .2s}
+.bl-chip-more[aria-expanded="true"] svg{transform:rotate(180deg)}
+.bl-more-menu{position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%) translateY(-4px);min-width:220px;background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:12px;box-shadow:0 12px 32px rgba(0,0,0,.08);padding:6px;display:none;flex-direction:column;gap:2px;z-index:10}
+.bl-more-menu.open{display:flex;transform:translateX(-50%) translateY(0)}
+.bl-more-item{display:block;width:100%;text-align:left;background:none;border:0;padding:8px 12px;border-radius:8px;font-family:'Inter',sans-serif;font-size:13.5px;font-weight:500;color:var(--d60);cursor:pointer;transition:background .15s,color .15s}
+.bl-more-item:hover{background:rgba(0,0,0,.04);color:var(--dark)}
+.bl-more-item.active{background:var(--dark);color:#fff}
 
 /* ─── FEATURED POST ─── */
 .bl-featured{padding:40px max(24px, calc((100% - 1200px) / 2)) 24px;background:#fff}
@@ -399,6 +408,21 @@ footer{background:#1a1a1a;position:relative;overflow:hidden}
     <button class="bl-chip">Child Development</button>
     <button class="bl-chip">Facilitator Notes</button>
     <button class="bl-chip">Community</button>
+    <div class="bl-chip-more-wrap">
+      <button class="bl-chip bl-chip-more" id="blMoreBtn" aria-expanded="false" aria-haspopup="true">
+        <span id="blMoreLabel">More</span>
+        <svg width="12" height="12" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 5L7 9L11 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="bl-more-menu" id="blMoreMenu">
+        <button class="bl-more-item">Arts &amp; Creativity</button>
+        <button class="bl-more-item">Social-Emotional Learning</button>
+        <button class="bl-more-item">Mindfulness</button>
+        <button class="bl-more-item">Research &amp; Insights</button>
+        <button class="bl-more-item">Events</button>
+        <button class="bl-more-item">Book Notes</button>
+        <button class="bl-more-item">Alumni Stories</button>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -641,13 +665,53 @@ footer{background:#1a1a1a;position:relative;overflow:hidden}
 })();
 
 (function(){
-  var chips = document.querySelectorAll('.bl-chip');
+  var chips = document.querySelectorAll('.bl-filter-row > .bl-chip');
+  var moreBtn = document.getElementById('blMoreBtn');
+  var moreMenu = document.getElementById('blMoreMenu');
+  var moreLabel = document.getElementById('blMoreLabel');
+  var items = moreMenu ? moreMenu.querySelectorAll('.bl-more-item') : [];
+
+  function clearAll(){
+    chips.forEach(function(x){ x.classList.remove('active'); });
+    items.forEach(function(x){ x.classList.remove('active'); });
+    if(moreLabel) moreLabel.textContent = 'More';
+  }
+  function closeMenu(){
+    if(!moreMenu) return;
+    moreMenu.classList.remove('open');
+    moreBtn.setAttribute('aria-expanded','false');
+  }
+
   chips.forEach(function(c){
+    if(c === moreBtn) return;
     c.addEventListener('click', function(){
-      chips.forEach(function(x){ x.classList.remove('active'); });
+      clearAll();
       c.classList.add('active');
+      closeMenu();
     });
   });
+
+  if(moreBtn){
+    moreBtn.addEventListener('click', function(e){
+      e.stopPropagation();
+      var open = moreMenu.classList.toggle('open');
+      moreBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    items.forEach(function(it){
+      it.addEventListener('click', function(e){
+        e.stopPropagation();
+        clearAll();
+        it.classList.add('active');
+        moreBtn.classList.add('active');
+        moreLabel.textContent = it.textContent;
+        closeMenu();
+      });
+    });
+    document.addEventListener('click', function(e){
+      if(!moreMenu.contains(e.target) && e.target !== moreBtn) closeMenu();
+    });
+    document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeMenu(); });
+  }
 })();
 
 (function(){
