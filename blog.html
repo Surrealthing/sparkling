@@ -168,8 +168,9 @@ p{line-height:1.7;color:#555}
 .bl-news h2 em{font-style:normal;color:var(--blue)}
 .bl-news p{font-family:'Inter',sans-serif;font-size:15px;line-height:24px;color:#555;margin:0 auto 28px;max-width:520px}
 .bl-news form{display:flex;gap:10px;max-width:480px;margin:0 auto}
-.bl-news input{flex:1;height:52px;padding:0 20px;border-radius:100px;border:1px solid rgba(0,0,0,.12);font-family:'Inter',sans-serif;font-size:14.5px;color:var(--dark);background:#fff;outline:none;transition:border-color .15s}
-.bl-news input:focus{border-color:var(--blue)}
+.bl-news input{flex:1;height:52px;padding:0 20px;border-radius:100px;border:0;font-family:'Inter',sans-serif;font-size:14.5px;color:var(--dark);background:rgba(0,174,239,.1);outline:none;transition:background .15s,box-shadow .15s}
+.bl-news input::placeholder{color:#7a8a95}
+.bl-news input:focus{background:rgba(0,174,239,.15);box-shadow:0 0 0 2px rgba(0,174,239,.3)}
 .bl-news button{height:52px;padding:0 28px;border-radius:100px;background:var(--blue);color:#fff;border:0;font-family:'Inter',sans-serif;font-weight:600;font-size:14.5px;cursor:pointer;transition:background .15s}
 .bl-news button:hover{background:#0090ca}
 
@@ -235,7 +236,7 @@ footer{background:#1a1a1a;position:relative;overflow:hidden}
 /* ─── RESPONSIVE ─── */
 @media (max-width:1024px){
   html,body{min-width:0;max-width:100%;overflow-x:hidden}
-  .bl-hero{padding:100px 24px 0}
+  .bl-hero{padding:120px 24px 0}
   .bl-hero-inner h1{font-size:40px;line-height:1.1}
   .bl-filter{padding:32px 24px 8px}
   .bl-featured{padding:32px 24px 16px}
@@ -262,7 +263,7 @@ footer{background:#1a1a1a;position:relative;overflow:hidden}
   h1{font-size:30px;line-height:36px}
   h2{font-size:28px;line-height:34px}
 
-  .bl-hero{padding:88px 16px 0}
+  .bl-hero{padding:140px 16px 0}
   .bl-hero-inner h1{font-size:32px;line-height:1.12}
   .bl-hero-inner p{font-size:14.5px;line-height:23px}
   .bl-filter{padding:28px 16px 4px}
