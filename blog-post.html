@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Blog | Sparkling Mindz Global School</title>
+<title>Why play is the most serious work a child can do | Sparkling Mindz Global School</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600;700;800&family=Lato:wght@400;700&display=swap" rel="stylesheet">
@@ -95,65 +95,63 @@ p{line-height:1.7;color:#555}
 .mob-cta{margin-top:12px}
 .mob-cta .btn{width:100%;justify-content:center}
 
-/* ─── HERO ─── */
-.bl-hero{padding:120px max(24px, calc((100% - 1200px) / 2)) 0;text-align:center}
-.bl-hero-inner{max-width:720px;margin:0 auto}
-.bl-hero-inner h1{margin:0 0 18px;font-size:56px;line-height:1.08;letter-spacing:-1px}
-.bl-hero-inner p{max-width:560px;margin:0 auto;font-family:'Inter',sans-serif;font-size:16px;line-height:26px;color:#555}
+/* ─── ARTICLE COLUMN (shared 720px wrapper) ─── */
+.bp-col{max-width:720px;margin:0 auto;padding:0 24px}
 
-/* ─── FILTER ─── */
-.bl-filter{padding:40px max(24px, calc((100% - 1200px) / 2)) 8px;background:#fff}
-.bl-filter-row{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;max-width:1000px;margin:0 auto}
-.bl-chip{display:inline-flex;align-items:center;padding:6px 14px;border-radius:100px;border:1px solid rgba(0,0,0,.1);background:#fff;font-family:'Inter',sans-serif;font-size:13.5px;font-weight:500;color:var(--d60);cursor:pointer;transition:background .15s,color .15s,border-color .15s}
-.bl-chip:hover{border-color:rgba(0,0,0,.25);color:var(--dark)}
-.bl-chip.active{background:var(--dark);border-color:var(--dark);color:#fff}
-.bl-chip-more-wrap{position:relative;display:inline-flex}
-.bl-chip-more{gap:6px}
-.bl-chip-more svg{transition:transform .2s}
-.bl-chip-more[aria-expanded="true"] svg{transform:rotate(180deg)}
-.bl-more-menu{position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%) translateY(-4px);min-width:220px;background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:12px;box-shadow:0 12px 32px rgba(0,0,0,.08);padding:6px;display:none;flex-direction:column;gap:2px;z-index:10}
-.bl-more-menu.open{display:flex;transform:translateX(-50%) translateY(0)}
-.bl-more-item{display:block;width:100%;text-align:left;background:none;border:0;padding:8px 12px;border-radius:8px;font-family:'Inter',sans-serif;font-size:13.5px;font-weight:500;color:var(--d60);cursor:pointer;transition:background .15s,color .15s}
-.bl-more-item:hover{background:rgba(0,0,0,.04);color:var(--dark)}
-.bl-more-item.active{background:var(--dark);color:#fff}
+/* Header */
+.bp-head{padding-top:72px;padding-bottom:40px;border-bottom:1px solid rgba(0,0,0,.08);margin-bottom:48px}
+.bp-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+.bp-tag{display:inline-block;font-family:'Inter',sans-serif;font-size:14px;font-weight:500;border-radius:100px;padding:4px 12px;background:rgba(0,174,239,.12);color:var(--blue)}
+.bp-head h1{font-size:42px;line-height:1.15;letter-spacing:-0.6px;margin-bottom:24px}
+.bp-byline{display:flex;flex-wrap:wrap;align-items:center;gap:10px;font-family:'Inter',sans-serif;font-size:14px;color:#888}
+.bp-byline .author{color:var(--dark);font-weight:500}
+.bp-byline .dot{width:3px;height:3px;border-radius:50%;background:#bbb;flex-shrink:0}
 
-/* ─── FEATURED POST ─── */
-.bl-featured{padding:40px max(24px, calc((100% - 1200px) / 2)) 24px;background:#fff}
-.bl-featured-inner{display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:center;max-width:1200px;margin:0 auto;border-radius:16px;overflow:hidden}
-.bl-feat-thumb{position:relative;aspect-ratio:3/2;border-radius:16px;overflow:hidden;background:#eef3f7 center/cover no-repeat}
-.bl-feat-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
-.bl-feat-tags .bl-tag{margin-bottom:0}
-.bl-feat-body h2{font-size:34px;line-height:40px;margin:0 0 18px;letter-spacing:-0.3px}
-.bl-feat-body p{font-family:'Inter',sans-serif;font-size:15.5px;line-height:26px;color:#444;margin:0 0 22px;max-width:520px}
-.bl-feat-meta{display:flex;align-items:center;gap:14px;margin-bottom:22px;font-family:'Inter',sans-serif;font-size:13px;color:#777}
-.bl-feat-meta .dot{width:4px;height:4px;border-radius:50%;background:#bbb}
-.bl-feat-cta{display:inline-flex;align-items:center;gap:10px;font-family:'Inter',sans-serif;font-size:14.5px;font-weight:600;color:var(--dark);transition:color .15s}
-.bl-feat-cta:hover{color:var(--blue)}
-.bl-feat-cta svg{width:16px;height:12px;transition:transform .2s}
-.bl-feat-cta:hover svg{transform:translateX(4px)}
+/* Body */
+.bp-body p{font-family:'Inter',sans-serif;font-size:17.5px;line-height:1.75;color:#333;margin-bottom:22px}
+.bp-body p.lead{font-size:20px;line-height:1.6;color:var(--dark);margin-bottom:32px}
+.bp-body h2{font-size:26px;line-height:1.25;letter-spacing:-0.3px;margin:44px 0 16px}
+.bp-body h3{font-size:20px;line-height:1.3;letter-spacing:-0.2px;margin:32px 0 12px}
+.bp-body a{color:var(--blue);border-bottom:1px solid rgba(0,174,239,.3);transition:border-color .15s}
+.bp-body a:hover{border-bottom-color:var(--blue)}
+.bp-body ul,.bp-body ol{margin:0 0 22px 24px;padding-left:0}
+.bp-body li{font-family:'Inter',sans-serif;font-size:17px;line-height:1.7;color:#333;margin-bottom:10px}
+.bp-body strong{color:var(--dark);font-weight:600}
 
-/* ─── ARTICLE GRID ─── */
-.bl-grid-wrap{padding:32px max(24px, calc((100% - 1200px) / 2)) 72px;background:#fff}
-.bl-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;max-width:1200px;margin:0 auto}
-.bl-card{background:#fff;border-radius:16px;overflow:hidden;border:1px solid rgba(0,0,0,.06);transition:box-shadow .2s,transform .2s,border-color .2s;display:flex;flex-direction:column}
-.bl-card:hover{box-shadow:0 12px 36px rgba(0,0,0,.08);transform:translateY(-4px);border-color:transparent}
+/* Inline figure with caption */
+.bp-figure{margin:36px 0}
+.bp-figure-img{aspect-ratio:3/2;width:100%;border-radius:12px;overflow:hidden;background:#eef3f7 center/cover no-repeat;margin-bottom:12px}
+.bp-figure figcaption{font-family:'Inter',sans-serif;font-size:14px;line-height:1.55;color:#888;font-style:italic}
+
+/* Pull quote */
+.bp-body blockquote{margin:36px 0;padding:4px 0 4px 24px;border-left:3px solid var(--blue);font-family:'Bricolage Grotesque',sans-serif;font-size:22px;line-height:1.4;font-weight:500;color:var(--dark);letter-spacing:-0.2px}
+
+/* Share */
+.bp-share{margin-top:56px;padding-top:28px;border-top:1px solid rgba(0,0,0,.08);display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.bp-share-label{font-family:'Inter',sans-serif;font-size:14px;font-weight:500;color:var(--d60);letter-spacing:.4px}
+.bp-share-icons{display:flex;gap:10px}
+.bp-share-btn{width:40px;height:40px;border-radius:50%;background:#f2f4f6;display:inline-flex;align-items:center;justify-content:center;color:var(--d60);transition:background .15s,color .15s}
+.bp-share-btn:hover{background:var(--blue);color:#fff}
+.bp-share-btn svg{width:18px;height:18px;display:block}
+
+/* ─── RELATED ─── */
+.bp-related{padding:96px max(24px, calc((100% - 1200px) / 2)) 48px;background:#fff}
+.bp-related-head{max-width:1200px;margin:0 auto 40px}
+.bp-related-head .eyebrow{color:var(--blue);margin-bottom:12px;display:block}
+.bp-related-head h2{font-size:36px;line-height:1.15;letter-spacing:-0.4px}
+.bp-related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1200px;margin:0 auto}
+.bl-card{display:flex;flex-direction:column;background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:14px;overflow:hidden;text-decoration:none;transition:transform .2s,box-shadow .2s;color:inherit}
+.bl-card:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(0,0,0,.06)}
 .bl-card-thumb{aspect-ratio:3/2;position:relative;overflow:hidden;background:#eef3f7 center/cover no-repeat}
-.bl-tag{align-self:flex-start;display:inline-block;font-family:'Inter',sans-serif;font-size:14px;font-weight:500;border-radius:100px;padding:4px 12px;margin-bottom:12px;background:rgba(0,174,239,.12);color:var(--blue)}
 .bl-card-body{padding:22px 22px 24px;display:flex;flex-direction:column;flex:1}
 .bl-card-body h3{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:18.5px;line-height:1.3;color:var(--dark);margin:0 0 12px;letter-spacing:-0.2px}
 .bl-card-body p{font-family:'Inter',sans-serif;font-size:14px;line-height:22px;color:#555;margin:0 0 18px;flex:1}
 .bl-card-byline{font-family:'Inter',sans-serif;font-size:13px;line-height:1.4;color:#888;display:flex;align-items:center;gap:8px}
 .bl-card-byline .author{color:var(--dark);font-weight:500}
 .bl-card-byline .dot{width:3px;height:3px;border-radius:50%;background:#bbb;flex-shrink:0}
+.bl-tag{align-self:flex-start;display:inline-block;font-family:'Inter',sans-serif;font-size:14px;font-weight:500;border-radius:100px;padding:4px 12px;margin-bottom:12px;background:rgba(0,174,239,.12);color:var(--blue)}
 
-/* ─── PAGINATION ─── */
-.bl-pagination{display:flex;align-items:center;justify-content:center;gap:6px;padding:16px 0 0;max-width:1200px;margin:56px auto 0}
-.bl-page{min-width:40px;height:40px;border-radius:100px;border:1px solid rgba(0,0,0,.1);background:#fff;display:inline-flex;align-items:center;justify-content:center;font-family:'Inter',sans-serif;font-size:14px;font-weight:500;color:var(--d60);transition:background .15s,color .15s,border-color .15s;cursor:pointer;padding:0 14px}
-.bl-page:hover{border-color:rgba(0,0,0,.25);color:var(--dark)}
-.bl-page.active{background:var(--blue);border-color:var(--blue);color:#fff}
-.bl-page.disabled{opacity:.45;cursor:not-allowed;pointer-events:none}
-
-/* ─── NEWSLETTER STRIP ─── */
+/* ─── NEWSLETTER ─── */
 .bl-news{background:#f8f8f8;padding:64px max(24px, calc((100% - 1200px) / 2))}
 .bl-news-inner{max-width:820px;margin:0 auto;text-align:center}
 .bl-news h2{font-size:32px;line-height:38px;margin:0 0 12px}
@@ -166,28 +164,6 @@ p{line-height:1.7;color:#555}
 .bl-news input:focus{background:rgba(0,174,239,.15);box-shadow:0 0 0 2px rgba(0,174,239,.3)}
 .bl-news button{padding:0 28px;background:var(--blue);color:#fff;font-weight:600;cursor:pointer;transition:background .15s}
 .bl-news button:hover{background:#0090ca}
-
-/* ─── CTA BANNER ─── */
-.cta-banner{position:relative;background:linear-gradient(to top,#bfeeff 0%,#fff 80.17%);padding:120px max(24px, calc((100% - 1200px) / 2)) 100px;text-align:center;overflow:hidden;min-height:480px}
-.cta-banner h2{font-family:'Bricolage Grotesque',sans-serif;font-size:44.8px;line-height:56px;font-weight:700;max-width:658px;margin:0 auto 40px;letter-spacing:-0.5px;color:#2c2c2c}
-.cta-banner h2 .learn{display:block;color:var(--purple)}
-.cta-banner h2 .amber{color:var(--amber)}
-.cta-actions{display:inline-flex;gap:24px;flex-wrap:wrap;justify-content:center;margin-top:4px}
-.cta-actions .btn{width:200px;height:60px;border-radius:100px;display:inline-flex;align-items:center;justify-content:center;font-family:'Inter',sans-serif;font-weight:600;font-size:16px}
-.cta-actions .btn-blue{background:var(--blue);color:#fff;border:0}
-.cta-actions .btn-outline{background:transparent;color:#1a1a1a;border:1px solid #000;font-size:14.4px}
-.cta-deco{position:absolute;pointer-events:none;border-radius:8px;overflow:hidden}
-.cta-d1{left:256px;top:100px;width:151px;height:114px}
-.cta-d2{right:232px;top:340px;width:131px;height:98px}
-.cta-d3{right:120px;top:80px;width:197px;height:148px}
-.cta-d4{left:120px;top:300px;width:197px;height:148px}
-.cta-deco img{width:100%;height:100%;object-fit:cover;display:block}
-.cta-sparkle{position:absolute;pointer-events:none}
-.cta-sparkle img{width:100%;height:100%;display:block}
-.sp1{left:487px;top:87px;width:49px;height:47px}
-.sp2{left:1039px;top:267px;width:45px;height:43px}
-.sp3{left:961px;top:66px;width:27px;height:26px}
-.sp4{left:475px;top:285px;width:25px;height:24px}
 
 /* ─── FOOTER (shared) ─── */
 footer{background:#1a1a1a;position:relative;overflow:hidden}
@@ -229,15 +205,8 @@ footer{background:#1a1a1a;position:relative;overflow:hidden}
 /* ─── RESPONSIVE ─── */
 @media (max-width:1024px){
   html,body{min-width:0;max-width:100%;overflow-x:hidden}
-  .bl-hero{padding:120px 24px 0}
-  .bl-hero-inner h1{font-size:40px;line-height:1.1}
-  .bl-filter{padding:32px 24px 8px}
-  .bl-featured{padding:32px 24px 16px}
-  .bl-featured-inner{grid-template-columns:1fr;gap:28px;max-width:720px}
-  .bl-feat-body h2{font-size:28px;line-height:34px}
-  .bl-grid-wrap{padding:24px 24px 56px}
-  .bl-grid{grid-template-columns:repeat(2,1fr);gap:22px}
-  .cta-deco{display:none}
+  .bp-head h1{font-size:36px;line-height:1.18}
+  .bp-related-grid{grid-template-columns:repeat(2,1fr)}
 }
 @media (max-width:768px){
   body{padding-top:0}
@@ -256,45 +225,31 @@ footer{background:#1a1a1a;position:relative;overflow:hidden}
   h1{font-size:30px;line-height:36px}
   h2{font-size:28px;line-height:34px}
 
-  .bl-hero{padding:140px 16px 0}
-  .bl-hero-inner h1{font-size:32px;line-height:1.12}
-  .bl-hero-inner p{font-size:14.5px;line-height:23px}
-  .bl-filter{padding:28px 16px 4px}
-  .bl-filter-row{gap:8px}
-  .bl-chip{padding:5px 12px;font-size:12.5px}
-  .bl-featured{padding:24px 16px 12px}
-  .bl-featured-inner{gap:22px}
-  .bl-feat-thumb{aspect-ratio:3/2}
-  .bl-feat-body h2{font-size:24px;line-height:30px}
-  .bl-feat-body p{font-size:14.5px;line-height:23px}
-  .bl-grid-wrap{padding:16px 16px 48px}
-  .bl-grid{grid-template-columns:1fr;gap:20px;max-width:420px;margin:0 auto}
-  .bl-pagination{flex-wrap:wrap;gap:4px;margin-top:40px}
-
+  .bp-col{padding:0 20px}
+  .bp-head{padding-top:48px;padding-bottom:28px;margin-bottom:36px}
+  .bp-head h1{font-size:30px;line-height:1.18;letter-spacing:-0.4px;margin-bottom:20px}
+  .bp-head .bp-byline{font-size:13.5px}
+  .bp-body p{font-size:16.5px;line-height:1.7}
+  .bp-body p.lead{font-size:18px;line-height:1.6}
+  .bp-body h2{font-size:23px;margin:36px 0 14px}
+  .bp-body h3{font-size:18.5px;margin:28px 0 12px}
+  .bp-body blockquote{font-size:19px;padding-left:20px;margin:30px 0}
+  .bp-figure{margin:28px 0}
+  .bp-share{margin-top:48px;padding-top:24px}
+  .bp-related{padding:64px 20px 32px}
+  .bp-related-head h2{font-size:26px}
+  .bp-related-grid{grid-template-columns:1fr;gap:20px;max-width:420px;margin:0 auto}
   .bl-news{padding:48px 20px}
   .bl-news h2{font-size:24px;line-height:30px}
   .bl-news form{flex-direction:column;gap:12px;max-width:360px}
   .bl-news input,.bl-news button{width:100%;height:56px;line-height:56px;padding:0 24px}
 
-  .cta-banner{padding:80px 20px 64px;min-height:0}
-  .cta-banner h2{font-size:28px;line-height:36px;max-width:none}
-  .cta-banner h2 br{display:none}
-  .cta-actions{flex-direction:column;align-items:stretch;gap:20px;width:100%;max-width:320px;margin:0 auto}
-  .cta-actions .btn{width:100%;height:52px;font-size:15px}
-  .cta-actions .btn-outline{font-size:14px}
-  .footer-main{flex-direction:column;padding:44px 20px;gap:36px}
-  .footer-brand,.footer-col{width:100%!important}
-  .footer-bottom{flex-direction:column;gap:10px;text-align:center;padding:16px 20px}
-}
-
-/* ── micro-animations ── */
-@media (prefers-reduced-motion: no-preference){
-  .reveal{opacity:0;transform:scale(.96) translateY(16px);transition:opacity .8s ease-out, transform .8s cubic-bezier(.22,.75,.2,1)}
-  .reveal.in-view{opacity:1;transform:none}
-  @keyframes twinkle{0%,100%{opacity:.85;transform:scale(1) rotate(0)}50%{opacity:1;transform:scale(1.18) rotate(6deg)}}
-  .cta-sparkle img{animation:twinkle 3.2s ease-in-out infinite;transform-origin:center;will-change:transform,opacity}
-  .sp2 img{animation-delay:.3s} .sp3 img{animation-delay:.6s} .sp4 img{animation-delay:.9s}
-  [data-parallax]{transform:translate3d(0,var(--py,0),0);transition:transform .08s linear;will-change:transform}
+  /* FOOTER */
+  .footer-main{flex-direction:column;gap:32px;padding:40px 20px}
+  .footer-brand,.footer-col{width:100%}
+  .footer-desc{width:100%}
+  .c-addr{width:100%}
+  .footer-bottom{flex-direction:column;gap:10px;padding:20px;text-align:center}
 }
 </style>
 </head>
@@ -316,39 +271,39 @@ footer{background:#1a1a1a;position:relative;overflow:hidden}
       </div>
     </a>
     <div class="nav-links">
-    <div class="nav-dropdown">
-      <a href="about.html">About Us <svg class="nav-chevron" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 5L7 9L11 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-      <div class="dropdown-menu">
-        <div class="dropdown-menu-inner">
-          <a href="about.html">Philosophy</a>
-          <a href="team.html">Team</a>
+      <div class="nav-dropdown">
+        <a href="about.html">About Us <svg class="nav-chevron" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 5L7 9L11 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <div class="dropdown-menu">
+          <div class="dropdown-menu-inner">
+            <a href="about.html">Philosophy</a>
+            <a href="team.html">Team</a>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="nav-dropdown">
-      <a href="#">Academics <svg class="nav-chevron" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 5L7 9L11 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-      <div class="dropdown-menu">
-        <div class="dropdown-menu-inner">
-          <a href="preschool.html">Preschool</a>
-          <a href="school.html">School</a>
-          <a href="yoda.html">Year of Discovery (YODA)</a>
+      <div class="nav-dropdown">
+        <a href="#">Academics <svg class="nav-chevron" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 5L7 9L11 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <div class="dropdown-menu">
+          <div class="dropdown-menu-inner">
+            <a href="preschool.html">Preschool</a>
+            <a href="school.html">School</a>
+            <a href="yoda.html">Year of Discovery (YODA)</a>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="nav-dropdown">
-      <a href="#">Programs <svg class="nav-chevron" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 5L7 9L11 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-      <div class="dropdown-menu">
-        <div class="dropdown-menu-inner">
-          <a href="#">After School Activities</a>
-          <a href="#">Summer Camp</a>
-          <a href="#">Parent Workshops</a>
+      <div class="nav-dropdown">
+        <a href="#">Programs <svg class="nav-chevron" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 5L7 9L11 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <div class="dropdown-menu">
+          <div class="dropdown-menu-inner">
+            <a href="#">After School Activities</a>
+            <a href="#">Summer Camp</a>
+            <a href="#">Parent Workshops</a>
+          </div>
         </div>
       </div>
-    </div>
-    <a href="#">Events</a>
-    <a href="#">Resources</a>
-    <a href="blog.html">Blog</a>
-    <a href="#">Contact</a>
+      <a href="#">Events</a>
+      <a href="#">Resources</a>
+      <a href="blog.html">Blog</a>
+      <a href="#">Contact</a>
     </div>
     <a href="#" class="nav-cta">Enquire now</a>
     <button class="hamburger" id="hamburger" aria-label="Open menu">
@@ -383,70 +338,101 @@ footer{background:#1a1a1a;position:relative;overflow:hidden}
   </div>
 </div>
 
-<!-- ═══════════ HERO ═══════════ -->
-<section class="bl-hero">
-  <div class="bl-hero-inner">
-    <h1>Blog</h1>
-    <p>Reflections from facilitators, field notes from parents, and the research that shapes how we think about learning at Sparkling Mindz.</p>
-  </div>
-</section>
-
-<!-- ═══════════ CATEGORY FILTER ═══════════ -->
-<section class="bl-filter">
-  <div class="bl-filter-row">
-    <button class="bl-chip active">All</button>
-    <button class="bl-chip">Preschool</button>
-    <button class="bl-chip">School</button>
-    <button class="bl-chip">Parenting</button>
-    <button class="bl-chip">Child Development</button>
-    <button class="bl-chip">Facilitator Notes</button>
-    <button class="bl-chip">Community</button>
-    <div class="bl-chip-more-wrap">
-      <button class="bl-chip bl-chip-more" id="blMoreBtn" aria-expanded="false" aria-haspopup="true">
-        <span id="blMoreLabel">More</span>
-        <svg width="12" height="12" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 5L7 9L11 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </button>
-      <div class="bl-more-menu" id="blMoreMenu">
-        <button class="bl-more-item">Arts &amp; Creativity</button>
-        <button class="bl-more-item">Social-Emotional Learning</button>
-        <button class="bl-more-item">Mindfulness</button>
-        <button class="bl-more-item">Research &amp; Insights</button>
-        <button class="bl-more-item">Events</button>
-        <button class="bl-more-item">Book Notes</button>
-        <button class="bl-more-item">Alumni Stories</button>
-      </div>
+<!-- ═══════════ ARTICLE ═══════════ -->
+<div class="bp-col">
+  <header class="bp-head" style="padding-top:72px">
+    <div class="bp-tags">
+      <span class="bp-tag">Child Development</span>
+      <span class="bp-tag">Featured</span>
     </div>
-  </div>
-</section>
+    <h1>Why play is the most serious work a child can do.</h1>
+    <div class="bp-byline">
+      <span class="author">Sreeja Iyer</span>
+      <span class="dot"></span>
+      <span>8 min read</span>
+      <span class="dot"></span>
+      <span>Apr 18, 2026</span>
+    </div>
+  </header>
 
-<!-- ═══════════ FEATURED ═══════════ -->
-<section class="bl-featured">
-  <div class="bl-featured-inner">
-    <div class="bl-feat-thumb" style="background-image:url('https://images.unsplash.com/photo-1503457574462-bd27054394c1?w=1400&q=80&auto=format&fit=crop')"></div>
-    <div class="bl-feat-body">
-      <div class="bl-feat-tags">
-        <span class="bl-tag">Featured</span>
-        <span class="bl-tag">Child Development</span>
-      </div>
-      <h2>Why play is the most serious work a child can do.</h2>
-      <p>Unstructured play isn't a break from learning — it's the operating system learning runs on. Here's what the science, and our classrooms, keep showing us.</p>
-      <div class="bl-feat-meta">
-        <span>Sreeja Iyer</span>
-        <span class="dot"></span>
-        <span>8 min read</span>
-        <span class="dot"></span>
-        <span>Apr 18, 2026</span>
-      </div>
-      <a href="blog-post.html" class="bl-feat-cta">Read the full story
-        <svg viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0.75 5.75671H15.75" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M12.3125 0.75L17.0938 5.75672L12.3125 10.7634" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  <article class="bp-body">
+    <p class="lead">Walk into any Sparkling Mindz classroom on a weekday morning and you'll see what, from the outside, looks like chaos. Children building with blocks, arguing over whose turn it is with a pretend telephone, sprawled belly-down with markers. You will not see worksheets. You'll rarely hear the word "lesson." What you are watching is the most serious work a child can do.</p>
+
+    <figure class="bp-figure">
+      <div class="bp-figure-img" style="background-image:url('https://images.unsplash.com/photo-1503457574462-bd27054394c1?w=1400&q=85&auto=format&fit=crop')"></div>
+      <figcaption>A free-play morning in our Grade 1 classroom — no instruction, no prompts, no "activity." Within twenty minutes, seven overlapping projects had emerged on their own.</figcaption>
+    </figure>
+
+    <p>The assumption most adults carry — because most of us were raised inside it — is that play is the warm-up before real learning begins. Real learning, the thinking goes, is what happens when the pencils come out. Play is the interstitial — a recess from the work. It's the thing children do when we haven't given them something better.</p>
+
+    <p>Forty years of developmental research says the opposite. Play isn't a pause from learning. It is the substrate learning grows on.</p>
+
+    <h2>What a child is actually doing when they're "just playing"</h2>
+
+    <p>Pick up almost any play moment and slow it down. A four-year-old is pouring water from one cup into another. She spills some. She adjusts. She tries a wider cup. She narrates her own strategy out loud. She's doing six things at once: <strong>motor planning, volume estimation, self-correction, self-narration, attention regulation, and cause-and-effect reasoning.</strong> None of them are labeled. All of them are being rehearsed.</p>
+
+    <p>This is what Vygotsky called the zone of proximal development — the territory just beyond what a child can do alone, which they climb into when the stakes are low enough to try. Play lowers the stakes. That's why it's the only environment in which children will reliably attempt something hard.</p>
+
+    <h2>The hidden curriculum inside unstructured time</h2>
+
+    <p>When we stop directing children and start observing them, three patterns show up almost every time:</p>
+
+    <ul>
+      <li><strong>Negotiation.</strong> Whose turn, whose rules, whose idea counts. This is moral reasoning in the wild — and it develops faster in peer play than in any lesson we could write.</li>
+      <li><strong>Iteration.</strong> A child builds a tower. It falls. She builds it again, slightly differently. Nobody told her to. This is the engineering loop, and it is native to play.</li>
+      <li><strong>Storytelling.</strong> Every prolonged play episode eventually collapses into a narrative. The blocks become a hospital, the hospital becomes a spaceship, the spaceship runs out of fuel. This is the shape of comprehension.</li>
+    </ul>
+
+    <blockquote>"If we knew how to teach negotiation, iteration, and storytelling directly, we'd charge a fortune for it. Children do it for free, in parallel, before breakfast — if we let them."</blockquote>
+
+    <h2>So what do adults actually do?</h2>
+
+    <p>The temptation, once you believe play matters, is to structure it. To turn it into a program. To name it "play-based learning" and schedule it between 9:45 and 10:30. This is the gentlest way to kill it.</p>
+
+    <p>What children need from the adults around them is narrower and harder: <strong>protected time, permissive materials, and attentive nothing.</strong> We sit close. We don't narrate. We don't quiz. We don't, unless invited, join. The children do the work.</p>
+
+    <figure class="bp-figure">
+      <div class="bp-figure-img" style="background-image:url('https://images.unsplash.com/photo-1587654780291-39c9404d746b?w=1400&q=85&auto=format&fit=crop')"></div>
+      <figcaption>Holding a play environment is genuinely difficult. The restraint is the work.</figcaption>
+    </figure>
+
+    <p>In our classrooms, we call this <em>the held space.</em> It is not passive. Holding a play environment is genuinely difficult — you are constantly making micro-choices about when to step in, when to stay back, when to rescue, when to let a conflict run another thirty seconds because the children are close to solving it themselves. Most of the time, you stay back. The restraint is the work.</p>
+
+    <h2>What this looks like at home</h2>
+
+    <p>You do not need a Montessori shelf or a forest school to honour children's play. What you need is an hour, a few times a week, in which nothing is scheduled. No plan. No screen. No enrichment app. Open-ended materials within reach — blocks, paper, cushions, water, dirt, siblings. Your job is to make tea, stay nearby, and not rescue.</p>
+
+    <p>Parents tell us this is the hardest thing we ever ask them to do. Good. It means you've noticed how strong the pull is to program a child's day. What children remember, forty years later, is almost never the lesson. It is the Saturday morning when no one told them what to do, and they figured something out.</p>
+
+    <p>That's the lesson. That's the work. That's why we protect it.</p>
+  </article>
+
+  <section class="bp-share">
+    <span class="bp-share-label">Share this article</span>
+    <div class="bp-share-icons">
+      <a href="#" class="bp-share-btn" aria-label="Share on Twitter">
+        <svg viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M15.27 2.5H17.93L12.26 8.98L18.93 17.5H13.74L9.62 12.09L4.91 17.5H2.24L8.29 10.56L1.89 2.5H7.22L10.95 7.45L15.27 2.5ZM14.35 15.94H15.82L6.53 4.01H4.95L14.35 15.94Z"/></svg>
+      </a>
+      <a href="#" class="bp-share-btn" aria-label="Share on LinkedIn">
+        <svg viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M15.8 15.8h-2.6V11.7c0-1 0-2.3-1.4-2.3s-1.6 1.1-1.6 2.2v4.2H7.6V7.5h2.5v1.1h.1c.3-.6 1.1-1.3 2.4-1.3 2.6 0 3.1 1.7 3.1 3.9v4.6zM4.7 6.4c-.8 0-1.5-.7-1.5-1.5S4 3.4 4.7 3.4s1.5.7 1.5 1.5-.7 1.5-1.5 1.5zm1.3 9.4H3.4V7.5H6v8.3z"/></svg>
+      </a>
+      <a href="#" class="bp-share-btn" aria-label="Share on Facebook">
+        <svg viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M11.6 17.5v-6.8h2.3l.3-2.7h-2.6V6.3c0-.8.2-1.3 1.4-1.3h1.5V2.6c-.3 0-1.1-.1-2.1-.1-2.1 0-3.6 1.3-3.6 3.7V8H6.5v2.7h2.3v6.8h2.8z"/></svg>
+      </a>
+      <a href="#" class="bp-share-btn" id="bpCopy" aria-label="Copy link">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><path d="M8.5 11.5a3 3 0 0 0 4.2 0l2.1-2.1a3 3 0 0 0-4.2-4.2l-0.6 0.6"/><path d="M11.5 8.5a3 3 0 0 0-4.2 0L5.2 10.6a3 3 0 0 0 4.2 4.2l0.6-0.6"/></svg>
       </a>
     </div>
-  </div>
-</section>
+  </section>
+</div>
 
-<!-- ═══════════ ARTICLE GRID ═══════════ -->
-<section class="bl-grid-wrap">
-  <div class="bl-grid">
+<!-- ═══════════ RELATED ═══════════ -->
+<section class="bp-related">
+  <div class="bp-related-head">
+    <span class="eyebrow">Keep reading</span>
+    <h2>Related articles</h2>
+  </div>
+  <div class="bp-related-grid">
     <a href="blog-post.html" class="bl-card">
       <div class="bl-card-thumb" style="background-image:url('https://images.unsplash.com/photo-1587654780291-39c9404d746b?w=900&q=80&auto=format&fit=crop')"></div>
       <div class="bl-card-body">
@@ -454,33 +440,6 @@ footer{background:#1a1a1a;position:relative;overflow:hidden}
         <h3>The quiet power of a slow morning circle.</h3>
         <p>Before the day's activities begin, we sit together. Here's what ten minutes of nothing teaches a three-year-old.</p>
         <div class="bl-card-byline"><span class="author">Minesh Happy</span><span class="dot"></span><span>6 min read</span></div>
-      </div>
-    </a>
-    <a href="blog-post.html" class="bl-card">
-      <div class="bl-card-thumb" style="background-image:url('https://images.unsplash.com/photo-1540479859555-17af45c78602?w=900&q=80&auto=format&fit=crop')"></div>
-      <div class="bl-card-body">
-        <span class="bl-tag">Parenting</span>
-        <h3>How to extend learning at home without turning it into homework.</h3>
-        <p>A short, honest guide for parents who want to keep the Sparkling Mindz rhythm going — without losing the weekend.</p>
-        <div class="bl-card-byline"><span class="author">Grace Veronica</span><span class="dot"></span><span>5 min read</span></div>
-      </div>
-    </a>
-    <a href="blog-post.html" class="bl-card">
-      <div class="bl-card-thumb" style="background-image:url('https://images.unsplash.com/photo-1509062522246-3755977927d7?w=900&q=80&auto=format&fit=crop')"></div>
-      <div class="bl-card-body">
-        <span class="bl-tag">Facilitator Notes</span>
-        <h3>What a child learns when an adult doesn't have the answer.</h3>
-        <p>"I don't know, let's find out together" is the single most powerful sentence in a classroom. Here's why.</p>
-        <div class="bl-card-byline"><span class="author">Sreedevi Ranjit</span><span class="dot"></span><span>7 min read</span></div>
-      </div>
-    </a>
-    <a href="blog-post.html" class="bl-card">
-      <div class="bl-card-thumb" style="background-image:url('https://images.unsplash.com/photo-1581093588401-fbb62a02f120?w=900&q=80&auto=format&fit=crop')"></div>
-      <div class="bl-card-body">
-        <span class="bl-tag">School</span>
-        <h3>Designing a classroom around questions, not answers.</h3>
-        <p>How the IBCL framework reshapes a Grade 4 science unit — and what we noticed in the children after.</p>
-        <div class="bl-card-byline"><span class="author">Disha K</span><span class="dot"></span><span>9 min read</span></div>
       </div>
     </a>
     <a href="blog-post.html" class="bl-card">
@@ -493,50 +452,14 @@ footer{background:#1a1a1a;position:relative;overflow:hidden}
       </div>
     </a>
     <a href="blog-post.html" class="bl-card">
-      <div class="bl-card-thumb" style="background-image:url('https://images.unsplash.com/photo-1529390079861-591de354faf5?w=900&q=80&auto=format&fit=crop')"></div>
-      <div class="bl-card-body">
-        <span class="bl-tag">Community</span>
-        <h3>Notes from the first YODA cohort, six months in.</h3>
-        <p>A gap year inside our school: what the teenagers are making, unmaking, and discovering about themselves.</p>
-        <div class="bl-card-byline"><span class="author">Sumati Vinay</span><span class="dot"></span><span>8 min read</span></div>
-      </div>
-    </a>
-    <a href="blog-post.html" class="bl-card">
-      <div class="bl-card-thumb" style="background-image:url('https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?w=900&q=80&auto=format&fit=crop')"></div>
-      <div class="bl-card-body">
-        <span class="bl-tag">Parenting</span>
-        <h3>Screens, siblings, and the dinner-table rules that actually stick.</h3>
-        <p>We asked thirty Sparkling Mindz families what works at home. The answers were surprisingly simple.</p>
-        <div class="bl-card-byline"><span class="author">Nancy Garg</span><span class="dot"></span><span>5 min read</span></div>
-      </div>
-    </a>
-    <a href="blog-post.html" class="bl-card">
-      <div class="bl-card-thumb" style="background-image:url('https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=900&q=80&auto=format&fit=crop')"></div>
-      <div class="bl-card-body">
-        <span class="bl-tag">Preschool</span>
-        <h3>Why we don't decorate our preschool walls in September.</h3>
-        <p>An empty room is an invitation. A filled room is a museum. Here's how we let children build the space they learn in.</p>
-        <div class="bl-card-byline"><span class="author">Aswathy Panicker</span><span class="dot"></span><span>4 min read</span></div>
-      </div>
-    </a>
-    <a href="blog-post.html" class="bl-card">
-      <div class="bl-card-thumb" style="background-image:url('https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=900&q=80&auto=format&fit=crop')"></div>
+      <div class="bl-card-thumb" style="background-image:url('https://images.unsplash.com/photo-1509062522246-3755977927d7?w=900&q=80&auto=format&fit=crop')"></div>
       <div class="bl-card-body">
         <span class="bl-tag">Facilitator Notes</span>
-        <h3>Small disagreements, big lessons: conflict in a classroom of seven-year-olds.</h3>
-        <p>What happens when we stop solving their fights for them? A quieter, more honest answer than you'd expect.</p>
-        <div class="bl-card-byline"><span class="author">Kruthika A</span><span class="dot"></span><span>7 min read</span></div>
+        <h3>What a child learns when an adult doesn't have the answer.</h3>
+        <p>"I don't know, let's find out together" is the single most powerful sentence in a classroom. Here's why.</p>
+        <div class="bl-card-byline"><span class="author">Sreedevi Ranjit</span><span class="dot"></span><span>7 min read</span></div>
       </div>
     </a>
-  </div>
-
-  <div class="bl-pagination">
-    <a href="#" class="bl-page disabled">← Prev</a>
-    <a href="#" class="bl-page active">1</a>
-    <a href="#" class="bl-page">2</a>
-    <a href="#" class="bl-page">3</a>
-    <a href="#" class="bl-page">4</a>
-    <a href="#" class="bl-page">Next →</a>
   </div>
 </section>
 
@@ -573,17 +496,6 @@ footer{background:#1a1a1a;position:relative;overflow:hidden}
           <a href="#" class="s-icon"><img src="assets/icons/instagram.svg" alt="Instagram" style="width:20px;height:20px"></a>
           <a href="#" class="s-icon"><img src="assets/icons/facebook.svg" alt="Facebook" style="width:20px;height:20px"></a>
           <a href="#" class="s-icon"><img src="assets/icons/linkedin.svg" alt="LinkedIn" style="width:20px;height:20px"></a>
-          <a href="#" class="s-icon">
-            <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:18px;height:18px;opacity:.7">
-              <path d="M15.27 2.5H17.93L12.26 8.98L18.93 17.5H13.74L9.62 12.09L4.91 17.5H2.24L8.29 10.56L1.89 2.5H7.22L10.95 7.45L15.27 2.5ZM14.35 15.94H15.82L6.53 4.01H4.95L14.35 15.94Z" fill="white" opacity="0.7"/>
-            </svg>
-          </a>
-          <a href="#" class="s-icon">
-            <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:18px;height:18px;opacity:.7">
-              <path d="M17.8 5.6C17.6 4.8 17 4.2 16.2 4C14.8 3.6 10 3.6 10 3.6C10 3.6 5.2 3.6 3.8 4C3 4.2 2.4 4.8 2.2 5.6C1.8 7 1.8 10 1.8 10C1.8 10 1.8 13 2.2 14.4C2.4 15.2 3 15.8 3.8 16C5.2 16.4 10 16.4 10 16.4C10 16.4 14.8 16.4 16.2 16C17 15.8 17.6 15.2 17.8 14.4C18.2 13 18.2 10 18.2 10C18.2 10 18.2 7 17.8 5.6Z" stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M8.2 12.6L12.8 10L8.2 7.4V12.6Z" stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </a>
         </div>
       </div>
     </div>
@@ -659,65 +571,19 @@ footer{background:#1a1a1a;position:relative;overflow:hidden}
 })();
 
 (function(){
-  var chips = document.querySelectorAll('.bl-filter-row > .bl-chip');
-  var moreBtn = document.getElementById('blMoreBtn');
-  var moreMenu = document.getElementById('blMoreMenu');
-  var moreLabel = document.getElementById('blMoreLabel');
-  var items = moreMenu ? moreMenu.querySelectorAll('.bl-more-item') : [];
-
-  function clearAll(){
-    chips.forEach(function(x){ x.classList.remove('active'); });
-    items.forEach(function(x){ x.classList.remove('active'); });
-    if(moreLabel) moreLabel.textContent = 'More';
-  }
-  function closeMenu(){
-    if(!moreMenu) return;
-    moreMenu.classList.remove('open');
-    moreBtn.setAttribute('aria-expanded','false');
-  }
-
-  chips.forEach(function(c){
-    if(c === moreBtn) return;
-    c.addEventListener('click', function(){
-      clearAll();
-      c.classList.add('active');
-      closeMenu();
-    });
-  });
-
-  if(moreBtn){
-    moreBtn.addEventListener('click', function(e){
-      e.stopPropagation();
-      var open = moreMenu.classList.toggle('open');
-      moreBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
-    });
-    items.forEach(function(it){
-      it.addEventListener('click', function(e){
-        e.stopPropagation();
-        clearAll();
-        it.classList.add('active');
-        moreBtn.classList.add('active');
-        moreLabel.textContent = it.textContent;
-        closeMenu();
+  var copy = document.getElementById('bpCopy');
+  if(!copy) return;
+  copy.addEventListener('click', function(e){
+    e.preventDefault();
+    if(navigator.clipboard){
+      navigator.clipboard.writeText(window.location.href).then(function(){
+        copy.setAttribute('aria-label','Link copied');
+        copy.style.background = 'var(--blue)';
+        copy.style.color = '#fff';
+        setTimeout(function(){ copy.style.background=''; copy.style.color=''; }, 1400);
       });
-    });
-    document.addEventListener('click', function(e){
-      if(!moreMenu.contains(e.target) && e.target !== moreBtn) closeMenu();
-    });
-    document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeMenu(); });
-  }
-})();
-
-(function(){
-  if(!('IntersectionObserver' in window)) return;
-  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  var sel = '.bl-card,.bl-featured-inner';
-  var els = document.querySelectorAll(sel);
-  els.forEach(function(el,i){ el.classList.add('reveal'); el.style.transitionDelay = ((i%6)*60) + 'ms'; });
-  var io = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in-view'); io.unobserve(e.target); } });
-  },{threshold:.12, rootMargin:'0px 0px -40px 0px'});
-  els.forEach(function(el){ io.observe(el); });
+    }
+  });
 })();
 </script>
 </body>
