@@ -120,7 +120,7 @@ p{line-height:1.7;color:#555}
 /* ─── FEATURED POST ─── */
 .bl-featured{padding:40px max(24px, calc((100% - 1200px) / 2)) 24px;background:#fff}
 .bl-featured-inner{display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:center;max-width:1200px;margin:0 auto;border-radius:16px;overflow:hidden}
-.bl-feat-thumb{position:relative;aspect-ratio:5/4;border-radius:16px;overflow:hidden;background:linear-gradient(135deg,#cceffc 0%,#ffe6f1 100%)}
+.bl-feat-thumb{position:relative;aspect-ratio:3/2;border-radius:16px;overflow:hidden;background:linear-gradient(135deg,#cceffc 0%,#ffe6f1 100%)}
 .bl-feat-thumb::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 30% 30%,rgba(255,255,255,.4),transparent 55%)}
 .bl-feat-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
 .bl-feat-tags .bl-tag{margin-bottom:0}
@@ -138,7 +138,7 @@ p{line-height:1.7;color:#555}
 .bl-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;max-width:1200px;margin:0 auto}
 .bl-card{background:#fff;border-radius:16px;overflow:hidden;border:1px solid rgba(0,0,0,.06);transition:box-shadow .2s,transform .2s,border-color .2s;display:flex;flex-direction:column}
 .bl-card:hover{box-shadow:0 12px 36px rgba(0,0,0,.08);transform:translateY(-4px);border-color:transparent}
-.bl-card-thumb{height:200px;position:relative;overflow:hidden}
+.bl-card-thumb{aspect-ratio:3/2;position:relative;overflow:hidden}
 .bl-card-thumb.th-blue{background:linear-gradient(135deg,#cceffc 0%,#e6f7ff 100%)}
 .bl-card-thumb.th-green{background:linear-gradient(135deg,#e3f5c4 0%,#f4fde0 100%)}
 .bl-card-thumb.th-amber{background:linear-gradient(135deg,#ffe6bf 0%,#fff4db 100%)}
@@ -270,12 +270,11 @@ footer{background:#1a1a1a;position:relative;overflow:hidden}
   .bl-chip{padding:5px 12px;font-size:12.5px}
   .bl-featured{padding:24px 16px 12px}
   .bl-featured-inner{gap:22px}
-  .bl-feat-thumb{aspect-ratio:4/3}
+  .bl-feat-thumb{aspect-ratio:3/2}
   .bl-feat-body h2{font-size:24px;line-height:30px}
   .bl-feat-body p{font-size:14.5px;line-height:23px}
   .bl-grid-wrap{padding:16px 16px 48px}
   .bl-grid{grid-template-columns:1fr;gap:20px;max-width:420px;margin:0 auto}
-  .bl-card-thumb{height:180px}
   .bl-pagination{flex-wrap:wrap;gap:4px;margin-top:8px}
 
   .bl-news{padding:48px 20px}
