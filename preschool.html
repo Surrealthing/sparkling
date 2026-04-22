@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Preschool | Sparkling Mindz Global School</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600;700;800&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* ─── RESET ─── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;color:#2c2c2c;background:#fff;overflow-x:hidden;padding-top:68px}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+
+/* ─── TOKENS ─── */
+:root{
+  --blue:#00aeef; --pink:#ff2d78; --purple:#9b3dff;
+  --amber:#f5a623; --green:#a5d91a; --teal:#00c9b1;
+  --dark:#1a1a1a; --char:#2c2c2c; --d60:#444444; --d40:#888888;
+}
+
+/* ─── TYPE ─── */
+h1,h2,h3{font-family:'Bricolage Grotesque',sans-serif;letter-spacing:-0.5px;line-height:1.1;color:var(--dark)}
+h1{font-size:56px;font-weight:700;line-height:64px;letter-spacing:-1px}
+h2{font-size:40px;font-weight:700;line-height:44px}
+p{line-height:1.7;color:#555}
+.eyebrow{font-family:'Inter',sans-serif;font-size:14px!important;font-weight:400!important;line-height:1.2!important;letter-spacing:1.38px!important;text-transform:uppercase!important;color:var(--d60);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+
+/* ─── BUTTONS ─── */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:16px 40px;border-radius:100px;border:none;cursor:pointer;font-family:'Inter',sans-serif;font-size:16px;font-weight:600;line-height:24px;letter-spacing:.2px;transition:background .2s;white-space:nowrap}
+.btn-blue{background:var(--blue);color:#fff}
+.btn-blue:hover{background:#0090ca}
+.btn-outline{background:transparent;border:1.5px solid var(--dark);color:var(--dark)}
+.btn-outline:hover{background:rgba(0,0,0,.04)}
+
+/* Text link */
+.text-link{display:inline-flex;align-items:center;gap:6px;font-family:'Inter',sans-serif;font-weight:500;font-size:16px;color:var(--d60);letter-spacing:.2px;transition:color .15s}
+.text-link:hover{color:var(--blue)}
+.link-arrow{display:inline-flex;align-items:center;flex-shrink:0;transition:transform .2s ease}
+.text-link:hover .link-arrow{transform:translateX(4px)}
+
+/* ─── NAV (shared with index.html) ─── */
+.header-wrap{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:flex-start;padding:0 max(24px, calc((100% - 1200px) / 2));background:transparent;border-bottom:1px solid transparent}
+@keyframes stickySlideIn{from{transform:translateY(-100%);opacity:0}to{transform:translateY(0);opacity:1}}
+@keyframes navLogoIn{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:translateY(0)}}
+.header-wrap.scrolled{background:rgba(255,255,255,0.92);border-bottom:1px solid rgba(0,0,0,0.06);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);animation:stickySlideIn .35s cubic-bezier(0.16,1,0.3,1) forwards}
+.logo-panel{flex-shrink:0;overflow:hidden;width:fit-content}
+.logo-box{display:block;background:transparent;padding:14px 0;line-height:0;max-height:200px;opacity:1;transition:max-height .2s ease,opacity .2s ease,padding .2s ease}
+.logo-full{height:120px;width:auto;display:block}
+.logo-compact-wrap{display:none;align-items:center;gap:10px;flex-shrink:0}
+.logo-compact{width:40px;height:40px;border-radius:8px;background:transparent;display:block;object-fit:contain;flex-shrink:0}
+.nav-brand .brand-name{font-family:'Inter',sans-serif;font-weight:700;font-size:14px;color:#1a1a1a;line-height:1.3}
+.nav-brand .brand-tag{font-family:'Inter',sans-serif;font-size:10px;font-weight:600;color:var(--blue);line-height:1.4}
+.header-wrap.scrolled .logo-panel{max-width:0;overflow:hidden}
+.header-wrap.scrolled .logo-box{max-height:0;opacity:0;padding-top:0;padding-bottom:0}
+.header-wrap.scrolled .nav{padding-left:0}
+.header-wrap.scrolled .logo-compact-wrap{display:flex;animation:navLogoIn .3s .15s ease both}
+.nav{flex:1;display:flex;align-items:center;padding:14px 0 14px 24px}
+.nav-links{display:flex;align-items:center;margin-left:auto}
+.nav-links a{display:flex;align-items:center;gap:6px;padding:8px 14px;border-radius:8px;font-family:'Inter',sans-serif;font-weight:400;font-size:14px;color:var(--dark);white-space:nowrap;transition:background .15s}
+.nav-links a:hover{background:rgba(0,0,0,.04)}
+.nav-chevron{width:14px;height:14px;display:block;flex-shrink:0;opacity:.7}
+.nav-cta{background:var(--blue);color:#fff;padding:0 20px;height:40px;border-radius:100px;font-family:'Inter',sans-serif;font-weight:600;font-size:14.4px;display:inline-flex;align-items:center;flex-shrink:0;margin-left:24px;transition:background .2s}
+.nav-cta:hover{background:#0090ca}
+.nav-dropdown{position:relative}
+.nav-dropdown .dropdown-menu{display:none;position:absolute;top:100%;left:0;padding-top:8px;min-width:200px;z-index:200}
+.nav-dropdown .dropdown-menu-inner{background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.1);padding:10px;display:flex;flex-direction:column;gap:4px}
+.nav-dropdown:hover .dropdown-menu{display:block}
+.dropdown-menu-inner a{display:flex;align-items:center;min-height:44px;padding:10px 20px;border-radius:7px;font-family:'Inter',sans-serif;font-size:14px;font-weight:500;color:var(--dark);white-space:nowrap;transition:background .12s}
+.dropdown-menu-inner a:hover{background:rgba(0,0,0,.04)}
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px;width:40px;height:40px;justify-content:center;align-items:center}
+.hamburger span{display:block;width:22px;height:2px;background:var(--dark);transition:transform .25s,opacity .15s}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-menu{display:none;position:fixed;top:52px;left:0;right:0;background:#fff;padding:4px 20px 24px;box-shadow:0 10px 30px rgba(0,0,0,.08);z-index:45;flex-direction:column;gap:0;border-top:1px solid rgba(0,0,0,.06)}
+.mobile-menu.open{display:flex}
+.mob-link{padding:14px 8px;font-size:16px;color:var(--d60);border-bottom:1px solid rgba(0,0,0,.05);display:block}
+.mob-group{border-bottom:1px solid rgba(0,0,0,.05)}
+.mob-group-trigger{padding:14px 8px;font-size:16px;color:var(--d60);display:flex;align-items:center;justify-content:space-between;cursor:pointer;user-select:none}
+.mob-group-trigger svg{transition:transform .2s}
+.mob-group.open .mob-group-trigger svg{transform:rotate(180deg)}
+.mob-group .mob-sub{display:none;padding:0 8px 10px 20px;flex-direction:column;gap:0}
+.mob-group.open .mob-sub{display:flex}
+.mob-sub a{padding:10px 0;font-size:15px;color:var(--d60)}
+.mob-group .mob-link{border-bottom:none}
+.mob-cta{margin-top:12px}
+.mob-cta .btn{width:100%;justify-content:center}
+
+/* ─── HERO ─── */
+.pre-hero{padding:128px max(24px, calc((100% - 1200px) / 2)) 96px;position:relative;overflow:hidden}
+.pre-hero-inner{display:grid;grid-template-columns:1fr 568px;gap:80px;align-items:center;position:relative}
+.pre-hero .eyebrow{margin-bottom:24px}
+.pre-hero h1{margin-bottom:32px}
+.pre-hero h1 .w-green{color:var(--green)}
+.pre-hero h1 .w-purple{color:var(--purple)}
+.pre-hero h1 .w-blue{color:var(--blue)}
+.pre-hero-sub{font-size:18px;line-height:30px;color:var(--d60);margin-bottom:40px;max-width:520px}
+.pre-hero-actions{display:flex;gap:16px;flex-wrap:wrap}
+.pre-hero-right{position:relative;display:grid;grid-template-columns:276px 276px;grid-template-rows:207px 207px;gap:16px}
+.pre-hero-right img{width:100%;height:100%;object-fit:cover;border-radius:16px}
+.ph-img1{grid-column:1;grid-row:1}
+.ph-img2{grid-column:1;grid-row:2}
+.ph-img3{grid-column:2;grid-row:1/span 2;height:430px}
+.pre-hero-sp{position:absolute;pointer-events:none;z-index:2}
+.ph-sp1{top:-20px;right:-10px;width:81px;height:78px}
+.ph-sp2{bottom:-20px;right:90px;width:49px;height:48px}
+.ph-sp3{bottom:20px;right:-40px;width:70px;height:68px}
+
+/* ─── SECTION: LEARNING APPROACH ─── */
+.sec-approach{background:linear-gradient(to top,#ffe8f0 0%,#fff 80%);padding:96px max(24px, calc((100% - 1200px) / 2))}
+.sec-head{text-align:center;max-width:720px;margin:0 auto 56px}
+.sec-head .eyebrow{display:inline-block;margin-bottom:12px}
+.sec-head h2{margin-bottom:20px}
+.sec-head h2 em{font-style:normal;color:var(--pink)}
+.sec-head p{font-size:17px;line-height:28px}
+.approach-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1005px;margin:0 auto}
+.approach-card{background:#fff;border-radius:16px;padding:24px;border:0;box-shadow:none}
+.approach-icon{width:96px;height:96px;display:flex;align-items:center;justify-content:center;margin-bottom:28px}
+.approach-icon img{width:96px;height:96px;display:block}
+.approach-card h3{font-size:19px;font-weight:700;margin-bottom:12px;color:var(--dark)}
+.approach-card h3.t-purple{color:var(--purple)}
+.approach-card h3.t-green{color:var(--green)}
+.approach-card h3.t-teal{color:var(--teal)}
+.approach-card p{font-size:15px;line-height:24px;color:var(--d60)}
+
+/* ─── SECTION: FOUR SPACES ─── */
+.sec-spaces{background:#f8f8f8;padding:80px max(24px, calc((100% - 1320px) / 2))}
+.sec-head h2 .teal{color:var(--dark)}
+.spaces2-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;max-width:1212px;margin:0 auto}
+.space2-card{position:relative;border-radius:16px;overflow:hidden;background:#fff;border:1px solid rgba(0,0,0,.04);aspect-ratio:591/332;display:flex;flex-direction:column;justify-content:flex-end}
+.space2-card .space2-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.space2-card:hover .space2-img{transform:scale(1.04)}
+.space2-body{position:relative;z-index:2;background:#1a1a1a;padding:24px 32px 32px;color:#fff;transition:padding-top .4s ease}
+.space2-eyebrow{font-family:'Inter',sans-serif;font-size:14px!important;font-weight:400!important;line-height:1.2!important;letter-spacing:1.38px!important;text-transform:uppercase!important;color:var(--d60);margin-bottom:12px;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+.space2-card.c-purple .space2-eyebrow{color:var(--purple)}
+.space2-card.c-blue .space2-eyebrow{color:var(--blue)}
+.space2-card.c-amber .space2-eyebrow{color:var(--amber)}
+.space2-card.c-green .space2-eyebrow{color:#7aba1a}
+.space2-title{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:24px;line-height:27.6px;color:#fff;letter-spacing:-.2px}
+.space2-desc{margin-top:12px;font-family:'Inter',sans-serif;font-size:15.2px;line-height:25.84px;color:rgba(255,255,255,.92);max-height:0;opacity:0;overflow:hidden;transition:max-height .45s ease,opacity .3s ease,margin-top .3s ease}
+.space2-card.default-open .space2-desc{max-height:120px;opacity:1;margin-top:12px}
+.space2-card:hover .space2-desc{max-height:120px;opacity:1;margin-top:12px}
+
+/* ─── SECTION: GROW MATTERS ─── */
+.sec-grow{padding:80px max(24px, calc((100% - 1200px) / 2));background:#fff}
+.grow-inner{display:grid;grid-template-columns:537px 591px;gap:72px;align-items:start;max-width:1200px;margin:0 auto}
+.grow-left .eyebrow{margin-bottom:30px}
+.grow-left h2{margin-bottom:30px;color:#2c2c2c}
+.grow-left h2 em{font-style:normal;color:#1a1a1a}
+.grow-left .grow-body{font-family:'Inter',sans-serif;font-size:16px;line-height:26px;color:#1a1a1a}
+.grow-left .grow-body p{margin:0 0 26px}
+.grow-left .grow-body p:last-child{margin:0}
+.grow-left .grow-body em{font-style:italic}
+.grow-right{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:160px 160px;gap:12px}
+.grow-tile{position:relative;border-radius:12px;overflow:hidden;background:#eee}
+.grow-tile img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.grow-tile::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.63)}
+.grow-tile-body{position:absolute;inset:0;padding:16px;display:flex;flex-direction:column;justify-content:center;z-index:2;color:#fff}
+.grow-tile-title{font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:24px;line-height:28px;color:#fff;margin-bottom:8px;letter-spacing:-.2px}
+.grow-tile-desc{font-family:'Inter',sans-serif;font-size:14px;line-height:18px;color:rgba(255,255,255,.82);max-width:246px}
+
+/* ─── SECTION: EDUCATORS / ORBIT ─── */
+.sec-educators{padding:80px max(24px, calc((100% - 1200px) / 2));background:#fff}
+.edu-inner{display:grid;grid-template-columns:1fr 521px;gap:80px;align-items:center;max-width:1200px;margin:0 auto}
+.edu-left .eyebrow{margin-bottom:30px}
+.edu-left h2{margin-bottom:30px;color:#2c2c2c}
+.edu-left h2 em{font-style:normal;color:#1a1a1a}
+.edu-left > p{font-family:'Inter',sans-serif;font-size:16px;line-height:26px;color:#1a1a1a;margin-bottom:40px;max-width:543px}
+.edu-list{display:flex;flex-direction:column;gap:18px}
+.edu-item{display:flex;gap:14px;align-items:flex-start}
+.edu-check{flex-shrink:0;width:38px;height:38px;border-radius:10px;background:rgba(0,174,239,.1);display:flex;align-items:center;justify-content:center}
+.edu-check svg{width:18px;height:18px;color:var(--blue)}
+.edu-item h4{font-family:'Inter',sans-serif;font-size:15.2px;font-weight:600;color:#2c2c2c;margin-bottom:4px}
+.edu-item p{font-family:'Inter',sans-serif;font-size:13.6px;line-height:18px;color:#777}
+/* Orbit (mirror preschool orbit on homepage) */
+.edu-orbit{position:relative;width:521px;height:452px;margin:0 auto}
+.orbit2-rings{position:absolute;left:calc(50% - 226px);top:0;width:452px;height:452px;z-index:1;pointer-events:none}
+.orbit2-photo{position:absolute;left:calc(50% - 132px);top:94px;width:264px;height:264px;z-index:3;border-radius:50%;overflow:hidden}
+.orbit2-photo img{width:100%;height:100%;object-fit:cover}
+.orbit2-pill{position:absolute;background:#fff;border-radius:14px;box-shadow:0 8px 28px rgba(0,0,0,.08);height:48px;width:158px;padding:0 14px;display:flex;align-items:center;gap:10px;white-space:nowrap;z-index:2}
+.orbit2-pill .eye{width:28px;height:28px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.orbit2-pill .eye svg{width:14px;height:14px}
+.orbit2-pill span{color:var(--blue);font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:16px}
+.orbit2-pill .eye{background:rgba(0,174,239,.1);color:var(--blue)}
+.o2-explore{left:0;top:94px}
+.o2-explore .eye{background:#cceffc;color:var(--blue)}
+.o2-listen{left:363px;top:40px}
+.o2-document{left:37px;top:377px}
+.o2-design{left:332px;top:391px}
+.edu-sp{position:absolute;pointer-events:none;z-index:4}
+.edu-sp-blue{left:197px;top:70px;width:53px;height:51px}
+.edu-sp-green{left:364px;top:311px;width:49px;height:47px}
+
+/* ─── SECTION: AGE GROUPS ─── */
+.sec-ages{padding:80px max(24px, calc((100% - 1200px) / 2)) 96px;background:linear-gradient(to top,#ffe8f0 0%,#fff 80%)}
+.sec-ages .sec-head{margin-bottom:40px}
+.sec-ages .sec-head h2 em{font-style:normal;color:var(--pink)}
+.ages-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14.8px;max-width:1200px;margin:0 auto 24px}
+.age-card{background:#fff;border:1.5px solid transparent;border-radius:12px;padding:28px 20px 26px;text-align:center;min-height:260px}
+.age-icon{width:56px;height:56px;border-radius:28px;margin:0 auto 14px;display:flex;align-items:center;justify-content:center}
+.age-icon svg,.age-icon img{width:24px;height:24px;display:block}
+.age-name{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:17.6px;line-height:20.24px;color:#2c2c2c;margin-bottom:4px}
+.age-band{font-family:'Inter',sans-serif;font-size:14px!important;font-weight:400!important;line-height:1.2!important;letter-spacing:1.38px!important;text-transform:uppercase!important;color:var(--d60);margin-bottom:12px;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+.age-desc{font-family:'Inter',sans-serif;font-size:13.12px;line-height:20.34px;color:#777;max-width:186px;margin:0 auto}
+.age-a .age-icon{background:rgba(0,174,239,.10)} .age-a .age-band{color:var(--blue)}
+.age-b .age-icon{background:rgba(165,217,26,.16)} .age-b .age-band{color:var(--green)}
+.age-c .age-icon{background:rgba(245,166,35,.14)} .age-c .age-band{color:var(--amber)}
+.age-d .age-icon{background:rgba(155,61,255,.12)} .age-d .age-band{color:var(--purple)}
+.age-e .age-icon{background:rgba(0,201,177,.14)} .age-e .age-band{color:var(--teal)}
+.age-note{text-align:center;max-width:720px;margin:0 auto;padding:16px 25px;background:rgba(255,255,255,.55);border-radius:12px;border:1px dashed rgba(255,255,255,.22)}
+.age-note p{font-family:'Inter',sans-serif;font-size:14.4px;line-height:22px;color:#666;margin:0}
+.age-note strong{color:var(--blue);font-weight:700}
+
+/* ─── SECTION: PROMISE ─── */
+.sec-promise{padding:96px max(24px, calc((100% - 1200px) / 2));background:#fff}
+.sec-promise .sec-head h2 em.t-wgreen{font-style:normal;color:#7aba1a}
+.sec-promise .sec-head h2 em.t-wred{font-style:normal;color:#ff3d3d}
+.promise-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;max-width:1200px;margin:0 auto}
+.promise-col{border-radius:12px;padding:42px 32px;border:0}
+.pc-will{background:#f9ffe8}
+.pc-wont{background:#fff2f2}
+.promise-tag{display:inline-block;padding:4px 12px;border-radius:100px;font-family:'Inter',sans-serif;font-size:14px!important;font-weight:400!important;line-height:1.2!important;letter-spacing:1.38px!important;text-transform:uppercase!important;margin-bottom:10px;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+.pc-will .promise-tag{background:rgba(165,217,26,.22);color:#6fa30f}
+.pc-wont .promise-tag{background:rgba(255,61,61,.12);color:#ff3d3d}
+.promise-list{display:flex;flex-direction:column;gap:0;margin-top:4px}
+.promise-item{display:flex;gap:12px;align-items:flex-start;padding:13px 0;min-height:52px}
+.promise-mark{flex-shrink:0;display:flex;align-items:center;justify-content:center}
+.pc-will .promise-mark{width:26px;height:26px;border-radius:50%;color:#a5d91a}
+.pc-wont .promise-mark{width:28px;height:28px;border-radius:8px;background:rgba(255,61,61,.12);color:#ff3d3d}
+.promise-mark img,.promise-mark svg{display:block}
+.pc-will .promise-mark img{width:26px;height:26px}
+.pc-wont .promise-mark img{width:16px;height:16px}
+.promise-item p{font-family:'Inter',sans-serif;font-size:16px;font-weight:500;line-height:22.816px;color:#444}
+
+/* ─── SECTION: LOGISTICS ─── */
+.sec-logistics{padding:80px max(24px, calc((100% - 1200px) / 2)) 96px;background:#f8f8f8}
+.sec-logistics .sec-head h2 em{font-style:normal;color:#1a1a1a;font-weight:700}
+.log-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1200px;margin:0 auto}
+.log-card{background:#fff;border-radius:16px;padding:32px 24px;border:0;min-height:157px;display:flex;flex-direction:column;gap:16px}
+.log-card h3{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:24px;line-height:28px;margin:0}
+.log-card.lc-blue h3{color:var(--blue)}
+.log-card.lc-purple h3{color:var(--purple)}
+.log-card.lc-green h3{color:var(--green)}
+.log-card p{font-family:'Inter',sans-serif;font-size:14px;line-height:22.528px;color:#444;margin:0}
+
+/* ─── CTA BANNER ─── */
+.cta-banner{position:relative;background:linear-gradient(to top,#bfeeff 0%,#fff 80.17%);padding:120px max(24px, calc((100% - 1200px) / 2)) 100px;text-align:center;overflow:hidden;min-height:480px}
+.cta-banner h2{font-family:'Bricolage Grotesque',sans-serif;font-size:44.8px;line-height:56px;font-weight:700;max-width:658px;margin:0 auto 40px;letter-spacing:-0.5px;color:#2c2c2c}
+.cta-banner h2 .learn{display:block;color:var(--purple)}
+.cta-banner h2 .amber{color:var(--amber)}
+.cta-actions{display:inline-flex;gap:24px;flex-wrap:wrap;justify-content:center;margin-top:4px}
+.cta-actions .btn{width:200px;height:60px;border-radius:100px;display:inline-flex;align-items:center;justify-content:center;font-family:'Inter',sans-serif;font-weight:600;font-size:16px}
+.cta-actions .btn-blue{background:var(--blue);color:#fff;border:0}
+.cta-actions .btn-outline{background:transparent;color:#1a1a1a;border:1px solid #000;font-size:14.4px}
+.cta-deco{position:absolute;pointer-events:none;border-radius:8px;overflow:hidden}
+.cta-d1{left:256px;top:100px;width:151px;height:114px}
+.cta-d2{right:232px;top:340px;width:131px;height:98px}
+.cta-d3{right:120px;top:80px;width:197px;height:148px}
+.cta-d4{left:120px;top:300px;width:197px;height:148px}
+.cta-deco img{width:100%;height:100%;object-fit:cover;display:block}
+.cta-sparkle{position:absolute;pointer-events:none}
+.cta-sparkle img{width:100%;height:100%;display:block}
+.cta-sparkle.sp1{left:486px;top:104px;width:52px;height:52px}
+.cta-sparkle.sp2{left:1039px;top:268px;width:56px;height:56px}
+.cta-sparkle.sp3{left:962px;top:85px;width:32px;height:32px}
+.cta-sparkle.sp4{left:475px;top:285px;width:30px;height:30px}
+.sp1{left:487px;top:87px;width:49px;height:47px}
+.sp2{left:1039px;top:267px;width:45px;height:43px}
+.sp3{left:961px;top:66px;width:27px;height:26px}
+.sp4{left:475px;top:285px;width:25px;height:24px}
+
+/* ─── FOOTER (shared with index.html) ─── */
+footer{background:#1a1a1a;position:relative;overflow:hidden}
+.footer-main{display:flex;justify-content:space-between;padding:60px max(24px, calc((100% - 1200px) / 2));gap:40px}
+.footer-brand{width:320px;display:flex;flex-direction:column;gap:24px}
+.footer-logo{display:flex;align-items:center;gap:12px}
+.footer-logo img{width:44px;height:44px;border-radius:10px}
+.footer-brand-name{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:18px;color:#fff}
+.footer-brand-tag{font-family:'Inter',sans-serif;font-size:14px!important;font-weight:400!important;letter-spacing:1.38px!important;text-transform:uppercase!important;color:var(--blue);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+.footer-desc{font-family:'Inter',sans-serif;font-size:14px;line-height:24px;color:#888;width:280px}
+.footer-social-lbl{font-family:'Inter',sans-serif;font-size:14px!important;font-weight:400!important;letter-spacing:1.38px!important;text-transform:uppercase!important;color:#555;margin-bottom:12px;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+.social-icons{display:flex;gap:8px}
+.s-icon{width:36px;height:36px;background:#2c2c2c;border:1px solid #333;border-radius:8px;display:flex;align-items:center;justify-content:center;transition:background .2s;color:#fff}
+.s-icon:hover{background:#3a3a3a}
+.s-icon img{width:20px;height:20px;opacity:.9}
+.s-icon svg{width:18px;height:18px;display:block;opacity:.85;flex-shrink:0}
+.footer-col{display:flex;flex-direction:column;gap:20px}
+.footer-col-title{font-family:'Inter',sans-serif;font-size:14px!important;font-weight:400!important;letter-spacing:1.38px!important;text-transform:uppercase!important;color:#fff;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+.footer-links-list{display:flex;flex-direction:column;gap:14px}
+.footer-links-list a{font-family:'Inter',sans-serif;font-size:14px;color:#888;transition:color .2s}
+.footer-links-list a:hover{color:#ccc}
+.contact-item{display:flex;align-items:flex-start;gap:12px;margin-bottom:20px}
+.contact-item:last-child{margin-bottom:0}
+.c-icon{width:32px;height:32px;background:#2c2c2c;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.c-icon img{width:15px;height:15px}
+.c-name{font-family:'Inter',sans-serif;font-size:13px;font-weight:600;color:#ccc;line-height:1.4;white-space:nowrap}
+.c-addr{font-family:'Inter',sans-serif;font-size:13px;color:#888;line-height:20px;margin-top:2px;width:220px}
+.c-link{font-family:'Inter',sans-serif;font-size:13px;color:#888;display:block;line-height:1.55}
+.c-link:hover{color:#ccc}
+.footer-bottom{border-top:1px solid #2c2c2c;display:flex;justify-content:space-between;align-items:center;padding:20px max(24px, calc((100% - 1200px) / 2));font-family:'Inter',sans-serif;font-size:13px;color:#555}
+.footer-bottom-links{display:flex;gap:24px}
+.footer-bottom-links a{color:#555}
+.footer-bottom-links a:hover{color:#888}
+.f-deco{position:absolute;pointer-events:none;opacity:.4}
+.f-deco img{width:100%;height:100%}
+.fd1{left:58px;top:42px;width:50px;height:51px}
+.fd2{right:87px;bottom:60px;width:86px;height:87px}
+
+/* ─── RESPONSIVE (tablet & mobile) ─── */
+@media (max-width:1024px){
+  body{min-width:0}
+  html{min-width:0}
+  .nav{padding-left:24px;padding-right:24px}
+  .nav-links,.nav-cta{display:none}
+  .hamburger{display:flex}
+  .pre-hero-inner{grid-template-columns:1fr;gap:40px}
+  .pre-hero-right{grid-template-columns:1fr 1fr;grid-template-rows:160px 160px;max-width:560px}
+  .ph-img3{height:100%}
+  .approach-grid{grid-template-columns:1fr 1fr}
+  .spaces2-grid{grid-template-columns:1fr 1fr;gap:20px}
+  .grow-inner{grid-template-columns:1fr;gap:48px}
+  .edu-inner{grid-template-columns:1fr;gap:48px}
+  .ages-grid{grid-template-columns:repeat(3,1fr)}
+  .promise-grid{grid-template-columns:1fr;gap:20px}
+  .log-grid{grid-template-columns:1fr 1fr}
+  .cta-deco{display:none}
+}
+@media (max-width:768px){
+  body{padding-top:0}
+  /* NAV — non-scrolled: big logo centred; scrolled: compact logo left + hamburger right */
+  .header-wrap{display:flex;align-items:center;justify-content:center;padding:0;min-height:96px;background:transparent!important;border-color:transparent!important}
+  .header-wrap.scrolled{background:rgba(255,255,255,0.92)!important;border-color:rgba(0,0,0,0.06)!important;min-height:52px}
+  .logo-panel{overflow:visible;flex-shrink:0}
+  .logo-box{padding:0}
+  .logo-full{height:80px}
+  .nav{position:absolute;right:0;top:0;bottom:0;display:flex;align-items:center;padding:0 20px;width:auto;flex:0}
+  .nav-links,.nav-cta{display:none!important}
+  .hamburger{display:flex}
+  .header-wrap.scrolled{justify-content:flex-start;padding:0 16px}
+  .header-wrap.scrolled .nav{position:static;flex:1;padding:8px 0;width:auto;justify-content:space-between}
+  .header-wrap.scrolled .logo-compact-wrap{display:flex!important}
+
+  h1{font-size:36px;line-height:44px;letter-spacing:-.5px}
+  h2{font-size:28px;line-height:34px}
+  .pre-hero{padding:120px 20px 64px}
+  .pre-hero-left{text-align:center}
+  .pre-hero h1{font-size:34px;line-height:42px}
+  .pre-hero-sub{font-size:16px;line-height:26px;margin-bottom:28px;margin-left:auto;margin-right:auto}
+  .pre-hero-actions{gap:12px;justify-content:center}
+  .pre-hero-actions .btn{padding:14px 24px;font-size:15px}
+  .pre-hero-right{grid-template-columns:1fr 1fr;grid-template-rows:130px 130px;gap:10px;max-width:none}
+  .ph-img3{grid-column:2;grid-row:1/span 2}
+  .ph-sp1{width:42px;height:40px;top:-16px;right:-4px}
+  .ph-sp2{width:26px;height:25px;bottom:-10px;right:40%}
+  .ph-sp3{width:34px;height:33px;bottom:10px;right:-8px}
+  .sec-approach,.sec-spaces,.sec-grow,.sec-educators,.sec-ages,.sec-promise,.sec-logistics{padding:64px 20px}
+  .sec-head{margin-bottom:40px}
+  .approach-grid{grid-template-columns:1fr;gap:16px}
+  /* SPACES — stacked full-width cards on mobile */
+  .spaces2-grid{display:flex;flex-direction:column;gap:16px;grid-template-columns:none}
+  .space2-card{width:100%;aspect-ratio:auto;display:block}
+  .space2-card .space2-img{position:relative;inset:auto;width:100%;height:auto;aspect-ratio:591/332;display:block;object-fit:cover}
+  .space2-body{position:static;padding:16px 20px 20px}
+  .space2-title{font-size:20px;line-height:26px}
+  .space2-card .space2-desc{display:none}
+  .grow-right{grid-template-columns:1fr 1fr;grid-template-rows:auto auto;gap:12px}
+  .grow-tile{aspect-ratio:auto;min-height:240px}
+  .grow-tile-body{padding:20px;justify-content:flex-end}
+  .grow-tile-title{font-size:22px;line-height:26px;margin-bottom:6px}
+  .grow-tile-desc{font-size:13px;line-height:18px;max-width:none}
+  .edu-orbit{zoom:0.68}
+  .ages-grid{grid-template-columns:1fr;gap:12px;margin-bottom:18px}
+  .age-card{display:block;text-align:left;padding:24px 20px;min-height:0}
+  .age-icon{margin:0 0 14px}
+  .age-name{margin-bottom:4px}
+  .age-band{margin-bottom:10px}
+  .age-desc{max-width:none;margin:0}
+  .promise-col{padding:28px 22px}
+  .promise-item p{font-size:14.5px;line-height:21px;white-space:normal}
+  /* LOGISTICS CAROUSEL */
+  .sec-logistics{padding-left:0!important;padding-right:0!important}
+  .sec-logistics .sec-head{padding:0 20px}
+  .log-grid{
+    display:flex;overflow-x:auto;gap:14px;justify-content:flex-start;
+    scroll-snap-type:x mandatory;scroll-padding-left:20px;scrollbar-width:none;
+    padding:0 20px 8px 20px!important;grid-template-columns:none;
+  }
+  .log-grid::-webkit-scrollbar{display:none}
+  .log-card{flex:0 0 calc(70vw - 34px);width:calc(70vw - 34px);scroll-snap-align:start;flex-shrink:0}
+  .cta-banner{padding:80px 20px 64px;min-height:0}
+  .cta-banner h2{font-size:28px;line-height:36px;max-width:none}
+  .cta-banner h2 br{display:none}
+  /* Keep sparkles visible — shrink & nudge (never display:none per brand) */
+  .cta-sparkle{position:absolute}
+  .cta-sparkle.sp1{left:auto!important;right:24px;top:28px;width:28px;height:28px}
+  .cta-sparkle.sp2{left:20px!important;right:auto;top:auto;bottom:40px;width:24px;height:24px}
+  .cta-sparkle.sp3{left:20px!important;right:auto;top:40px;width:20px;height:20px}
+  .cta-sparkle.sp4{left:auto!important;right:36px;top:auto;bottom:30px;width:22px;height:22px}
+  .cta-actions{flex-direction:column;align-items:stretch;gap:12px;width:100%;max-width:320px;margin:0 auto}
+  .cta-actions .btn{width:100%;height:52px;font-size:15px}
+  .cta-actions .btn-outline{font-size:14px}
+  .footer-main{flex-direction:column;padding:44px 20px;gap:36px}
+  .footer-brand,.footer-col{width:100%!important}
+  .footer-bottom{flex-direction:column;gap:10px;text-align:center;padding:16px 20px}
+}
+
+/* ── micro-animations (shared system) ── */
+@media (prefers-reduced-motion: no-preference){
+  .reveal{opacity:0;transform:scale(.86) translateY(16px);transition:opacity .8s ease-out, transform .8s cubic-bezier(.22,.75,.2,1)}
+  .reveal.in-view{opacity:1;transform:none}
+  @keyframes twinkle{0%,100%{opacity:.85;transform:scale(1) rotate(0)}50%{opacity:1;transform:scale(1.18) rotate(6deg)}}
+  .pre-hero-sp img,.edu-sp img,.cta-sparkle img{animation:twinkle 3.2s ease-in-out infinite;transform-origin:center;will-change:transform,opacity}
+  .ph-sp2 img{animation-delay:.4s}
+  .ph-sp3 img{animation-delay:.8s}
+  .edu-sp-green img{animation-delay:.6s}
+  .sp2 img{animation-delay:.3s} .sp3 img{animation-delay:.6s} .sp4 img{animation-delay:.9s}
+  [data-parallax]{transform:translate3d(0,var(--py,0),0);transition:transform .08s linear;will-change:transform}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════ HEADER ═══════════ -->
+<div class="header-wrap">
+  <div class="logo-panel">
+    <div class="logo-box">
+      <a href="index.html"><img class="logo-full" src="Logo.svg" alt="Sparkling Mindz"></a>
+    </div>
+  </div>
+  <nav class="nav">
+    <a href="index.html" class="logo-compact-wrap">
+      <img class="logo-compact" src="Logo.svg" alt="Sparkling Mindz">
+      <div class="nav-brand">
+        <div class="brand-name">Sparkling Mindz</div>
+        <div class="brand-tag">Global School</div>
+      </div>
+    </a>
+    <div class="nav-links">
+    <div class="nav-dropdown">
+      <a href="#">About Us <svg class="nav-chevron" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 5L7 9L11 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <div class="dropdown-menu">
+        <div class="dropdown-menu-inner">
+          <a href="#">Philosophy</a>
+          <a href="#">Team</a>
+        </div>
+      </div>
+    </div>
+    <div class="nav-dropdown">
+      <a href="#">Academics <svg class="nav-chevron" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 5L7 9L11 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <div class="dropdown-menu">
+        <div class="dropdown-menu-inner">
+          <a href="preschool.html">Preschool</a>
+          <a href="#">School</a>
+          <a href="#">Year of Discovery (YODA)</a>
+        </div>
+      </div>
+    </div>
+    <div class="nav-dropdown">
+      <a href="#">Programs <svg class="nav-chevron" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 5L7 9L11 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <div class="dropdown-menu">
+        <div class="dropdown-menu-inner">
+          <a href="#">After School Activities</a>
+          <a href="#">Summer Camp</a>
+          <a href="#">Parent Workshops</a>
+        </div>
+      </div>
+    </div>
+    <a href="#">Events</a>
+    <a href="#">Resources</a>
+    <a href="#">Blog</a>
+    <a href="#">Contact</a>
+    </div>
+    <a href="#" class="nav-cta">Enquire now</a>
+    <button class="hamburger" id="hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+</div><!-- /header-wrap -->
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#" class="mob-link">About Us</a>
+  <div class="mob-group">
+    <div class="mob-group-trigger">Academics <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 5L7 9L11 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <div class="mob-sub">
+      <a href="preschool.html">Preschool</a>
+      <a href="#">School</a>
+      <a href="#">Year of Discovery (YODA)</a>
+    </div>
+  </div>
+  <a href="#" class="mob-link">Programs</a>
+  <a href="#" class="mob-link">Events</a>
+  <a href="#" class="mob-link">Resources</a>
+  <a href="#" class="mob-link">Blog</a>
+  <a href="#" class="mob-link">Contact</a>
+  <div class="mob-cta">
+    <a href="#" class="btn btn-blue">Enquire now</a>
+  </div>
+</div>
+
+<!-- ═══════════ HERO ═══════════ -->
+<section class="pre-hero">
+  <div class="pre-hero-inner">
+    <div class="pre-hero-left">
+      <p class="eyebrow">Our Preschool Programme</p>
+      <h1>A place where children <span class="w-green">explore,</span><br><span class="w-purple">express,</span> <span class="w-blue">&amp; truly be themselves.</span></h1>
+      <p class="pre-hero-sub">Our preschool is not preparation for school. It's a nurturing environment where joyful learning, thoughtful play, and honest relationships help your child grow into who they are meant to become.</p>
+      <div class="pre-hero-actions">
+        <a href="#" class="btn btn-blue">Enquire now</a>
+        <a href="#" class="btn btn-outline">Download brochure</a>
+      </div>
+    </div>
+    <div class="pre-hero-right">
+      <div class="ph-img1"><img src="assets/images/figma/ce5820f1-de5b-425d-82b6-3a69e206f56a.jpg" alt="Children in classroom"></div>
+      <div class="ph-img2"><img src="assets/images/figma/12f71bd1-7bec-469f-abc1-3d61af73cd07.jpg" alt="Outdoor play"></div>
+      <div class="ph-img3"><img src="assets/images/figma/4a4986c5-430d-4020-9247-bb7aa1f35375.jpg" alt="Art and creativity"></div>
+      <div class="pre-hero-sp ph-sp1"><img src="assets/images/figma/0fff392d-43f5-4c06-9d3c-6de3d9bca123.svg" alt=""></div>
+      <div class="pre-hero-sp ph-sp2"><img src="assets/images/figma/86510d70-5642-4e60-b19c-b2420b1d6407.svg" alt=""></div>
+      <div class="pre-hero-sp ph-sp3"><img src="assets/images/figma/4d8671ea-cbc5-4e92-bd66-e82dce4c4bb5.svg" alt=""></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ LEARNING APPROACH ═══════════ -->
+<section class="sec-approach">
+  <div class="sec-head">
+    <p class="eyebrow">Our Preschool Approach</p>
+    <h2>Learning that begins with <em>wonder</em></h2>
+    <p>We believe young children learn best through play, curiosity, and meaningful experiences. Our days balance free play, guided exploration, and structured activities, giving children both the freedom to discover and the support to grow.</p>
+  </div>
+  <div class="approach-grid">
+    <div class="approach-card">
+      <div class="approach-icon"><img src="assets/images/preschool/free-play.svg" alt=""></div>
+      <h3 class="t-purple">Free Play</h3>
+      <p>Unstructured time where children follow their curiosity, build friendships, and direct their own discovery.</p>
+    </div>
+    <div class="approach-card">
+      <div class="approach-icon"><img src="assets/images/preschool/guided-exploration.svg" alt=""></div>
+      <h3 class="t-green">Guided Exploration</h3>
+      <p>Facilitators gently prompt, question, and scaffold. Learning deepens without taking over.</p>
+    </div>
+    <div class="approach-card">
+      <div class="approach-icon"><img src="assets/images/preschool/structured-activity.svg" alt=""></div>
+      <h3 class="t-teal">Structured Activity</h3>
+      <p>Purposeful group experiences that build language, problem-solving, and routines for confidence.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ FOUR SPACES ═══════════ -->
+<section class="sec-spaces">
+  <div class="sec-head">
+    <p class="eyebrow">How Children Learn Here</p>
+    <h2>Four spaces, many languages <span class="teal">of learning</span></h2>
+    <p>Our classrooms are thoughtfully designed into distinct learning zones that invite children to engage through every sense and strength.</p>
+  </div>
+  <div class="spaces2-grid">
+    <div class="space2-card c-purple">
+      <img class="space2-img" src="assets/images/figma/00f4247e-ca8e-47d0-a6f2-1d7c19686784.jpg" alt="Imagination">
+      <div class="space2-body">
+        <div class="space2-eyebrow">Imagination</div>
+        <div class="space2-title">Stories, pretend play, and creation</div>
+        <p class="space2-desc">Where children become doctors, shopkeepers, astronauts, and authors. Pretend play is the workshop for thinking in symbols.</p>
+      </div>
+    </div>
+    <div class="space2-card c-blue">
+      <img class="space2-img" src="assets/images/figma/423f049f-ed29-4e98-889e-e550bc0a1877.jpg" alt="Exploration">
+      <div class="space2-body">
+        <div class="space2-eyebrow">Exploration</div>
+        <div class="space2-title">Hands-on discovery and problem-solving</div>
+        <p class="space2-desc">Science tables, loose parts, and sensory play. Children test theories with their hands and trust the questions behind them.</p>
+      </div>
+    </div>
+    <div class="space2-card c-amber">
+      <img class="space2-img" src="assets/images/figma/acc01b8d-f4c8-4b84-a845-221321c651fb.jpg" alt="Interaction">
+      <div class="space2-body">
+        <div class="space2-eyebrow">Interaction</div>
+        <div class="space2-title">Conversation, collaboration, community</div>
+        <p class="space2-desc">Small-group work, circle time, peer problem-solving. Children learn to listen, negotiate, and belong to each other.</p>
+      </div>
+    </div>
+    <div class="space2-card c-green">
+      <img class="space2-img" src="assets/images/figma/e495e34c-c91f-4a48-9e34-7f11f57605ef.jpg" alt="Movement">
+      <div class="space2-body">
+        <div class="space2-eyebrow">Movement</div>
+        <div class="space2-title">Physical play and body awareness</div>
+        <p class="space2-desc">Climbing, running, dancing, balance. The body is how young children think — and we make room for that thinking every day.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ GROW MATTERS ═══════════ -->
+<section class="sec-grow">
+  <div class="grow-inner">
+    <div class="grow-left">
+      <p class="eyebrow">More Than Academics</p>
+      <h2>At this age, <em>how</em> they grow matters most</h2>
+      <div class="grow-body">
+        <p>What a 3-year-old memorises will fade. How they learn to understand themselves, regulate emotions, build trust, and stay curious stays with them for life.</p>
+        <p>These early skills form the foundation for everything that follows, reading, writing, friendship, resilience, and the quiet belief that <em>"I can figure this out."</em></p>
+      </div>
+    </div>
+    <div class="grow-right">
+      <div class="grow-tile">
+        <img src="assets/images/figma/a2461c05-fe6e-494b-9c5d-022405ab6685.jpg" alt="">
+        <div class="grow-tile-body">
+          <div class="grow-tile-title">Feel</div>
+          <div class="grow-tile-desc">Understand and express emotions with the vocabulary to name them.</div>
+        </div>
+      </div>
+      <div class="grow-tile">
+        <img src="assets/images/figma/d2226d67-48f6-4f91-8ecf-ddf9635fd4e4.jpg" alt="">
+        <div class="grow-tile-body">
+          <div class="grow-tile-title">Believe</div>
+          <div class="grow-tile-desc">Build confidence and independence through real ownership of small choices.</div>
+        </div>
+      </div>
+      <div class="grow-tile">
+        <img src="assets/images/figma/b633c0cd-a189-4352-873f-56fbb0f512f4.jpg" alt="">
+        <div class="grow-tile-body">
+          <div class="grow-tile-title">Voice</div>
+          <div class="grow-tile-desc">Develop the language to talk about feelings, ideas, and what they're noticing.</div>
+        </div>
+      </div>
+      <div class="grow-tile">
+        <img src="assets/images/figma/aa44ca5f-3d99-4c75-8fc7-e2867a83ee2f.jpg" alt="">
+        <div class="grow-tile-body">
+          <div class="grow-tile-title">See</div>
+          <div class="grow-tile-desc">Become aware of themselves, and of others, with empathy as the starting point.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ EDUCATORS / ORBIT ═══════════ -->
+<section class="sec-educators">
+  <div class="edu-inner">
+    <div class="edu-left">
+      <p class="eyebrow">Our Role as Educators</p>
+      <h2>Facilitators of learning, <em>not givers of answers</em></h2>
+      <p>Our teachers do not see themselves as knowledge-bearers or instruction-givers. They design environments and ask the questions that help children reach their own insights.</p>
+      <div class="edu-list">
+        <div class="edu-item">
+          <div class="edu-check"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M1.5 9s2.5-5 7.5-5 7.5 5 7.5 5-2.5 5-7.5 5S1.5 9 1.5 9Z"/><circle cx="9" cy="9" r="2.2"/></svg></div>
+          <div><h4>Carefully observe each child</h4><p>Pay close attention to what lights a child up and where they struggle.</p></div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-check"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 13h6M7 15.5h4M9 1.5a5 5 0 0 0-3 9l.5 1.5h5L12 11a5 5 0 0 0-3-9.5Z"/></svg></div>
+          <div><h4>Listen to ideas and questions</h4><p>Treat children's thinking as real thinking, worth responding to.</p></div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-check"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M11.5 2H4.5A1.5 1.5 0 0 0 3 3.5v11A1.5 1.5 0 0 0 4.5 16h9a1.5 1.5 0 0 0 1.5-1.5V5.5L11.5 2Z"/><path d="M11 2v3.5h4M6 10h6M6 12.5h4"/></svg></div>
+          <div><h4>Document learning journeys</h4><p>Photos, notes, and artefacts that make growth visible to children and parents.</p></div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-check"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2.25a6.75 6.75 0 1 0 2.25 13.125c.55-.2.9-.75.75-1.3a1 1 0 0 1 .85-1.3h1.4a1.75 1.75 0 0 0 1.75-1.75 6.75 6.75 0 0 0-7-8.775Z"/><circle cx="5.25" cy="7.5" r=".75" fill="currentColor"/><circle cx="7.5" cy="4.75" r=".75" fill="currentColor"/><circle cx="11" cy="4.75" r=".75" fill="currentColor"/><circle cx="13.25" cy="7.5" r=".75" fill="currentColor"/></svg></div>
+          <div><h4>Design from children's interests</h4><p>Next week's plan emerges from this week's wonderings. Curriculum follows curiosity.</p></div>
+        </div>
+      </div>
+    </div>
+    <div class="edu-orbit">
+      <img class="orbit2-rings" src="assets/images/preschool/orbit-rings.svg" alt="">
+      <div class="orbit2-photo"><img src="assets/images/preschool/orbit-photo.png" alt="Children learning"></div>
+      <div class="orbit2-pill o2-explore">
+        <span class="eye"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M1 7s2-4 6-4 6 4 6 4-2 4-6 4S1 7 1 7Z"/><circle cx="7" cy="7" r="1.7"/></svg></span>
+        <span>Exploration</span>
+      </div>
+      <div class="orbit2-pill o2-listen">
+        <span class="eye"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4.7 10.2h4.6M5.3 12h3.4M7 1.3a3.9 3.9 0 0 0-2.3 7l.4 1.2h3.8l.4-1.2A3.9 3.9 0 0 0 7 1.3Z"/></svg></span>
+        <span>Listen</span>
+      </div>
+      <div class="orbit2-pill o2-document">
+        <span class="eye"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M8.8 1.5H3.7a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h6.6a1 1 0 0 0 1-1V4.5L8.8 1.5Z"/><path d="M8.5 1.5V4h3M5 8h4M5 10h2.6"/></svg></span>
+        <span>Document</span>
+      </div>
+      <div class="orbit2-pill o2-design">
+        <span class="eye"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 1.75a5.25 5.25 0 1 0 1.75 10.2.8.8 0 0 1 .95-.6h1.05a1.35 1.35 0 0 0 1.35-1.35A5.25 5.25 0 0 0 7 1.75Z"/><circle cx="4.1" cy="5.9" r=".58" fill="currentColor" stroke="none"/><circle cx="5.9" cy="3.7" r=".58" fill="currentColor" stroke="none"/><circle cx="8.5" cy="3.7" r=".58" fill="currentColor" stroke="none"/><circle cx="10.3" cy="5.9" r=".58" fill="currentColor" stroke="none"/></svg></span>
+        <span>Design</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ AGE GROUPS ═══════════ -->
+<section class="sec-ages">
+  <div class="sec-head">
+    <p class="eyebrow">Age Groups</p>
+    <h2>A place for every <em style="color:var(--green)">little one</em></h2>
+    <p>Each age group has its own rhythm, materials, and routines — designed to match where children are and gently invite them forward.</p>
+  </div>
+  <div class="ages-grid">
+    <div class="age-card age-a">
+      <div class="age-icon"><img src="assets/images/figma/c2e7971b-e5ce-4bbf-8548-714d3ef8db20.svg" alt=""></div>
+      <div>
+        <div class="age-name">Guppies</div>
+        <div class="age-band">1.5+ · Pre-Playgroup</div>
+        <p class="age-desc">First steps into a learning community, gentle routines, sensory play, and trust.</p>
+      </div>
+    </div>
+    <div class="age-card age-b">
+      <div class="age-icon"><img src="assets/images/figma/c3189d73-f3ec-4da1-afb2-dbe8b3a04a05.svg" alt=""></div>
+      <div>
+        <div class="age-name">Pups</div>
+        <div class="age-band">2+ · Playgroup</div>
+        <p class="age-desc">Social play, language bursts, and the beginning of expressing what they want and feel.</p>
+      </div>
+    </div>
+    <div class="age-card age-c">
+      <div class="age-icon"><img src="assets/images/figma/fecd2310-7038-459d-b144-8abaab9efe64.svg" alt=""></div>
+      <div>
+        <div class="age-name">Calves</div>
+        <div class="age-band">3+ · Nursery</div>
+        <p class="age-desc">Problem-solving, pretend play, and the roots of literacy and numeracy through stories.</p>
+      </div>
+    </div>
+    <div class="age-card age-d">
+      <div class="age-icon"><img src="assets/images/figma/39fdd661-84d8-4b33-b8a0-3d73bc4222a3.svg" alt=""></div>
+      <div>
+        <div class="age-name">Cubs</div>
+        <div class="age-band">4+ · Juniors</div>
+        <p class="age-desc">Collaborating, leading, and taking on small responsibilities that build self-trust.</p>
+      </div>
+    </div>
+    <div class="age-card age-e">
+      <div class="age-icon"><img src="assets/images/figma/2b35d206-1605-4862-8063-ddb19687189d.svg" alt=""></div>
+      <div>
+        <div class="age-name">Joeys</div>
+        <div class="age-band">5+ · Seniors</div>
+        <p class="age-desc">School-readiness with depth: independence, love of learning, and their own strong voice.</p>
+      </div>
+    </div>
+  </div>
+  <div class="age-note">
+    <p><strong>Daycare</strong> is offered post regular school timings, exclusively for Sparkling Mindz students — same trusted environment, extended hours.</p>
+  </div>
+</section>
+
+<!-- ═══════════ PROMISE ═══════════ -->
+<section class="sec-promise">
+  <div class="sec-head">
+    <p class="eyebrow">Our Promise</p>
+    <h2>What we <em class="t-wgreen">will</em> and <em class="t-wred">will not</em> do</h2>
+    <p>Parents deserve to know exactly what kind of partner we intend to be, and what we refuse to be.</p>
+  </div>
+  <div class="promise-grid">
+    <div class="promise-col pc-will">
+      <span class="promise-tag">WE WILL</span>
+      <div class="promise-list">
+        <div class="promise-item"><span class="promise-mark"><img src="assets/images/figma/efe2b459-436d-462a-a508-564daf72b5ae.svg" alt=""></span><p>Seed a lifelong love for learning in your child</p></div>
+        <div class="promise-item"><span class="promise-mark"><img src="assets/images/figma/5ede3601-6289-4b78-8816-af560f0d91b6.svg" alt=""></span><p>Instil a strong sense of community and civic sense</p></div>
+        <div class="promise-item"><span class="promise-mark"><img src="assets/images/figma/5ede3601-6289-4b78-8816-af560f0d91b6.svg" alt=""></span><p>Develop the useful skills that make your child school-ready</p></div>
+        <div class="promise-item"><span class="promise-mark"><img src="assets/images/figma/5ede3601-6289-4b78-8816-af560f0d91b6.svg" alt=""></span><p>Nurture emotional and social intelligence alongside academics</p></div>
+        <div class="promise-item"><span class="promise-mark"><img src="assets/images/figma/5ede3601-6289-4b78-8816-af560f0d91b6.svg" alt=""></span><p>Empower you to work alongside your child at home</p></div>
+        <div class="promise-item"><span class="promise-mark"><img src="assets/images/figma/5ede3601-6289-4b78-8816-af560f0d91b6.svg" alt=""></span><p>Ensure your child has fun while learning, every single day</p></div>
+        <div class="promise-item"><span class="promise-mark"><img src="assets/images/figma/5ede3601-6289-4b78-8816-af560f0d91b6.svg" alt=""></span><p>Make it an experience you and your child cherish</p></div>
+      </div>
+    </div>
+    <div class="promise-col pc-wont">
+      <span class="promise-tag">WE WILL NOT</span>
+      <div class="promise-list">
+        <div class="promise-item"><span class="promise-mark"><img src="assets/images/figma/81e2fd16-02ac-4486-bf32-e9c4a1f4299f.svg" alt=""></span><p>Chase outcomes at the expense of the learning process</p></div>
+        <div class="promise-item"><span class="promise-mark"><img src="assets/images/figma/81e2fd16-02ac-4486-bf32-e9c4a1f4299f.svg" alt=""></span><p>Complain about your child's focus, we'll build it, with you</p></div>
+        <div class="promise-item"><span class="promise-mark"><img src="assets/images/figma/81e2fd16-02ac-4486-bf32-e9c4a1f4299f.svg" alt=""></span><p>Complain about their interest, we'll discover what sparks them</p></div>
+        <div class="promise-item"><span class="promise-mark"><img src="assets/images/figma/81e2fd16-02ac-4486-bf32-e9c4a1f4299f.svg" alt=""></span><p>Complain about social challenges, we'll work through them as partners</p></div>
+        <div class="promise-item"><span class="promise-mark"><img src="assets/images/figma/81e2fd16-02ac-4486-bf32-e9c4a1f4299f.svg" alt=""></span><p>Complain about reluctance to write, we'll nurture it patiently</p></div>
+        <div class="promise-item"><span class="promise-mark"><img src="assets/images/figma/81e2fd16-02ac-4486-bf32-e9c4a1f4299f.svg" alt=""></span><p>Reduce your child to a report card or a milestone chart</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ LOGISTICS ═══════════ -->
+<section class="sec-logistics">
+  <div class="sec-head">
+    <p class="eyebrow">The Practical Stuff</p>
+    <h2>Everything around the <em>school day</em></h2>
+    <p>Thoughtful logistics, because parents should be able to plan their day with ease.</p>
+  </div>
+  <div class="log-grid">
+    <div class="log-card lc-blue">
+      <h3>Pick-up &amp; Drop</h3>
+      <p>Safe, monitored transport across our service areas, one less thing for you to coordinate on busy mornings.</p>
+    </div>
+    <div class="log-card lc-purple">
+      <h3>Daycare Facility</h3>
+      <p>Extended hours after school, in the same trusted classrooms with familiar faces, exclusively for Sparkling Mindz children.</p>
+    </div>
+    <div class="log-card lc-green">
+      <h3>Home-Cooked Meals</h3>
+      <p>Nutritious, freshly prepared meals made with care, the kind of food you'd cook for your own child.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ CTA BANNER ═══════════ -->
+<section class="cta-banner">
+  <div class="cta-deco cta-d1"><img src="assets/images/figma/e0919980-5eff-4c2b-8264-55dcff49e1e4.png" alt=""></div>
+  <div class="cta-deco cta-d2"><img src="assets/images/figma/9be11b30-19d5-46a2-acdc-f13c3db417b0.png" alt=""></div>
+  <div class="cta-deco cta-d3"><img src="assets/images/figma/e602bda2-96cc-47e4-b671-edd18550dd0b.png" alt=""></div>
+  <div class="cta-deco cta-d4"><img src="assets/images/figma/211952af-c1e6-459e-8a8e-65b3740fae14.png" alt=""></div>
+  <div class="cta-sparkle sp1"><img src="assets/images/figma/52ec6720-89ad-4e1c-8993-40ac5de46850.svg" alt=""></div>
+  <div class="cta-sparkle sp2"><img src="assets/images/figma/392ad39a-c0d4-42bc-9862-12feb76f648b.svg" alt=""></div>
+  <div class="cta-sparkle sp3"><img src="assets/images/figma/f3936ae2-0266-4be8-8d88-6f7c64ab9b76.svg" alt=""></div>
+  <div class="cta-sparkle sp4"><img src="assets/images/figma/99b83b47-619c-4ec0-81e8-41a3e2eb738d.svg" alt=""></div>
+  <h2><span class="learn">Learning</span>should kindle <span class="amber">curiosity,</span><br>not just fill notebooks.</h2>
+  <div class="cta-actions">
+    <a href="#" class="btn btn-blue">Enquire Now</a>
+    <a href="#" class="btn btn-outline">Download Brochure</a>
+  </div>
+</section>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer>
+  <div class="f-deco fd1"><img src="assets/images/figma/7d3ddde4-0954-46d9-951f-9b4ec8ac3540.svg" alt=""></div>
+  <div class="f-deco fd2"><img src="assets/images/figma/4ff16cc2-5ad8-4754-a0d8-b8ed22225a19.svg" alt=""></div>
+  <div class="footer-main">
+    <div class="footer-brand">
+      <div class="footer-logo">
+        <img src="assets/images/figma/8f1d5e4e-da29-4071-943e-b1e135b44307.jpg" alt="Sparkling Mindz">
+        <div>
+          <div class="footer-brand-name">Sparkling Mindz</div>
+          <div class="footer-brand-tag">Global School</div>
+        </div>
+      </div>
+      <p class="footer-desc">Inspiring Confident Learners and Changemakers since 2011. Nurturing young minds for a brighter tomorrow.</p>
+      <div>
+        <div class="footer-social-lbl">Follow Us</div>
+        <div class="social-icons">
+          <a href="#" class="s-icon"><img src="assets/icons/instagram.svg" alt="Instagram" style="width:20px;height:20px"></a>
+          <a href="#" class="s-icon"><img src="assets/icons/facebook.svg" alt="Facebook" style="width:20px;height:20px"></a>
+          <a href="#" class="s-icon"><img src="assets/icons/linkedin.svg" alt="LinkedIn" style="width:20px;height:20px"></a>
+          <a href="#" class="s-icon">
+            <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:18px;height:18px;opacity:.7">
+              <path d="M15.27 2.5H17.93L12.26 8.98L18.93 17.5H13.74L9.62 12.09L4.91 17.5H2.24L8.29 10.56L1.89 2.5H7.22L10.95 7.45L15.27 2.5ZM14.35 15.94H15.82L6.53 4.01H4.95L14.35 15.94Z" fill="white" opacity="0.7"/>
+            </svg>
+          </a>
+          <a href="#" class="s-icon">
+            <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:18px;height:18px;opacity:.7">
+              <path d="M17.8 5.6C17.6 4.8 17 4.2 16.2 4C14.8 3.6 10 3.6 10 3.6C10 3.6 5.2 3.6 3.8 4C3 4.2 2.4 4.8 2.2 5.6C1.8 7 1.8 10 1.8 10C1.8 10 1.8 13 2.2 14.4C2.4 15.2 3 15.8 3.8 16C5.2 16.4 10 16.4 10 16.4C10 16.4 14.8 16.4 16.2 16C17 15.8 17.6 15.2 17.8 14.4C18.2 13 18.2 10 18.2 10C18.2 10 18.2 7 17.8 5.6Z" stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M8.2 12.6L12.8 10L8.2 7.4V12.6Z" stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-col" style="width:180px">
+      <div class="footer-col-title">Quick Links</div>
+      <div class="footer-links-list">
+        <a href="#">About Us</a><a href="preschool.html">Preschool</a><a href="#">School</a>
+        <a href="#">Programs</a><a href="#">Events</a><a href="#">Testimonials</a>
+        <a href="#">Blog</a><a href="#">Careers</a><a href="#">FAQ</a>
+      </div>
+    </div>
+    <div class="footer-col" style="width:280px">
+      <div class="footer-col-title">Contact Us</div>
+      <div>
+        <div class="contact-item">
+          <div class="c-icon"><img src="assets/images/figma/d582857b-bd12-4fbb-8053-bdf1abcc0745.svg" alt=""></div>
+          <div>
+            <div class="c-name">Sparkling Mindz - Hennur</div>
+            <div class="c-addr">8/4, Kannuru, Bidarahalli Hobli, Hennur-Bagalur Road, Bangalore 562149</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="c-icon"><img src="assets/images/figma/a6cce582-2570-4c53-8a39-488b3f19b250.svg" alt=""></div>
+          <div>
+            <a href="tel:+918041115607" class="c-link">+91 80 4111 5607</a>
+            <a href="tel:+919900080331" class="c-link">+91 9900080331</a>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="c-icon"><img src="assets/images/figma/fe7d1a6a-58cb-4310-ba57-b60382866426.svg" alt=""></div>
+          <div>
+            <a href="mailto:info@sparklingmindz.com" class="c-link">info@sparklingmindz.com</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2011-2026 Sparkling Mindz. All rights reserved.</span>
+    <div class="footer-bottom-links"><a href="#">Privacy Policy</a><a href="#">Terms of Use</a></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var header = document.querySelector('.header-wrap');
+  window.addEventListener('scroll', function(){ header.classList.toggle('scrolled', window.scrollY > 40); }, {passive:true});
+})();
+
+(function(){
+  var btn = document.getElementById('hamburger'), menu = document.getElementById('mobileMenu');
+  if(!btn || !menu) return;
+  btn.addEventListener('click', function(){ btn.classList.toggle('open'); menu.classList.toggle('open'); });
+  menu.addEventListener('click', function(e){
+    var trig = e.target.closest('.mob-group-trigger');
+    if(trig){ trig.parentElement.classList.toggle('open'); return; }
+    if(e.target.tagName === 'A'){ btn.classList.remove('open'); menu.classList.remove('open'); }
+  });
+})();
+
+(function(){
+  if(!('IntersectionObserver' in window)) return;
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var sel = '.pre-hero-right > div,.approach-card,.space2-card,.grow-tile,.edu-item,.age-card,.promise-col,.log-card,.edu-orbit';
+  var els = document.querySelectorAll(sel);
+  els.forEach(function(el,i){ el.classList.add('reveal'); el.style.transitionDelay = ((i%6)*60) + 'ms'; });
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in-view'); io.unobserve(e.target); } });
+  },{threshold:.12, rootMargin:'0px 0px -40px 0px'});
+  els.forEach(function(el){ io.observe(el); });
+})();
+
+(function(){
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var groups = [
+    {sel:'.pre-hero-sp', speed:40},
+    {sel:'.edu-sp', speed:30},
+    {sel:'.cta-sparkle', speed:45}
+  ];
+  var items = [];
+  groups.forEach(function(g){ document.querySelectorAll(g.sel).forEach(function(el){ el.setAttribute('data-parallax',''); items.push({el:el, speed:g.speed}); }); });
+  if(!items.length) return;
+  var vh = window.innerHeight, ticking = false;
+  function update(){
+    ticking = false;
+    for(var i=0;i<items.length;i++){
+      var it = items[i], r = it.el.getBoundingClientRect();
+      var progress = ((r.top + r.height/2) - vh/2) / vh;
+      var clamped = Math.max(-1.2, Math.min(1.2, progress));
+      it.el.style.setProperty('--py', (-clamped * it.speed).toFixed(1) + 'px');
+    }
+  }
+  window.addEventListener('scroll', function(){ if(!ticking){ requestAnimationFrame(update); ticking = true; } }, {passive:true});
+  window.addEventListener('resize', function(){ vh = window.innerHeight; });
+  update();
+})();
+</script>
+</body>
+</html>
