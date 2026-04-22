@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About Us | Sparkling Mindz Global School</title>
+<title>Blog | Sparkling Mindz Global School</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600;700;800&family=Lato:wght@400;700&display=swap" rel="stylesheet">
@@ -95,130 +95,81 @@ p{line-height:1.7;color:#555}
 .mob-cta{margin-top:12px}
 .mob-cta .btn{width:100%;justify-content:center}
 
-/* ─── HERO (rounded image banner) ─── */
-.ab-hero{padding:96px max(24px, calc((100% - 1200px) / 2)) 0}
-.ab-hero-inner{position:relative;border-radius:12px;overflow:hidden;height:400px;width:100%}
-.ab-hero-inner::before{content:"";position:absolute;inset:0;background:url('assets/images/about/hero-bg.png') center/cover no-repeat;z-index:1}
-.ab-hero-inner::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.3);z-index:2}
-.ab-hero-content{position:relative;z-index:3;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0 24px;text-align:center}
-.ab-hero-content .eyebrow{color:#fff;margin-bottom:18px}
-.ab-hero-content h1{color:#fff;max-width:552px;font-size:40px;line-height:44px}
-.ab-hero-content h1 em{font-style:normal}
+/* ─── HERO ─── */
+.bl-hero{padding:96px max(24px, calc((100% - 1200px) / 2)) 0}
+.bl-hero-inner{position:relative;border-radius:12px;overflow:hidden;min-height:280px;width:100%;background:linear-gradient(135deg,#e6f7ff 0%,#f4eaff 100%);padding:72px 32px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.bl-hero-inner .eyebrow{color:var(--blue);margin-bottom:18px}
+.bl-hero-inner h1{max-width:640px;margin:0 auto 18px;font-size:44px;line-height:48px}
+.bl-hero-inner h1 em{font-style:normal;color:var(--purple)}
+.bl-hero-inner p{max-width:580px;margin:0 auto;font-family:'Inter',sans-serif;font-size:16px;line-height:26px;color:#555}
 
-/* ─── CAMBRIDGE / WHOLE CHILD ─── */
-.ab-cambridge{position:relative;background:linear-gradient(to top,#ddf6ff 0%,#fff 80.17%);padding:80px max(24px, calc((100% - 1200px) / 2)) 140px;overflow:hidden}
-.ab-cam-grid{display:grid;grid-template-columns:580px 540px;gap:80px;align-items:flex-start;max-width:1200px;margin:0 auto;position:relative}
-.ab-cam-left h2{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:40px;line-height:44px;color:var(--char);margin-bottom:40px;max-width:487px}
-.ab-cam-left h2 .hl-blue{color:var(--blue)}
-.ab-cam-left p{font-family:'Inter',sans-serif;font-size:16px;line-height:26px;color:#383838;margin-bottom:20px;max-width:580px}
-.ab-cam-left p strong{font-weight:500;color:#383838}
-.ab-cam-right{position:relative}
-.ab-cam-right img.ab-cam-img{width:100%;height:376px;object-fit:cover;border-radius:8px;display:block}
-.ab-cam-badge{position:absolute;bottom:-20px;left:-40px;background:#fff;border-radius:8px;padding:12px 16px;box-shadow:0 4px 16px rgba(0,0,0,.08);display:inline-flex;flex-direction:column}
-.ab-cam-badge .affil{font-family:'Inter',sans-serif;font-size:7px;font-weight:600;color:#6e6e6e;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px}
-.ab-cam-badge img{height:40px;width:auto}
-.ab-cam-sparkle{position:absolute;pointer-events:none;z-index:2}
-.ab-cam-sp-pink{top:-24px;left:-32px;width:49px;height:43px}
-.ab-cam-sp-purple{bottom:32px;right:-24px;width:52px;height:52px}
-.ab-atoms{display:flex;gap:16px;max-width:1200px;margin:48px auto 0}
-.ab-atom{flex:1;background:rgba(255,255,255,.92);border-radius:14px;padding:28px 16px 20px;text-align:center;box-shadow:0 2px 16px rgba(0,0,0,.04);min-height:215px;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:16px}
-.ab-atom img{width:96px;height:96px;display:block;margin:0 auto}
-.ab-atom h3{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:22px;line-height:1.15;margin:0}
-.ab-atom.a-purple h3{color:#aa5bff}
-.ab-atom.a-green h3{color:#95c80d}
-.ab-atom.a-amber h3{color:var(--amber)}
-.ab-atom.a-blue h3{color:var(--blue)}
-.ab-atom.a-teal h3{color:var(--teal)}
+/* ─── FILTER ─── */
+.bl-filter{padding:40px max(24px, calc((100% - 1200px) / 2)) 8px;background:#fff}
+.bl-filter-row{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;max-width:1000px;margin:0 auto}
+.bl-chip{display:inline-flex;align-items:center;padding:10px 18px;border-radius:100px;border:1px solid rgba(0,0,0,.1);background:#fff;font-family:'Inter',sans-serif;font-size:13.5px;font-weight:500;color:var(--d60);cursor:pointer;transition:background .15s,color .15s,border-color .15s}
+.bl-chip:hover{border-color:rgba(0,0,0,.25);color:var(--dark)}
+.bl-chip.active{background:var(--dark);border-color:var(--dark);color:#fff}
 
-/* ─── STATS BAND ─── */
-.ab-stats{position:relative;height:374px;overflow:hidden;display:flex;align-items:center;justify-content:center}
-.ab-stats::before{content:"";position:absolute;inset:0;background:url('assets/images/about/stats-bg.png') center/cover no-repeat;z-index:1}
-.ab-stats::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.48);z-index:2}
-.ab-stats-inner{position:relative;z-index:3;display:flex;gap:32px;align-items:center;justify-content:center;flex-wrap:wrap;padding:0 24px}
-.ab-stat{background:#fff;border-radius:12px;padding:32px 54px;display:flex;flex-direction:column;align-items:center;gap:6px;min-width:220px}
-.ab-stat-num{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:38.4px;line-height:38.4px;color:var(--blue)}
-.ab-stat-lbl{font-family:'Inter',sans-serif;font-size:12.8px;letter-spacing:.51px;color:#444;text-align:center}
+/* ─── FEATURED POST ─── */
+.bl-featured{padding:40px max(24px, calc((100% - 1200px) / 2)) 24px;background:#fff}
+.bl-featured-inner{display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:center;max-width:1200px;margin:0 auto;border-radius:16px;overflow:hidden}
+.bl-feat-thumb{position:relative;aspect-ratio:5/4;border-radius:16px;overflow:hidden;background:linear-gradient(135deg,#cceffc 0%,#ffe6f1 100%)}
+.bl-feat-thumb::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 30% 30%,rgba(255,255,255,.4),transparent 55%)}
+.bl-feat-tag{position:absolute;top:20px;left:20px;background:#fff;color:var(--pink);font-family:'Inter',sans-serif;font-size:11.5px;font-weight:600;letter-spacing:.4px;text-transform:uppercase;padding:6px 12px;border-radius:100px;z-index:1}
+.bl-feat-body .eyebrow{color:var(--pink);margin-bottom:14px;display:block}
+.bl-feat-body h2{font-size:34px;line-height:40px;margin:0 0 18px;letter-spacing:-0.3px}
+.bl-feat-body p{font-family:'Inter',sans-serif;font-size:15.5px;line-height:26px;color:#444;margin:0 0 22px;max-width:520px}
+.bl-feat-meta{display:flex;align-items:center;gap:14px;margin-bottom:22px;font-family:'Inter',sans-serif;font-size:13px;color:#777}
+.bl-feat-meta .dot{width:4px;height:4px;border-radius:50%;background:#bbb}
+.bl-feat-cta{display:inline-flex;align-items:center;gap:10px;font-family:'Inter',sans-serif;font-size:14.5px;font-weight:600;color:var(--dark);transition:color .15s}
+.bl-feat-cta:hover{color:var(--blue)}
+.bl-feat-cta svg{width:16px;height:12px;transition:transform .2s}
+.bl-feat-cta:hover svg{transform:translateX(4px)}
 
-/* ─── ORIGIN STORY ─── */
-.ab-origin{background:#f8f8f8;padding:80px max(24px, calc((100% - 1200px) / 2))}
-.ab-origin-inner{display:grid;grid-template-columns:482px 531px;gap:107px;max-width:1200px;margin:0 auto;align-items:flex-start}
-.ab-origin .eyebrow{margin-bottom:30px;display:block}
-.ab-origin h2{font-size:40px;line-height:44px;color:var(--char);margin-bottom:30px}
-.ab-origin h2 .hl-dark{color:var(--dark)}
-.ab-origin-copy p{font-family:'Inter',sans-serif;font-size:16px;line-height:27.2px;color:#444;margin-bottom:18px}
-.ab-origin-copy p:last-child{margin-bottom:0}
-.ab-years{display:flex;flex-direction:column;gap:12px}
-.ab-year{background:rgba(255,255,255,.7);backdrop-filter:blur(4px);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:8px;border:1px solid rgba(0,0,0,.04)}
-.ab-year-lbl{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:18px;letter-spacing:.99px;text-transform:uppercase}
-.ab-year h3{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:16.8px;line-height:19.32px;color:var(--char);margin:0}
-.ab-year p{font-family:'Inter',sans-serif;font-size:14.72px;line-height:23.55px;color:#555;margin:0}
-.ab-year.y-blue .ab-year-lbl{color:var(--blue)}
-.ab-year.y-green .ab-year-lbl{color:var(--green)}
-.ab-year.y-amber .ab-year-lbl{color:var(--amber)}
-.ab-year.y-purple .ab-year-lbl{color:var(--purple)}
+/* ─── ARTICLE GRID ─── */
+.bl-grid-wrap{padding:32px max(24px, calc((100% - 1200px) / 2)) 72px;background:#fff}
+.bl-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;max-width:1200px;margin:0 auto}
+.bl-card{background:#fff;border-radius:16px;overflow:hidden;border:1px solid rgba(0,0,0,.06);transition:box-shadow .2s,transform .2s,border-color .2s;display:flex;flex-direction:column}
+.bl-card:hover{box-shadow:0 12px 36px rgba(0,0,0,.08);transform:translateY(-4px);border-color:transparent}
+.bl-card-thumb{height:200px;position:relative;overflow:hidden}
+.bl-card-thumb.th-blue{background:linear-gradient(135deg,#cceffc 0%,#e6f7ff 100%)}
+.bl-card-thumb.th-green{background:linear-gradient(135deg,#e3f5c4 0%,#f4fde0 100%)}
+.bl-card-thumb.th-amber{background:linear-gradient(135deg,#ffe6bf 0%,#fff4db 100%)}
+.bl-card-thumb.th-pink{background:linear-gradient(135deg,#ffd5e4 0%,#fde6ef 100%)}
+.bl-card-thumb.th-purple{background:linear-gradient(135deg,#ebd8ff 0%,#f4eaff 100%)}
+.bl-card-thumb.th-teal{background:linear-gradient(135deg,#c8f1ea 0%,#e1f9f4 100%)}
+.bl-card-thumb::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 30% 30%,rgba(255,255,255,.45),transparent 55%);pointer-events:none}
+.bl-tag{display:inline-block;font-family:'Inter',sans-serif;font-size:11.5px;font-weight:600;letter-spacing:.3px;text-transform:uppercase;border-radius:100px;padding:5px 12px;margin-bottom:14px}
+.tag-blue{background:rgba(0,174,239,.12);color:var(--blue)}
+.tag-green{background:rgba(165,217,26,.18);color:#7aa600}
+.tag-amber{background:rgba(245,166,35,.15);color:#c97e00}
+.tag-pink{background:rgba(255,45,120,.12);color:var(--pink)}
+.tag-purple{background:rgba(155,61,255,.12);color:var(--purple)}
+.tag-teal{background:rgba(0,201,177,.15);color:#00967f}
+.bl-card-body{padding:22px 22px 24px;display:flex;flex-direction:column;flex:1}
+.bl-card-body h3{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:18.5px;line-height:1.3;color:var(--dark);margin:0 0 12px;letter-spacing:-0.2px}
+.bl-card-body p{font-family:'Inter',sans-serif;font-size:14px;line-height:22px;color:#555;margin:0 0 18px;flex:1}
+.bl-card-meta{display:flex;align-items:center;justify-content:space-between;padding-top:16px;border-top:1px solid rgba(0,0,0,.06);font-family:'Inter',sans-serif;font-size:12.5px;color:#888}
+.bl-card-meta .author{color:var(--dark);font-weight:500}
 
-/* ─── PHILOSOPHY ─── */
-.ab-phil{background:#fff;padding:96px max(24px, calc((100% - 1200px) / 2)) 40px}
-.ab-phil-head{text-align:center;max-width:760px;margin:0 auto 72px}
-.ab-phil-head .eyebrow{margin-bottom:32px;display:inline-block}
-.ab-phil-head h2{font-size:40px;line-height:44px;margin-bottom:26px}
-.ab-phil-head h2 em{font-style:normal}
-.ab-phil-head p{font-family:'Inter',sans-serif;font-size:16px;line-height:27.2px;color:var(--dark);max-width:640px;margin:0 auto}
-.ab-phil-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 56px;max-width:1000px;margin:0 auto}
-.ab-phil-item{display:grid;grid-template-columns:28px 1fr;gap:20px;padding:22px 0 23px;border-bottom:1px solid rgba(0,0,0,.08)}
-.ab-phil-num{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:20px;color:var(--blue);line-height:1.2;padding-top:2px}
-.ab-phil-body h3{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:16.8px;line-height:19.32px;color:var(--char);margin:0 0 6px}
-.ab-phil-body p{font-family:'Inter',sans-serif;font-size:14.72px;line-height:23.55px;color:#666;margin:0}
+/* ─── PAGINATION ─── */
+.bl-pagination{display:flex;align-items:center;justify-content:center;gap:6px;padding:16px 0 0;max-width:1200px;margin:24px auto 0}
+.bl-page{min-width:40px;height:40px;border-radius:100px;border:1px solid rgba(0,0,0,.1);background:#fff;display:inline-flex;align-items:center;justify-content:center;font-family:'Inter',sans-serif;font-size:14px;font-weight:500;color:var(--d60);transition:background .15s,color .15s,border-color .15s;cursor:pointer;padding:0 14px}
+.bl-page:hover{border-color:rgba(0,0,0,.25);color:var(--dark)}
+.bl-page.active{background:var(--blue);border-color:var(--blue);color:#fff}
+.bl-page.disabled{opacity:.45;cursor:not-allowed;pointer-events:none}
 
-/* ─── MISSION / VISION ─── */
-.ab-mv{background:#fff;padding:48px max(24px, calc((100% - 1100px) / 2)) 64px}
-.ab-mv-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;max-width:1100px;margin:0 auto}
-.ab-mv-card{display:flex;flex-direction:column;gap:14px;text-align:center;align-items:center;max-width:500px;margin:0 auto}
-.ab-mv-img{width:100%;aspect-ratio:500/280;border-radius:16px;overflow:hidden;margin-bottom:14px}
-.ab-mv-img img{width:100%;height:100%;object-fit:cover;display:block}
-.ab-mv-lbl{font-family:'Inter',sans-serif;font-weight:600;font-size:14px;letter-spacing:1.61px;text-transform:uppercase;color:var(--d60)}
-.ab-mv-card.mv-mission .ab-mv-lbl{color:var(--blue)}
-.ab-mv-card.mv-vision .ab-mv-lbl{color:var(--purple)}
-.ab-mv-card h2{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:25.6px;line-height:33.28px;color:var(--dark);max-width:380px;letter-spacing:-0.25px}
-.ab-mv-card p{font-family:'Inter',sans-serif;font-size:15.04px;line-height:24px;color:var(--d60)}
-
-/* ─── VALUES ─── */
-.ab-values{background:#f8f8f8;padding:80px max(24px, calc((100% - 1200px) / 2))}
-.ab-values-head{text-align:center;max-width:760px;margin:0 auto 64px}
-.ab-values-head .eyebrow{margin-bottom:13px;display:block}
-.ab-values-head h2{font-size:40px;line-height:44px}
-.ab-values-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1200px;margin:0 auto}
-.ab-val{background:#fff;border-radius:16px;padding:32px 24px 24px;display:flex;flex-direction:column;gap:16px}
-.ab-val h3{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:24px;line-height:18.4px;margin:0}
-.ab-val p{font-family:'Inter',sans-serif;font-size:13.76px;line-height:21.33px;color:#444;margin:0}
-.ab-val.v-blue h3{color:var(--blue)}
-.ab-val.v-amber h3{color:var(--amber)}
-.ab-val.v-green h3{color:var(--green)}
-.ab-val.v-teal h3{color:var(--teal)}
-.ab-val.v-purple h3{color:var(--purple)}
-.ab-val.v-pink h3{color:var(--pink)}
-
-/* ─── AWARDS ─── */
-.ab-awards{background:#fff;padding:80px max(24px, calc((100% - 1200px) / 2))}
-.ab-awards-head{text-align:center;max-width:760px;margin:0 auto 72px}
-.ab-awards-head .eyebrow{margin-bottom:16px;display:block}
-.ab-awards-head h2{font-size:40px;line-height:44px;max-width:487px;margin:0 auto}
-.ab-awards-list{max-width:1000px;margin:0 auto;display:flex;flex-direction:column}
-.ab-award{display:grid;grid-template-columns:110px 1fr 48px;gap:32px;align-items:center;padding:28px 0;border-bottom:1px solid rgba(0,0,0,.08)}
-.ab-award:last-child{border-bottom:none}
-.ab-award-year{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:32px;line-height:32px}
-.ab-award-body h3{font-family:'Inter',sans-serif;font-weight:600;font-size:16.8px;line-height:1.2;color:var(--char);margin:0 0 6px}
-.ab-award-body p{font-family:'Inter',sans-serif;font-size:14.08px;line-height:1.2;color:#666;margin:0}
-.ab-award-icon{width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center}
-.ab-award-icon img{width:22px;height:22px}
-.ab-award.w-amber .ab-award-year{color:var(--amber)}
-.ab-award.w-amber .ab-award-icon{background:rgba(245,166,35,.14)}
-.ab-award.w-blue .ab-award-year{color:var(--blue)}
-.ab-award.w-blue .ab-award-icon{background:rgba(0,174,239,.12)}
-.ab-award.w-teal .ab-award-year{color:var(--teal)}
-.ab-award.w-teal .ab-award-icon{background:rgba(0,201,177,.14)}
-.ab-award.w-purple .ab-award-year{color:var(--purple)}
-.ab-award.w-purple .ab-award-icon{background:rgba(155,61,255,.12)}
+/* ─── NEWSLETTER STRIP ─── */
+.bl-news{background:#f8f8f8;padding:64px max(24px, calc((100% - 1200px) / 2))}
+.bl-news-inner{max-width:820px;margin:0 auto;text-align:center}
+.bl-news h2{font-size:32px;line-height:38px;margin:0 0 12px}
+.bl-news h2 em{font-style:normal;color:var(--blue)}
+.bl-news p{font-family:'Inter',sans-serif;font-size:15px;line-height:24px;color:#555;margin:0 auto 28px;max-width:520px}
+.bl-news form{display:flex;gap:10px;max-width:480px;margin:0 auto}
+.bl-news input{flex:1;height:52px;padding:0 20px;border-radius:100px;border:1px solid rgba(0,0,0,.12);font-family:'Inter',sans-serif;font-size:14.5px;color:var(--dark);background:#fff;outline:none;transition:border-color .15s}
+.bl-news input:focus{border-color:var(--blue)}
+.bl-news button{height:52px;padding:0 28px;border-radius:100px;background:var(--blue);color:#fff;border:0;font-family:'Inter',sans-serif;font-weight:600;font-size:14.5px;cursor:pointer;transition:background .15s}
+.bl-news button:hover{background:#0090ca}
 
 /* ─── CTA BANNER ─── */
 .cta-banner{position:relative;background:linear-gradient(to top,#bfeeff 0%,#fff 80.17%);padding:120px max(24px, calc((100% - 1200px) / 2)) 100px;text-align:center;overflow:hidden;min-height:480px}
@@ -282,17 +233,15 @@ footer{background:#1a1a1a;position:relative;overflow:hidden}
 /* ─── RESPONSIVE ─── */
 @media (max-width:1024px){
   html,body{min-width:0;max-width:100%;overflow-x:hidden}
-  .ab-cambridge{padding:72px 24px 100px}
-  .ab-cam-grid{grid-template-columns:1fr;gap:40px;max-width:640px}
-  .ab-cam-right img.ab-cam-img{height:320px}
-  .ab-cam-badge{left:16px;bottom:-16px}
-  .ab-cam-sp-pink,.ab-cam-sp-purple{display:none}
-  .ab-atoms{flex-wrap:wrap;gap:12px}
-  .ab-atom{flex:1;min-width:calc(33.33% - 10px);padding:24px 14px 20px}
-  .ab-origin-inner{grid-template-columns:1fr;gap:48px}
-  .ab-phil-grid{grid-template-columns:1fr;gap:0}
-  .ab-values-grid{grid-template-columns:repeat(2,1fr)}
-  .ab-mv-grid{grid-template-columns:1fr;gap:48px}
+  .bl-hero{padding:96px 24px 0}
+  .bl-hero-inner{padding:56px 24px;min-height:260px}
+  .bl-hero-inner h1{font-size:34px;line-height:40px}
+  .bl-filter{padding:32px 24px 8px}
+  .bl-featured{padding:32px 24px 16px}
+  .bl-featured-inner{grid-template-columns:1fr;gap:28px;max-width:720px}
+  .bl-feat-body h2{font-size:28px;line-height:34px}
+  .bl-grid-wrap{padding:24px 24px 56px}
+  .bl-grid{grid-template-columns:repeat(2,1fr);gap:22px}
   .cta-deco{display:none}
 }
 @media (max-width:768px){
@@ -312,56 +261,27 @@ footer{background:#1a1a1a;position:relative;overflow:hidden}
   h1{font-size:30px;line-height:36px}
   h2{font-size:28px;line-height:34px}
 
-  .ab-hero{padding:96px 16px 0}
-  .ab-hero-inner{height:320px}
-  .ab-hero-content h1{font-size:26px;line-height:32px}
+  .bl-hero{padding:96px 16px 0}
+  .bl-hero-inner{padding:48px 20px;min-height:220px}
+  .bl-hero-inner h1{font-size:28px;line-height:34px}
+  .bl-hero-inner p{font-size:14.5px;line-height:23px}
+  .bl-filter{padding:28px 16px 4px}
+  .bl-filter-row{gap:8px}
+  .bl-chip{padding:8px 14px;font-size:12.5px}
+  .bl-featured{padding:24px 16px 12px}
+  .bl-featured-inner{gap:22px}
+  .bl-feat-thumb{aspect-ratio:4/3}
+  .bl-feat-body h2{font-size:24px;line-height:30px}
+  .bl-feat-body p{font-size:14.5px;line-height:23px}
+  .bl-grid-wrap{padding:16px 16px 48px}
+  .bl-grid{grid-template-columns:1fr;gap:20px;max-width:420px;margin:0 auto}
+  .bl-card-thumb{height:180px}
+  .bl-pagination{flex-wrap:wrap;gap:4px;margin-top:8px}
 
-  .ab-cambridge{padding:56px 20px 80px}
-  .ab-cam-grid{gap:32px}
-  .ab-cam-left h2{font-size:28px;line-height:34px;margin-bottom:24px}
-  .ab-cam-left p{font-size:15px;line-height:25px}
-  .ab-cam-right img.ab-cam-img{height:240px}
-  .ab-cam-badge{left:12px;bottom:-14px;padding:10px 14px}
-  .ab-cam-badge img{height:32px}
-  .ab-cam-sp-pink{display:block;top:-14px;left:8px;width:22px;height:20px}
-  .ab-cam-sp-purple{display:block;bottom:16px;right:8px;width:24px;height:24px}
-  .ab-atoms{flex-wrap:wrap;gap:10px;margin-top:36px}
-  .ab-atom{flex:1;min-width:calc(50% - 5px);min-height:180px;padding:22px 12px 20px}
-  .ab-atom img{width:76px;height:76px}
-  .ab-atom h3{font-size:18px}
-
-  .ab-stats{height:auto;padding:56px 20px}
-  .ab-stats-inner{flex-direction:column;gap:14px;width:100%;max-width:320px}
-  .ab-stat{width:100%;padding:22px 20px;min-width:0}
-
-  .ab-origin{padding:56px 20px}
-  .ab-origin-inner{gap:32px}
-  .ab-origin h2{font-size:28px;line-height:34px;margin-bottom:22px}
-  .ab-origin-copy p{font-size:15px;line-height:25px}
-
-  .ab-phil{padding:64px 20px}
-  .ab-phil-head{margin-bottom:40px}
-  .ab-phil-head h2{font-size:28px;line-height:34px}
-  .ab-phil-head p{font-size:15px;line-height:25px}
-  .ab-phil-item{padding:18px 0}
-
-  .ab-mv{padding:56px 20px}
-  .ab-mv-grid{gap:48px}
-  .ab-mv-card h2{font-size:22px;line-height:28px}
-
-  .ab-values{padding:56px 20px}
-  .ab-values-head{margin-bottom:36px}
-  .ab-values-head h2{font-size:28px;line-height:34px}
-  .ab-values-grid{grid-template-columns:1fr;gap:14px}
-
-  .ab-awards{padding:56px 20px}
-  .ab-awards-head{margin-bottom:40px}
-  .ab-awards-head h2{font-size:28px;line-height:34px}
-  .ab-award{grid-template-columns:80px 1fr;gap:16px;padding:22px 0}
-  .ab-award-icon{display:none}
-  .ab-award-year{font-size:26px}
-  .ab-award-body h3{font-size:15.5px}
-  .ab-award-body p{font-size:13.5px}
+  .bl-news{padding:48px 20px}
+  .bl-news h2{font-size:24px;line-height:30px}
+  .bl-news form{flex-direction:column;gap:10px;max-width:360px}
+  .bl-news button{width:100%}
 
   .cta-banner{padding:80px 20px 64px;min-height:0}
   .cta-banner h2{font-size:28px;line-height:36px;max-width:none}
@@ -379,8 +299,7 @@ footer{background:#1a1a1a;position:relative;overflow:hidden}
   .reveal{opacity:0;transform:scale(.96) translateY(16px);transition:opacity .8s ease-out, transform .8s cubic-bezier(.22,.75,.2,1)}
   .reveal.in-view{opacity:1;transform:none}
   @keyframes twinkle{0%,100%{opacity:.85;transform:scale(1) rotate(0)}50%{opacity:1;transform:scale(1.18) rotate(6deg)}}
-  .cta-sparkle img,.ab-cam-sparkle img{animation:twinkle 3.2s ease-in-out infinite;transform-origin:center;will-change:transform,opacity}
-  .ab-cam-sp-purple img{animation-duration:3.6s;animation-delay:.5s}
+  .cta-sparkle img{animation:twinkle 3.2s ease-in-out infinite;transform-origin:center;will-change:transform,opacity}
   .sp2 img{animation-delay:.3s} .sp3 img{animation-delay:.6s} .sp4 img{animation-delay:.9s}
   [data-parallax]{transform:translate3d(0,var(--py,0),0);transition:transform .08s linear;will-change:transform}
 }
@@ -443,7 +362,7 @@ footer{background:#1a1a1a;position:relative;overflow:hidden}
       <span></span><span></span><span></span>
     </button>
   </nav>
-</div><!-- /header-wrap -->
+</div>
 
 <div class="mobile-menu" id="mobileMenu">
   <div class="mob-group">
@@ -472,184 +391,156 @@ footer{background:#1a1a1a;position:relative;overflow:hidden}
 </div>
 
 <!-- ═══════════ HERO ═══════════ -->
-<section class="ab-hero">
-  <div class="ab-hero-inner">
-    <div class="ab-hero-content">
-      <p class="eyebrow">About Sparkling Mindz</p>
-      <h1>A school built to help children <em>think, feel, and shape</em> the world ahead.</h1>
-    </div>
+<section class="bl-hero">
+  <div class="bl-hero-inner">
+    <p class="eyebrow">The Sparkling Blog</p>
+    <h1>Ideas, stories, and practice from <em>the classroom.</em></h1>
+    <p>Reflections from facilitators, field notes from parents, and the research that shapes how we think about learning at Sparkling Mindz.</p>
   </div>
 </section>
 
-<!-- ═══════════ CAMBRIDGE / WHOLE CHILD ═══════════ -->
-<section class="ab-cambridge">
-  <div class="ab-cam-grid">
-    <div class="ab-cam-left">
-      <h2>A Cambridge-affiliated school, built around the <span class="hl-blue">Whole Child.</span></h2>
-      <p>Sparkling Mindz Global School started with a simple conviction: children learn best when they are curious, safe, and given real ownership of their journey. Today, in Bangalore, we bring that conviction to life every single day, for preschoolers discovering the world and school students shaping it.</p>
-      <p>We are a Cambridge-affiliated school offering an integrated curriculum from early years through <strong>IGCSE and A-Levels, built around our own IBCL (Innovation Beyond Connected Learning)</strong> framework where children become changemakers, not just grade-chasers.</p>
+<!-- ═══════════ CATEGORY FILTER ═══════════ -->
+<section class="bl-filter">
+  <div class="bl-filter-row">
+    <button class="bl-chip active">All</button>
+    <button class="bl-chip">Preschool</button>
+    <button class="bl-chip">School</button>
+    <button class="bl-chip">Parenting</button>
+    <button class="bl-chip">Child Development</button>
+    <button class="bl-chip">Facilitator Notes</button>
+    <button class="bl-chip">Community</button>
+  </div>
+</section>
+
+<!-- ═══════════ FEATURED ═══════════ -->
+<section class="bl-featured">
+  <div class="bl-featured-inner">
+    <div class="bl-feat-thumb">
+      <span class="bl-feat-tag">Featured</span>
     </div>
-    <div class="ab-cam-right">
-      <div class="ab-cam-sparkle ab-cam-sp-pink"><img src="assets/images/figma/5aa255d0-c0c6-4162-81e5-080bd8c6ccff.svg" alt="" style="width:100%;height:100%"></div>
-      <img class="ab-cam-img" src="assets/images/figma/44118a22-f4c0-44b5-a36e-184c2ab37fe0.png" alt="Sparkling Mindz school building">
-      <div class="ab-cam-badge">
-        <div class="affil">Affiliated by</div>
-        <img src="assets/images/figma/c0a49c92-8537-4d28-953d-81144a58a66b.png" alt="Cambridge International">
+    <div class="bl-feat-body">
+      <span class="eyebrow">Child Development</span>
+      <h2>Why play is the most serious work a child can do.</h2>
+      <p>Unstructured play isn't a break from learning — it's the operating system learning runs on. Here's what the science, and our classrooms, keep showing us.</p>
+      <div class="bl-feat-meta">
+        <span>Sreeja Iyer</span>
+        <span class="dot"></span>
+        <span>8 min read</span>
+        <span class="dot"></span>
+        <span>Apr 18, 2026</span>
       </div>
-      <div class="ab-cam-sparkle ab-cam-sp-purple"><img src="assets/images/figma/e9bfd7b9-07f0-4d28-82e8-02fd724b9567.svg" alt="" style="width:100%;height:100%"></div>
-    </div>
-  </div>
-  <div class="ab-atoms">
-    <div class="ab-atom a-purple">
-      <img src="assets/images/values/joyful-learning.svg" alt="">
-      <h3>Joyful<br>Learning</h3>
-    </div>
-    <div class="ab-atom a-green">
-      <img src="assets/images/values/child-ownership.svg" alt="">
-      <h3>Child<br>Ownership</h3>
-    </div>
-    <div class="ab-atom a-amber">
-      <img src="assets/images/values/real-world-thinking.svg" alt="">
-      <h3>Real-world<br>Thinking</h3>
-    </div>
-    <div class="ab-atom a-blue">
-      <img src="assets/images/values/active-changemaking.svg" alt="">
-      <h3>Active<br>Changemaking</h3>
-    </div>
-    <div class="ab-atom a-teal">
-      <img src="assets/images/values/proven-quality.svg" alt="">
-      <h3>Proven<br>Quality</h3>
+      <a href="#" class="bl-feat-cta">Read the full story
+        <svg viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0.75 5.75671H15.75" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M12.3125 0.75L17.0938 5.75672L12.3125 10.7634" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
     </div>
   </div>
 </section>
 
-<!-- ═══════════ STATS BAND ═══════════ -->
-<section class="ab-stats">
-  <div class="ab-stats-inner">
-    <div class="ab-stat"><div class="ab-stat-num">2010</div><div class="ab-stat-lbl">Founded</div></div>
-    <div class="ab-stat"><div class="ab-stat-num">10,000+</div><div class="ab-stat-lbl">Learners impacted</div></div>
-    <div class="ab-stat"><div class="ab-stat-num">K–12</div><div class="ab-stat-lbl">Cambridge-affiliated</div></div>
-  </div>
-</section>
-
-<!-- ═══════════ ORIGIN STORY ═══════════ -->
-<section class="ab-origin">
-  <div class="ab-origin-inner">
-    <div>
-      <p class="eyebrow">Origin Story</p>
-      <h2>Reimagining education for a <span class="hl-dark">changing world.</span></h2>
-      <div class="ab-origin-copy">
-        <p>Today's children are stepping into a future that is complex, unpredictable, and full of possibilities — yet most education systems continue preparing them for a world that no longer exists.</p>
-        <p>Founded in 2010, our vision has been clear: to nurture confident learners and changemakers. Grounded in learning science, we believe children learn best when learning is joyful, deep, and meaningfully connected to who they are.</p>
-        <p>What began as creative thinking workshops across Bengaluru grew into a movement — and then into an ecosystem where children come to learn to be better humans, and in the process, learn to question, create, collaborate, and lead.</p>
+<!-- ═══════════ ARTICLE GRID ═══════════ -->
+<section class="bl-grid-wrap">
+  <div class="bl-grid">
+    <a href="#" class="bl-card">
+      <div class="bl-card-thumb th-green"></div>
+      <div class="bl-card-body">
+        <span class="bl-tag tag-green">Preschool</span>
+        <h3>The quiet power of a slow morning circle.</h3>
+        <p>Before the day's activities begin, we sit together. Here's what ten minutes of nothing teaches a three-year-old.</p>
+        <div class="bl-card-meta"><span class="author">Minesh Happy</span><span>6 min read</span></div>
       </div>
-    </div>
-    <div class="ab-years">
-      <div class="ab-year y-blue">
-        <div class="ab-year-lbl">2010</div>
-        <h3>The beginning</h3>
-        <p>Creative thinking workshops across Bengaluru, reaching over 10,000 young learners through flagship after-school programs.</p>
+    </a>
+    <a href="#" class="bl-card">
+      <div class="bl-card-thumb th-amber"></div>
+      <div class="bl-card-body">
+        <span class="bl-tag tag-amber">Parenting</span>
+        <h3>How to extend learning at home without turning it into homework.</h3>
+        <p>A short, honest guide for parents who want to keep the Sparkling Mindz rhythm going — without losing the weekend.</p>
+        <div class="bl-card-meta"><span class="author">Grace Veronica</span><span>5 min read</span></div>
       </div>
-      <div class="ab-year y-green">
-        <div class="ab-year-lbl">2014</div>
-        <h3>Preschool opens</h3>
-        <p>A Reggio Emilia–inspired preschool launches — the first permanent home for our whole-child philosophy.</p>
+    </a>
+    <a href="#" class="bl-card">
+      <div class="bl-card-thumb th-purple"></div>
+      <div class="bl-card-body">
+        <span class="bl-tag tag-purple">Facilitator Notes</span>
+        <h3>What a child learns when an adult doesn't have the answer.</h3>
+        <p>"I don't know, let's find out together" is the single most powerful sentence in a classroom. Here's why.</p>
+        <div class="bl-card-meta"><span class="author">Sreedevi Ranjit</span><span>7 min read</span></div>
       </div>
-      <div class="ab-year y-amber">
-        <div class="ab-year-lbl">2017</div>
-        <h3>School in North Bengaluru</h3>
-        <p>A progressive K–12 school built on Purpose-Based Learning opens, extending the ecosystem end-to-end.</p>
+    </a>
+    <a href="#" class="bl-card">
+      <div class="bl-card-thumb th-blue"></div>
+      <div class="bl-card-body">
+        <span class="bl-tag tag-blue">School</span>
+        <h3>Designing a classroom around questions, not answers.</h3>
+        <p>How the IBCL framework reshapes a Grade 4 science unit — and what we noticed in the children after.</p>
+        <div class="bl-card-meta"><span class="author">Disha K</span><span>9 min read</span></div>
       </div>
-      <div class="ab-year y-purple">
-        <div class="ab-year-lbl">Today</div>
-        <h3>A growing ecosystem</h3>
-        <p>Preschool, school, and after-school programs — one continuous journey from age 2 to A-Levels, shaped by the same beliefs.</p>
+    </a>
+    <a href="#" class="bl-card">
+      <div class="bl-card-thumb th-pink"></div>
+      <div class="bl-card-body">
+        <span class="bl-tag tag-pink">Child Development</span>
+        <h3>Emotional vocabulary: the skill we don't talk about enough.</h3>
+        <p>Children who can name what they feel handle more of what life brings. A few simple practices for home and school.</p>
+        <div class="bl-card-meta"><span class="author">Sruthy Krishna</span><span>6 min read</span></div>
       </div>
-    </div>
+    </a>
+    <a href="#" class="bl-card">
+      <div class="bl-card-thumb th-teal"></div>
+      <div class="bl-card-body">
+        <span class="bl-tag tag-teal">Community</span>
+        <h3>Notes from the first YODA cohort, six months in.</h3>
+        <p>A gap year inside our school: what the teenagers are making, unmaking, and discovering about themselves.</p>
+        <div class="bl-card-meta"><span class="author">Sumati Vinay</span><span>8 min read</span></div>
+      </div>
+    </a>
+    <a href="#" class="bl-card">
+      <div class="bl-card-thumb th-amber"></div>
+      <div class="bl-card-body">
+        <span class="bl-tag tag-amber">Parenting</span>
+        <h3>Screens, siblings, and the dinner-table rules that actually stick.</h3>
+        <p>We asked thirty Sparkling Mindz families what works at home. The answers were surprisingly simple.</p>
+        <div class="bl-card-meta"><span class="author">Nancy Garg</span><span>5 min read</span></div>
+      </div>
+    </a>
+    <a href="#" class="bl-card">
+      <div class="bl-card-thumb th-green"></div>
+      <div class="bl-card-body">
+        <span class="bl-tag tag-green">Preschool</span>
+        <h3>Why we don't decorate our preschool walls in September.</h3>
+        <p>An empty room is an invitation. A filled room is a museum. Here's how we let children build the space they learn in.</p>
+        <div class="bl-card-meta"><span class="author">Aswathy Panicker</span><span>4 min read</span></div>
+      </div>
+    </a>
+    <a href="#" class="bl-card">
+      <div class="bl-card-thumb th-purple"></div>
+      <div class="bl-card-body">
+        <span class="bl-tag tag-purple">Facilitator Notes</span>
+        <h3>Small disagreements, big lessons: conflict in a classroom of seven-year-olds.</h3>
+        <p>What happens when we stop solving their fights for them? A quieter, more honest answer than you'd expect.</p>
+        <div class="bl-card-meta"><span class="author">Kruthika A</span><span>7 min read</span></div>
+      </div>
+    </a>
+  </div>
+
+  <div class="bl-pagination">
+    <a href="#" class="bl-page disabled">← Prev</a>
+    <a href="#" class="bl-page active">1</a>
+    <a href="#" class="bl-page">2</a>
+    <a href="#" class="bl-page">3</a>
+    <a href="#" class="bl-page">4</a>
+    <a href="#" class="bl-page">Next →</a>
   </div>
 </section>
 
-<!-- ═══════════ PHILOSOPHY ═══════════ -->
-<section class="ab-phil">
-  <div class="ab-phil-head">
-    <p class="eyebrow">Our Philosophy</p>
-    <h2>Every child is <em>capable, curious,</em> and driven to make sense of the world.</h2>
-    <p>Education is not about delivering information. It is about nurturing thinking, agency, and meaning-making. Seven beliefs run through every classroom.</p>
-  </div>
-  <div class="ab-phil-grid">
-    <div class="ab-phil-item"><div class="ab-phil-num">01</div><div class="ab-phil-body"><h3>Children are thinkers</h3><p>Not empty vessels. Our job is to draw out and refine their thinking, not replace it.</p></div></div>
-    <div class="ab-phil-item"><div class="ab-phil-num">02</div><div class="ab-phil-body"><h3>Curiosity leads</h3><p>Real learning happens when children care about a question. Concepts emerge through exploration.</p></div></div>
-    <div class="ab-phil-item"><div class="ab-phil-num">03</div><div class="ab-phil-body"><h3>Understanding over memorising</h3><p>Deep conceptual clarity, not surface correctness. Children explain and connect ideas.</p></div></div>
-    <div class="ab-phil-item"><div class="ab-phil-num">04</div><div class="ab-phil-body"><h3>Agency &amp; ownership</h3><p>Children as active participants — asking, choosing, reflecting, building intrinsic motivation.</p></div></div>
-    <div class="ab-phil-item"><div class="ab-phil-num">05</div><div class="ab-phil-body"><h3>Dialogue &amp; reflection</h3><p>Experience → Reflect → Conceptualise → Apply — the cycle that makes learning stick.</p></div></div>
-    <div class="ab-phil-item"><div class="ab-phil-num">06</div><div class="ab-phil-body"><h3>Teacher as facilitator</h3><p>Not givers of answers — designers of experience who observe, probe, and guide without taking over.</p></div></div>
-    <div class="ab-phil-item"><div class="ab-phil-num">07</div><div class="ab-phil-body"><h3>Education for life</h3><p>Critical thinking, emotional awareness, problem-solving, purpose — human potential, not the marksheet.</p></div></div>
-  </div>
-</section>
-
-<!-- ═══════════ MISSION / VISION ═══════════ -->
-<section class="ab-mv">
-  <div class="ab-mv-grid">
-    <div class="ab-mv-card mv-mission">
-      <div class="ab-mv-img"><img src="assets/images/about/mission-bg.png" alt="Our Mission"></div>
-      <div class="ab-mv-lbl">Our Mission</div>
-      <h2>Holistic growth, for everyone in the learning community.</h2>
-      <p>Holistic growth of children, facilitators &amp; caregivers, parents, and the organisation as a whole.</p>
-    </div>
-    <div class="ab-mv-card mv-vision">
-      <div class="ab-mv-img"><img src="assets/images/about/vision-bg.png" alt="Our Vision"></div>
-      <div class="ab-mv-lbl">Our Vision</div>
-      <h2>Inspiring confident learners and changemakers.</h2>
-      <p>Young people who know themselves, think deeply, act with empathy, and feel a real sense of responsibility towards the world around them.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════ VALUES ═══════════ -->
-<section class="ab-values">
-  <div class="ab-values-head">
-    <p class="eyebrow">Our Values</p>
-    <h2>Eight lived values, not wall posters.</h2>
-  </div>
-  <div class="ab-values-grid">
-    <div class="ab-val v-blue"><h3>Empathy</h3><p>Meaningful learning begins with truly seeing each child — thoughts, emotions, perspectives.</p></div>
-    <div class="ab-val v-amber"><h3>Depth</h3><p>We don't rush content. Children question, connect, and make meaning that lasts.</p></div>
-    <div class="ab-val v-green"><h3>Growth Mindset</h3><p>Challenges embraced, mistakes valued, effort celebrated. Ability evolves with practice.</p></div>
-    <div class="ab-val v-teal"><h3>Connected Learning</h3><p>Ideas link across subjects, real-world contexts, and the child's own lived experience.</p></div>
-    <div class="ab-val v-purple"><h3>Collaboration</h3><p>Learning thrives in community — listening deeply, sharing ideas, building together.</p></div>
-    <div class="ab-val v-pink"><h3>Quality</h3><p>Excellence in every detail. Respect for the child shows up in how carefully we design.</p></div>
-    <div class="ab-val v-blue"><h3>Reflection</h3><p>Children pause, think about how they think, and grow consciously as learners.</p></div>
-    <div class="ab-val v-green"><h3>Innovation</h3><p>Continuously reimagining education — better ways for children to learn and engage.</p></div>
-  </div>
-</section>
-
-<!-- ═══════════ AWARDS ═══════════ -->
-<section class="ab-awards">
-  <div class="ab-awards-head">
-    <p class="eyebrow">Awards &amp; Recognitions</p>
-    <h2>Moments our work has been noticed.</h2>
-  </div>
-  <div class="ab-awards-list">
-    <div class="ab-award w-amber">
-      <div class="ab-award-year">2021</div>
-      <div class="ab-award-body"><h3>Top SME Businesses of 2021</h3><p>Great Companies</p></div>
-      <div class="ab-award-icon"><img src="assets/images/about/award-1.svg" alt=""></div>
-    </div>
-    <div class="ab-award w-blue">
-      <div class="ab-award-year">2021</div>
-      <div class="ab-award-body"><h3>Top Innovative &amp; Creative Skills Initiatives</h3><p>CareerGuide's Career Changemaker Awards</p></div>
-      <div class="ab-award-icon"><img src="assets/images/about/award-2.svg" alt=""></div>
-    </div>
-    <div class="ab-award w-teal">
-      <div class="ab-award-year">2020</div>
-      <div class="ab-award-body"><h3>Top 20 Primary Schools 2020</h3><p>ECA-APER Hall of Fame Awards</p></div>
-      <div class="ab-award-icon"><img src="assets/images/about/award-3.svg" alt=""></div>
-    </div>
-    <div class="ab-award w-purple">
-      <div class="ab-award-year">2019</div>
-      <div class="ab-award-body"><h3>Top 50 Educational Organizations 2019</h3><p>GFEL, for innovative approach to learning</p></div>
-      <div class="ab-award-icon"><img src="assets/images/about/award-4.svg" alt=""></div>
-    </div>
+<!-- ═══════════ NEWSLETTER ═══════════ -->
+<section class="bl-news">
+  <div class="bl-news-inner">
+    <h2>Get our best pieces in your <em>inbox, once a month.</em></h2>
+    <p>One carefully chosen essay from the Sparkling Mindz team. No promotional noise. Unsubscribe anytime.</p>
+    <form onsubmit="event.preventDefault();this.querySelector('button').textContent='Subscribed ✓';">
+      <input type="email" placeholder="you@example.com" required>
+      <button type="submit">Subscribe</button>
+    </form>
   </div>
 </section>
 
@@ -777,9 +668,19 @@ footer{background:#1a1a1a;position:relative;overflow:hidden}
 })();
 
 (function(){
+  var chips = document.querySelectorAll('.bl-chip');
+  chips.forEach(function(c){
+    c.addEventListener('click', function(){
+      chips.forEach(function(x){ x.classList.remove('active'); });
+      c.classList.add('active');
+    });
+  });
+})();
+
+(function(){
   if(!('IntersectionObserver' in window)) return;
   if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  var sel = '.ab-atom,.ab-stat,.ab-year,.ab-phil-item,.ab-val,.ab-award,.ab-mv-card';
+  var sel = '.bl-card,.bl-featured-inner';
   var els = document.querySelectorAll(sel);
   els.forEach(function(el,i){ el.classList.add('reveal'); el.style.transitionDelay = ((i%6)*60) + 'ms'; });
   var io = new IntersectionObserver(function(entries){
