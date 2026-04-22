@@ -434,6 +434,17 @@ footer{background:#1a1a1a;position:relative;overflow:hidden}
 .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 .mobile-menu{display:none;position:fixed;top:52px;left:0;right:0;background:#fff;border-top:1px solid rgba(0,0,0,.06);box-shadow:0 8px 24px rgba(0,0,0,.1);z-index:99;padding:4px 20px 28px;max-height:calc(100vh - 52px);overflow-y:auto}
 .mobile-menu.open{display:block}
+@keyframes mobMenuItemIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
+.mobile-menu.open > *{opacity:0;animation:mobMenuItemIn .32s cubic-bezier(.16,1,.3,1) forwards}
+.mobile-menu.open > *:nth-child(1){animation-delay:.04s}
+.mobile-menu.open > *:nth-child(2){animation-delay:.08s}
+.mobile-menu.open > *:nth-child(3){animation-delay:.12s}
+.mobile-menu.open > *:nth-child(4){animation-delay:.16s}
+.mobile-menu.open > *:nth-child(5){animation-delay:.20s}
+.mobile-menu.open > *:nth-child(6){animation-delay:.24s}
+.mobile-menu.open > *:nth-child(7){animation-delay:.28s}
+.mobile-menu.open > *:nth-child(8){animation-delay:.32s}
+.mobile-menu.open > *:nth-child(9){animation-delay:.36s}
 .mob-link{display:block;padding:13px 0;font-family:'Inter',sans-serif;font-size:16px;font-weight:500;color:var(--dark);border-bottom:1px solid rgba(0,0,0,.05)}
 .mob-link:last-of-type{border-bottom:none}
 .mob-group{border-bottom:1px solid rgba(0,0,0,.05)}
@@ -507,7 +518,7 @@ footer{background:#1a1a1a;position:relative;overflow:hidden}
 @media(max-width:768px){
   /* NAV — non-scrolled: big logo centred; scrolled: compact logo left + hamburger right */
   .header-wrap{display:flex;align-items:center;justify-content:center;padding:0;min-height:96px;background:transparent!important;border-color:transparent!important}
-  .header-wrap.scrolled{background:rgba(255,255,255,0.92)!important;border-color:rgba(0,0,0,0.06)!important;min-height:52px}
+  .header-wrap.scrolled{background:#fff!important;border-color:rgba(0,0,0,0.06)!important;min-height:52px}
   .logo-panel{overflow:visible;flex-shrink:0}
   .logo-box{padding:0}
   .logo-full{height:80px}
@@ -727,8 +738,8 @@ footer{background:#1a1a1a;position:relative;overflow:hidden}
       <div class="dropdown-menu">
         <div class="dropdown-menu-inner">
           <a href="preschool.html">Preschool</a>
-          <a href="#">School</a>
-          <a href="#">Year of Discovery (YODA)</a>
+          <a href="school.html">School</a>
+          <a href="yoda.html">Year of Discovery (YODA)</a>
         </div>
       </div>
     </div>
@@ -760,8 +771,8 @@ footer{background:#1a1a1a;position:relative;overflow:hidden}
     <div class="mob-group-trigger">Academics <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 5L7 9L11 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
     <div class="mob-sub">
       <a href="preschool.html">Preschool</a>
-      <a href="#">School</a>
-      <a href="#">Year of Discovery (YODA)</a>
+      <a href="school.html">School</a>
+      <a href="yoda.html">Year of Discovery (YODA)</a>
     </div>
   </div>
   <a href="#" class="mob-link">Programs</a>
@@ -1309,19 +1320,14 @@ footer{background:#1a1a1a;position:relative;overflow:hidden}
       <div>
         <div class="footer-social-lbl">Follow Us</div>
         <div class="social-icons">
-          <!-- Instagram -->
           <a href="#" class="s-icon"><img src="assets/icons/instagram.svg" alt="Instagram" style="width:20px;height:20px"></a>
-          <!-- Facebook -->
           <a href="#" class="s-icon"><img src="assets/icons/facebook.svg" alt="Facebook" style="width:20px;height:20px"></a>
-          <!-- LinkedIn -->
           <a href="#" class="s-icon"><img src="assets/icons/linkedin.svg" alt="LinkedIn" style="width:20px;height:20px"></a>
-          <!-- X / Twitter -->
           <a href="#" class="s-icon">
             <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:18px;height:18px;opacity:.7">
               <path d="M15.27 2.5H17.93L12.26 8.98L18.93 17.5H13.74L9.62 12.09L4.91 17.5H2.24L8.29 10.56L1.89 2.5H7.22L10.95 7.45L15.27 2.5ZM14.35 15.94H15.82L6.53 4.01H4.95L14.35 15.94Z" fill="white" opacity="0.7"/>
             </svg>
           </a>
-          <!-- YouTube -->
           <a href="#" class="s-icon">
             <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:18px;height:18px;opacity:.7">
               <path d="M17.8 5.6C17.6 4.8 17 4.2 16.2 4C14.8 3.6 10 3.6 10 3.6C10 3.6 5.2 3.6 3.8 4C3 4.2 2.4 4.8 2.2 5.6C1.8 7 1.8 10 1.8 10C1.8 10 1.8 13 2.2 14.4C2.4 15.2 3 15.8 3.8 16C5.2 16.4 10 16.4 10 16.4C10 16.4 14.8 16.4 16.2 16C17 15.8 17.6 15.2 17.8 14.4C18.2 13 18.2 10 18.2 10C18.2 10 18.2 7 17.8 5.6Z" stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
@@ -1335,9 +1341,16 @@ footer{background:#1a1a1a;position:relative;overflow:hidden}
     <div class="footer-col" style="width:180px">
       <div class="footer-col-title">Quick Links</div>
       <div class="footer-links-list">
-        <a href="#">About Us</a><a href="preschool.html">Preschool</a><a href="#">School</a>
-        <a href="#">Programs</a><a href="#">Events</a><a href="#">Testimonials</a>
-        <a href="#">Blog</a><a href="#">Careers</a><a href="#">FAQ</a>
+        <a href="#">About Us</a>
+        <a href="preschool.html">Preschool</a>
+        <a href="school.html">School</a>
+        <a href="yoda.html">Year of Discovery</a>
+        <a href="#">Programs</a>
+        <a href="#">Events</a>
+        <a href="#">Testimonials</a>
+        <a href="#">Blog</a>
+        <a href="#">Careers</a>
+        <a href="#">FAQ</a>
       </div>
     </div>
 
@@ -1389,9 +1402,11 @@ footer{background:#1a1a1a;position:relative;overflow:hidden}
   var btn = document.getElementById('hamburger');
   var menu = document.getElementById('mobileMenu');
   if(!btn || !menu) return;
+  var hdr = document.querySelector('.header-wrap');
   btn.addEventListener('click', function(){
     btn.classList.toggle('open');
     menu.classList.toggle('open');
+    if(hdr && menu.classList.contains('open')) hdr.classList.add('scrolled');
   });
   menu.addEventListener('click', function(e){
     var trig = e.target.closest('.mob-group-trigger');

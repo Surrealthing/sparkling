@@ -46,7 +46,7 @@ p{line-height:1.7;color:#555}
 .header-wrap{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:flex-start;padding:0 max(24px, calc((100% - 1200px) / 2));background:transparent;border-bottom:1px solid transparent}
 @keyframes stickySlideIn{from{transform:translateY(-100%);opacity:0}to{transform:translateY(0);opacity:1}}
 @keyframes navLogoIn{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:translateY(0)}}
-.header-wrap.scrolled{background:rgba(255,255,255,0.92);border-bottom:1px solid rgba(0,0,0,0.06);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);animation:stickySlideIn .35s cubic-bezier(0.16,1,0.3,1) forwards}
+.header-wrap.scrolled{background:#fff;border-bottom:1px solid rgba(0,0,0,0.06);animation:stickySlideIn .35s cubic-bezier(0.16,1,0.3,1) forwards}
 .logo-panel{flex-shrink:0;overflow:hidden;width:fit-content}
 .logo-box{display:block;background:transparent;padding:14px 0;line-height:0;max-height:200px;opacity:1;transition:max-height .2s ease,opacity .2s ease,padding .2s ease}
 .logo-full{height:120px;width:auto;display:block}
@@ -77,6 +77,17 @@ p{line-height:1.7;color:#555}
 .hamburger.open span:nth-child(2){opacity:0}
 .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 .mobile-menu{display:none;position:fixed;top:52px;left:0;right:0;background:#fff;padding:4px 20px 24px;box-shadow:0 10px 30px rgba(0,0,0,.08);z-index:45;flex-direction:column;gap:0;border-top:1px solid rgba(0,0,0,.06)}
+@keyframes mobMenuItemIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
+.mobile-menu.open > *{opacity:0;animation:mobMenuItemIn .32s cubic-bezier(.16,1,.3,1) forwards}
+.mobile-menu.open > *:nth-child(1){animation-delay:.04s}
+.mobile-menu.open > *:nth-child(2){animation-delay:.08s}
+.mobile-menu.open > *:nth-child(3){animation-delay:.12s}
+.mobile-menu.open > *:nth-child(4){animation-delay:.16s}
+.mobile-menu.open > *:nth-child(5){animation-delay:.20s}
+.mobile-menu.open > *:nth-child(6){animation-delay:.24s}
+.mobile-menu.open > *:nth-child(7){animation-delay:.28s}
+.mobile-menu.open > *:nth-child(8){animation-delay:.32s}
+.mobile-menu.open > *:nth-child(9){animation-delay:.36s}
 .mobile-menu.open{display:flex}
 .mob-link{padding:14px 8px;font-size:16px;color:var(--d60);border-bottom:1px solid rgba(0,0,0,.05);display:block}
 .mob-group{border-bottom:1px solid rgba(0,0,0,.05)}
@@ -113,19 +124,19 @@ p{line-height:1.7;color:#555}
 /* ─── SECTION: LEARNING APPROACH ─── */
 .sec-approach{background:linear-gradient(to top,#ffe8f0 0%,#fff 80%);padding:96px max(24px, calc((100% - 1200px) / 2))}
 .sec-head{text-align:center;max-width:720px;margin:0 auto 56px}
-.sec-head .eyebrow{display:inline-block;margin-bottom:12px}
+.sec-head .eyebrow{display:inline-block;margin-bottom:32px}
 .sec-head h2{margin-bottom:20px}
 .sec-head h2 em{font-style:normal;color:var(--pink)}
-.sec-head p{font-size:17px;line-height:28px}
+.sec-head p{font-family:'Bricolage Grotesque',sans-serif;font-weight:400;font-size:18px;line-height:22px;color:#383838}
 .approach-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1005px;margin:0 auto}
 .approach-card{background:#fff;border-radius:16px;padding:24px;border:0;box-shadow:none}
 .approach-icon{width:96px;height:96px;display:flex;align-items:center;justify-content:center;margin-bottom:28px}
 .approach-icon img{width:96px;height:96px;display:block}
-.approach-card h3{font-size:19px;font-weight:700;margin-bottom:12px;color:var(--dark)}
+.approach-card h3{font-family:'Bricolage Grotesque',sans-serif;font-size:24px;font-weight:700;line-height:18.4px;margin-bottom:14px;color:var(--dark)}
 .approach-card h3.t-purple{color:var(--purple)}
 .approach-card h3.t-green{color:var(--green)}
 .approach-card h3.t-teal{color:var(--teal)}
-.approach-card p{font-size:15px;line-height:24px;color:var(--d60)}
+.approach-card p{font-family:'Inter',sans-serif;font-size:13.6px;line-height:20px;color:var(--d60)}
 
 /* ─── SECTION: FOUR SPACES ─── */
 .sec-spaces{background:#f8f8f8;padding:80px max(24px, calc((100% - 1320px) / 2))}
@@ -333,7 +344,7 @@ footer{background:#1a1a1a;position:relative;overflow:hidden}
   body{padding-top:0}
   /* NAV — non-scrolled: big logo centred; scrolled: compact logo left + hamburger right */
   .header-wrap{display:flex;align-items:center;justify-content:center;padding:0;min-height:96px;background:transparent!important;border-color:transparent!important}
-  .header-wrap.scrolled{background:rgba(255,255,255,0.92)!important;border-color:rgba(0,0,0,0.06)!important;min-height:52px}
+  .header-wrap.scrolled{background:#fff!important;border-color:rgba(0,0,0,0.06)!important;min-height:52px}
   .logo-panel{overflow:visible;flex-shrink:0}
   .logo-box{padding:0}
   .logo-full{height:80px}
@@ -454,8 +465,8 @@ footer{background:#1a1a1a;position:relative;overflow:hidden}
       <div class="dropdown-menu">
         <div class="dropdown-menu-inner">
           <a href="preschool.html">Preschool</a>
-          <a href="#">School</a>
-          <a href="#">Year of Discovery (YODA)</a>
+          <a href="school.html">School</a>
+          <a href="yoda.html">Year of Discovery (YODA)</a>
         </div>
       </div>
     </div>
@@ -487,8 +498,8 @@ footer{background:#1a1a1a;position:relative;overflow:hidden}
     <div class="mob-group-trigger">Academics <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 5L7 9L11 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
     <div class="mob-sub">
       <a href="preschool.html">Preschool</a>
-      <a href="#">School</a>
-      <a href="#">Year of Discovery (YODA)</a>
+      <a href="school.html">School</a>
+      <a href="yoda.html">Year of Discovery (YODA)</a>
     </div>
   </div>
   <a href="#" class="mob-link">Programs</a>
@@ -818,6 +829,7 @@ footer{background:#1a1a1a;position:relative;overflow:hidden}
 <footer>
   <div class="f-deco fd1"><img src="assets/images/figma/7d3ddde4-0954-46d9-951f-9b4ec8ac3540.svg" alt=""></div>
   <div class="f-deco fd2"><img src="assets/images/figma/4ff16cc2-5ad8-4754-a0d8-b8ed22225a19.svg" alt=""></div>
+
   <div class="footer-main">
     <div class="footer-brand">
       <div class="footer-logo">
@@ -848,14 +860,23 @@ footer{background:#1a1a1a;position:relative;overflow:hidden}
         </div>
       </div>
     </div>
+
     <div class="footer-col" style="width:180px">
       <div class="footer-col-title">Quick Links</div>
       <div class="footer-links-list">
-        <a href="#">About Us</a><a href="preschool.html">Preschool</a><a href="#">School</a>
-        <a href="#">Programs</a><a href="#">Events</a><a href="#">Testimonials</a>
-        <a href="#">Blog</a><a href="#">Careers</a><a href="#">FAQ</a>
+        <a href="#">About Us</a>
+        <a href="preschool.html">Preschool</a>
+        <a href="school.html">School</a>
+        <a href="yoda.html">Year of Discovery</a>
+        <a href="#">Programs</a>
+        <a href="#">Events</a>
+        <a href="#">Testimonials</a>
+        <a href="#">Blog</a>
+        <a href="#">Careers</a>
+        <a href="#">FAQ</a>
       </div>
     </div>
+
     <div class="footer-col" style="width:280px">
       <div class="footer-col-title">Contact Us</div>
       <div>
@@ -882,9 +903,13 @@ footer{background:#1a1a1a;position:relative;overflow:hidden}
       </div>
     </div>
   </div>
+
   <div class="footer-bottom">
     <span>© 2011-2026 Sparkling Mindz. All rights reserved.</span>
-    <div class="footer-bottom-links"><a href="#">Privacy Policy</a><a href="#">Terms of Use</a></div>
+    <div class="footer-bottom-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Use</a>
+    </div>
   </div>
 </footer>
 
@@ -897,7 +922,8 @@ footer{background:#1a1a1a;position:relative;overflow:hidden}
 (function(){
   var btn = document.getElementById('hamburger'), menu = document.getElementById('mobileMenu');
   if(!btn || !menu) return;
-  btn.addEventListener('click', function(){ btn.classList.toggle('open'); menu.classList.toggle('open'); });
+  var hdr = document.querySelector('.header-wrap');
+  btn.addEventListener('click', function(){ btn.classList.toggle('open'); menu.classList.toggle('open'); if(hdr && menu.classList.contains('open')) hdr.classList.add('scrolled'); });
   menu.addEventListener('click', function(e){
     var trig = e.target.closest('.mob-group-trigger');
     if(trig){ trig.parentElement.classList.toggle('open'); return; }
